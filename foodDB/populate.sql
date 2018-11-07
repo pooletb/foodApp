@@ -1,0 +1,10 @@
+INSERT INTO homemade_food VALUES (1, "test", 3, 2, null, null, null, null, null, null, null, null, null, null, null, "testcat1");
+INSERT INTO ingredients VALUES (1, "test1", 1.98, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, "testcat1");
+INSERT INTO ingredients VALUES (2, "test2", 2.2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, "testcat2");
+INSERT INTO ingredients VALUES (3, "test3", 3.3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, "testcat3");
+INSERT INTO ingredients VALUES (4, "test4", 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, "testcat4");
+INSERT INTO ingredients VALUES (5, "test5", 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, "testcat5");
+INSERT INTO ingredients VALUES (6, "test6", 6.1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, "testcat6");
+INSERT INTO measurements VALUES (1);
+INSERT INTO made_with VALUES (1, 3, 1);
+INSERT INTO made_with VALUES (1, 6, 1);
