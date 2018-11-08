@@ -17,8 +17,8 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/authenticate', function(req, res, next) {
-    var user = localStorage.getItem("user");
-    res.cookie('username', user);
+    var user = req.cookie("user");
+    console.log(user)
     res.render('authenticate', { title: 'authenticating' });
   });
 
