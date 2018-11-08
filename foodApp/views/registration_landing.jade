@@ -4,26 +4,36 @@ block content
     div.modal#modal
         div.modal-background
             div.modal-content
-            div.modal-card
+            div.modal-card.modal-shift
                 header.modal-card-head
-                    p.modal-card-title Modal title
+                    p.modal-card-title.has-text-centered Register or Login
                     button.delete(onclick='CloseModal()')
                 section.modal-card-body
-                <!-- Content ... -->
+                    div.field
+                    p.control.has-icons-left.has-icons-right
+                        input.input(type="username" placeholder="Username")#username
+                        span.icon.is-small.is-left
+                            i.fas.fa-user
+                        span.icon.is-small.is-right
+                            i.fas.fa-check
+                    div.field
+                    p.control.has-icons-left
+                        input.input(type="password" placeholder="Password")#password
+                        span.icon.is-small.is-left 
+                            i.fas.fa-lock
                 footer.modal-card-foot
-                    button.button.is-success Save changes
-                    button.button Cancel
+                    button.button.is-success(onclick='Register()') Register/Login
+                    button.button.is-danger(onclick='CloseModal()') Cancel
             
     section.hero.is-success.is-bold.is-fullheight
         div.hero-body
             div.container
                 h1.title.has-text-centered.text-large.text-title foodApp
                 h1.title.has-text-centered.text-splash-title
-                    a(onclick='OpenModal()') Register Now
+                    a(onclick='OpenModal()') Login / Register Now
                 
                 h2.subtitle.has-text-centered.text-splash-subtitle
                     a(href="/home") Continue as Guest
 
-    script(src="/javascripts/modal.js")
 
 

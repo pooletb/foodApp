@@ -143,46 +143,40 @@ CREATE TABLE made_with (
   FOREIGN KEY (measurement) REFERENCES measurements (measurement)
 );
 
-CREATE TABLE person (
-  person_ID int NOT NULL UNIQUE,
-  first_name varchar(25) NOT NULL,
-  last_name varchar(25) NOT NULL,
-  CHECK (person_ID >= 0)
+CREATE TABLE user (
+  username varchar(25) NOT NULL UNIQUE,
+  pass varchar(25) NOT NULL
 );
 
 CREATE TABLE premade_likes (
-  person_ID int NOT NULL,
+  username varchar(25) NOT NULL,
   food_ID int NOT NULL,
-  CHECK (person_ID >= 0),
   CHECK (food_ID >= 0),
-  FOREIGN KEY (person_id) REFERENCES person (person_id),
+  FOREIGN KEY (username) REFERENCES user (username),
   FOREIGN KEY (food_ID) REFERENCES premade_food (food_ID)
 );
 
 CREATE TABLE homemade_likes (
-  person_ID int NOT NULL,
+  username varchar(25) NOT NULL,
   food_ID int NOT NULL,
-  CHECK (person_ID >= 0),
   CHECK (food_ID >= 0),
-  FOREIGN KEY (person_id) REFERENCES person (person_id),
+  FOREIGN KEY (username) REFERENCES user (username),
   FOREIGN KEY (food_ID) REFERENCES homemade_food (food_ID)
 );
 
 CREATE TABLE premade_fav (
-  person_ID int NOT NULL UNIQUE,
+  username varchar(25) NOT NULL UNIQUE,
   food_ID int NOT NULL,
-  CHECK (person_ID >= 0),
   CHECK (food_ID >= 0),
-  FOREIGN KEY (person_id) REFERENCES person (person_id),
+  FOREIGN KEY (username) REFERENCES user (username),
   FOREIGN KEY (food_ID) REFERENCES premade_food (food_ID)
 );
 
 CREATE TABLE homemade_fav (
-  person_ID int NOT NULL UNIQUE,
+  username varchar(25) NOT NULL UNIQUE,
   food_ID int NOT NULL,
-  CHECK (person_ID >= 0),
   CHECK (food_ID >= 0),
-  FOREIGN KEY (person_id) REFERENCES person (person_id),
+  FOREIGN KEY (username) REFERENCES user (username),
   FOREIGN KEY (food_ID) REFERENCES homemade_food (food_ID)
 );
 
