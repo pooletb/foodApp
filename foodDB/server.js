@@ -53,10 +53,15 @@ app.post('/api/2', function(request, response){
     pass:  credentials.password
   }).select()
   .then((result) => {
-    console.log(result[0]);
-    console.log(`User exists, allow login`);
-    json.result = 0;
-    response.send(json);
+    if(result[0] === undefined) {
+      console.error(`Failed login attempt`, err);
+      response.send(json);
+    }
+    else if(result[0] != undefined && result[0] != null) {
+      console.log(`User exists, allow login`);
+      json.result = 0;
+      response.send(json);
+    }
   })
   .catch((err) => {
     console.error(`Failed login attempt`, err);
