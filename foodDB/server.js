@@ -27,6 +27,12 @@ app.post('/api/1', function(request, response){
   console.log(request.body);
   var credentials = request.body;
   knex('user').insert([{username: credentials.username}, {pass: credentials.password}])
+  .then(() => {
+    console.log(`Successfully created user`);
+  })
+  .catch((err) => {
+    console.error(`Failed to create user`, err);
+  });
   var jsonResponse = {};
   jsonResponse.result = 1;
   response.send(jsonResponse);
