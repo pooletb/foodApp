@@ -50,7 +50,7 @@ app.post('/api/2', function(request, response){
   console.log(credentials.username, credentials.password);
   knex('user').where({
     username: credentials.username,
-    pass:  credentials.pass
+    pass:  credentials.password
   }).select()
   .then(() => {
     console.log(`User exists, allow login`);
