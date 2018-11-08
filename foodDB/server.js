@@ -48,7 +48,7 @@ app.post('/api/2', function(request, response){
   var credentials = request.body;
   var json = {};
   console.log(credentials.username, credentials.password);
-  knex('user').where({
+  var test = knex('user').where({
     username: credentials.username,
     pass:  credentials.password
   }).select()
@@ -61,6 +61,7 @@ app.post('/api/2', function(request, response){
     console.error(`Failed login attempt`, err);
     response.send(json);
   });
+  console.log(test);
 });
 
 const PORT = process.env.PORT || 52170;
