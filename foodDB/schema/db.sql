@@ -144,7 +144,7 @@ CREATE TABLE made_with (
 );
 
 CREATE TABLE user (
-  username varchar(25) NOT NULL UNIQUE,
+  username varchar(25) NOT NULL,
   pass varchar(25) NOT NULL
 );
 
