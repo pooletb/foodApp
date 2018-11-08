@@ -16,4 +16,10 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'foodApp' });
 });
 
+router.get('/authenticate', function(req, res, next) {
+    var user = window.localStorage.getItem("user");
+    res.cookie('username', user);
+    res.render('authenticate', { title: 'foodApp' });
+  });
+
 module.exports = router;
