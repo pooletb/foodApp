@@ -26,17 +26,18 @@ app.enable('trust proxy');
 app.post('/api/1', function(request, response){
   console.log(request.body);
   var credentials = request.body;
+  var json = {};
   console.log(credentials.username, credentials.password);
   knex('user').insert([{username: credentials.username, pass: credentials.password}])
   .then(() => {
     console.log(`Successfully created user`);
+    json.result = 0;
   })
   .catch((err) => {
-    console.error(`Failed to create user`, err);
+    console.error(`User already exists`, err);
+    json.result = 1;
   });
-  var jsonResponse = {};
-  jsonResponse.result = 1;
-  response.send(jsonResponse);
+  response.send(json);
 });
 
 const PORT = process.env.PORT || 52170;

@@ -17,3 +17,7 @@
 .modal-shift {
   transform: translateY(25vh);
 }
+
+.this-is-hidden {
+  display: none;
+}

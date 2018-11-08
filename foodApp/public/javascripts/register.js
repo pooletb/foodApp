@@ -1,8 +1,7 @@
 function Register() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    console.log(username,password);
-    SendData(username, password);
+    credentials = {}
+    credentials.username = document.getElementById("username").value;
+    credentials.password = document.getElementById("password").value;
+    SendData(1, credentials);
     CloseModal();
 }

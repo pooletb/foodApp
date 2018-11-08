@@ -9,6 +9,7 @@ block content
                     p.modal-card-title.has-text-centered Register or Login
                     button.delete(onclick='CloseModal()')
                 section.modal-card-body
+                    h1.is-danger.this-is-hidden#userExists User already registered, please login
                     div.field
                     p.control.has-icons-left.has-icons-right
                         input.input(type="username" placeholder="Username")#username
@@ -22,7 +23,8 @@ block content
                         span.icon.is-small.is-left 
                             i.fas.fa-lock
                 footer.modal-card-foot
-                    button.button.is-success(onclick='Register()') Register/Login
+                    button.button.is-success(onclick='Register()') Register
+                    button.button.is-info(onclick='Login()') Login
                     button.button.is-danger(onclick='CloseModal()') Cancel
             
     section.hero.is-success.is-bold.is-fullheight
