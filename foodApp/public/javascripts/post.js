@@ -37,9 +37,16 @@ function SendData(api, json) {
     else if(api == 2) {
       console.log("user allowed to log in");
       CloseModal();
-      var store = require('store')
-      store.set('user', { username: json.username})
-      document.location.href = "/authenticate"
+      return fetch('/authenticate', {
+        method: 'POST',
+        mode: 'same-origin',
+        redirect: 'follow',
+        credentials: 'include', 
+        headers: headers,
+        body: JSON.stringify({
+            username: json.username,
+        })
+    })
     }
   }
 

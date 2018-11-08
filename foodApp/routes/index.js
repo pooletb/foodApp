@@ -16,10 +16,7 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'foodApp' });
 });
 
-router.get('/authenticate', function(req, res, next) {
-    var store = require('store');
-    user = store.get('user');
-    console.log(user.username)
+router.post('/authenticate', function(req, res, next) {
     res.render('authenticate', { title: 'authenticating' });
   });
 
