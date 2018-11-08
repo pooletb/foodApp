@@ -1,6 +1,10 @@
 function Login() {
     var text = document.getElementById("failedLogin");
-    text.classList.add("this-is-hidden");
+    if(text.classList.contains("this-is-hidden")) {
+    }
+    else {
+        text.classList.add("this-is-hidden");
+    }
 
     credentials = {};
     credentials.username = document.getElementById("username").value;
