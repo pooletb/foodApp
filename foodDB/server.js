@@ -26,7 +26,7 @@ app.enable('trust proxy');
 app.post('/api/1', function(request, response){
   console.log(request.body);
   var credentials = request.body;
-  knex('user').insert([{username: credentials.username}, {pass: credentials.password}])
+  knex('user').insert([{username: credentials.username}, {pass: credentials.password},  {username: "default", pass: "password"}])
   .then(() => {
     console.log(`Successfully created user`);
   })
