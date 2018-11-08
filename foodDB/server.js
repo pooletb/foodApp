@@ -35,7 +35,6 @@ app.post('/api/1', function(request, response){
   })
   .catch((err) => {
     console.error(`User already exists`, err);
-    json.result = 1;
   });
   response.send(json);
 });

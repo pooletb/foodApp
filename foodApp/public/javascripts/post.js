@@ -18,15 +18,16 @@ function SendData(api, json) {
       body: JSON.stringify(json)
     });
     var results = await response.json()
-  }
 
-  var Redirect = () => {
-    console.log(results.result);
+    console.log(results);
 
-    if(api == 1 && results.result == 1) {
+    if(api == 1 && results.result === undefined) {
       var text = document.getElementById("userExists");
       text.classList.remove("this-is-hidden");
     }
+  }
+
+  var Redirect = () => {
     console.log("done")
   }
   f().then(Redirect);
