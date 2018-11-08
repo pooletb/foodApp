@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 
 app.enable('trust proxy');
 
+//REGISTERING A NEW ACCOUNT
 app.post('/api/1', function(request, response){
   console.log(request.body);
   var credentials = request.body;
@@ -35,6 +36,26 @@ app.post('/api/1', function(request, response){
   })
   .catch((err) => {
     console.error(`User already exists`, err);
+  });
+  response.send(json);
+});
+
+//LOG INTO AN EXISTING ACCOUNT
+app.post('/api/2', function(request, response){
+  console.log(request.body);
+  var credentials = request.body;
+  var json = {};
+  console.log(credentials.username, credentials.password);
+  knex('user').where({
+    username: credentials.username,
+    pass:  credentials.pass
+  }).select()
+  .then(() => {
+    console.log(`User exists, allow login`);
+    json.result = 0;
+  })
+  .catch((err) => {
+    console.error(`Failed login attempt`, err);
   });
   response.send(json);
 });

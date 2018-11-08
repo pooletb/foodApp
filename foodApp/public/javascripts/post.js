@@ -25,6 +25,19 @@ function SendData(api, json) {
       var text = document.getElementById("userExists");
       text.classList.remove("this-is-hidden");
     }
+    else if(api == 1) {
+      console.log("account created, logged in");
+      CloseModal();
+    }
+
+    if(api == 2 && results.result === undefined) {
+      var text = document.getElementById("failedLogin");
+      text.classList.remove("this-is-hidden");
+    }
+    else if(api == 2) {
+      console.log("user allowed to log in");
+      CloseModal();
+    }
   }
 
   var Redirect = () => {
