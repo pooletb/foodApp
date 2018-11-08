@@ -42,7 +42,6 @@ function SendData(api, json) {
         mode: 'same-origin',
         redirect: 'follow',
         credentials: 'include', 
-        headers: headers,
         body: JSON.stringify({
             username: json.username,
         })
