@@ -37,7 +37,8 @@ function SendData(api, json) {
     else if(api == 2) {
       console.log("user allowed to log in");
       CloseModal();
-      res.cookie('user', json.username);
+      var store = require('store')
+      store.set('user', { username: json.username})
       document.location.href = "/authenticate"
     }
   }

@@ -17,8 +17,9 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/authenticate', function(req, res, next) {
-    var user = req.cookie("user");
-    console.log(user)
+    var store = require('store');
+    user = store.get('user');
+    console.log(user.username)
     res.render('authenticate', { title: 'authenticating' });
   });
 
