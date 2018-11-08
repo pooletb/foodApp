@@ -17,6 +17,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.post('/authenticate', function(req, res, next) {
+    console.log(req.body);
     res.render('authenticate', { title: 'authenticating' });
   });
 
