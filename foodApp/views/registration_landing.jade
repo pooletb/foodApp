@@ -23,17 +23,18 @@ block content
                         input.input(type="password" placeholder="Password")#password
                         span.icon.is-small.is-left 
                             i.fas.fa-lock
-                footer.modal-card-foot
-                    button.button.is-success(onclick='Register()') Register
-                    button.button.is-info(onclick='Login()') Login
-                    button.button.is-danger(onclick='CloseModal()') Cancel
+                footer.modal-card-foot.is-centered
+                    div.card-footer-item 
+                        button.button.is-success.is-fullwidth(onclick='Register()') Register
+                        button.button.is-info.is-fullwidth(onclick='Login()') Login
+                        button.button.is-danger.is-fullwidth(onclick='CloseModal()') Cancel
             
     section.hero.is-success.is-bold.is-fullheight
         div.hero-body
             div.container
                 h1.title.has-text-centered.text-large.text-title foodApp
                 h1.title.has-text-centered.text-splash-title
-                    a(onclick='OpenModal()') Login / Register Now
+                    button.button.is-large.is-inverted.is-success(onclick='OpenModal()') &nbsp; &nbsp; &nbsp; Login / Register Now &nbsp; &nbsp; &nbsp; 
                 
                 h2.subtitle.has-text-centered.text-splash-subtitle
                     a(href="/home") Continue as Guest

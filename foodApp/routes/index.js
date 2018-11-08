@@ -17,9 +17,9 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/authenticate', function(req, res, next) {
-    var user = window.localStorage.getItem("user");
+    var user = localStorage.getItem("user");
     res.cookie('username', user);
-    res.render('authenticate', { title: 'foodApp' });
+    res.render('authenticate', { title: 'authenticating' });
   });
 
 module.exports = router;
