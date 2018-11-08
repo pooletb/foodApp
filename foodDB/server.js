@@ -53,7 +53,7 @@ app.post('/api/2', function(request, response){
     pass:  credentials.password
   }).select()
   .then((result) => {
-    console.log(result);
+    console.log(result[0]);
     console.log(`User exists, allow login`);
     json.result = 0;
     response.send(json);
