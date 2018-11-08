@@ -3,11 +3,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+    var username = req.cookies.username;
+    console.log(username)
+    if (username != undefined) {
+        res.render('index', { title: 'Express' });
+    } else {
+        res.render('registration_landing', { title: 'Register Today' });
+    }
 });
 
-router.get('/test', function(req, res, next) {
-  res.render('test', { title: 'Test Page' });
+router.get('/home', function(req, res, next) {
+  res.render('home', { title: 'foodApp' });
 });
 
 module.exports = router;

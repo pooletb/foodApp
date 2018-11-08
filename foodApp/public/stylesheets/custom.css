@@ -1,0 +1,15 @@
+.text-large {
+  font-size: 15vw;
+}
+
+.text-splash-title {
+  font-size: 3vw;
+}
+
+.text-splash-subtitle {
+  font-size: 1.5vw;
+}
+
+.text-title {
+  transform: translateY(-25vh);
+}
