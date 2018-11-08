@@ -1,5 +1,7 @@
-function SendData() {
-  sendme = { "id":"hello world", "age":30, "car":null };
+function SendData(username, password) {
+  sendme = {};
+  sendme.username = username;
+  sendme.password = password;
   
   api = 'http://localhost:52170/api/1';
 
