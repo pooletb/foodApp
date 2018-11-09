@@ -3,8 +3,8 @@ extends layout
 block content
 
     section.hero.is-primary
-        div.hero-body
+        div.hero-body(onload = "UserInfo();")
             div.container
-            h1.title Welcome, #{window.localstorage.get("user")}
+            h1.title Welcome, #{user}
 
 
