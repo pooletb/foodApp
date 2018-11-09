@@ -42,7 +42,11 @@ router.get('/authenticate/:username/:pass', function(req, res) {
           res.render('home', { title: 'foodApp' }, {userInfo: {username: json.username}});
         }
       }
-    console.log(req.body)
+
+      var Redirect = () => {
+        console.log("done")
+      }
+      f().then(Redirect);
   });
 
 module.exports = router;
