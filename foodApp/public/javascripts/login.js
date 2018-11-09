@@ -5,9 +5,9 @@ function Login() {
     else {
         text.classList.add("this-is-hidden");
     }
+    credentials = {};
+    credentials.username = document.getElementById("username").value;
+    credentials.password = document.getElementById("password").value;
 
-    this.credentials.username = document.getElementById("username").value;
-    this.credentials.password = document.getElementById("password").value;
-
-    SendData(2, this.credentials);
+    SendData(2, credentials);
 }
