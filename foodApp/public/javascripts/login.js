@@ -1,4 +1,4 @@
-user;
+user = "wwhy is shrek piss";
 
 function Login() {
     var text = document.getElementById("failedLogin");
