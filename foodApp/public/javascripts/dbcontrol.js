@@ -15,7 +15,7 @@ function SectionSwap() {
 function PremadeFood() {
     SectionSwap();
     var section = document.getElementById("premadefood");
-    section.style.display = "block";
+    section.classList.remove("this-is-hidden");
     document.getElementById("searchController").addEventListener("focus", SearchLoading);
     document.getElementById("searchController").addEventListener("blur", SearchLoading);
     ConstantRun();
@@ -24,7 +24,7 @@ function PremadeFood() {
 function Recipes() {
     SectionSwap();
     var section = document.getElementById("recipes");
-    section.style.display = "block";
+    section.classList.remove("this-is-hidden");
     document.getElementById("searchController2").addEventListener("focus", SearchLoading);
     document.getElementById("searchController2").addEventListener("blur", SearchLoading);
     ConstantRun();
