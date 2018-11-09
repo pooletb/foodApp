@@ -37,7 +37,7 @@ function SendData(api, json) {
     else if(api == 2) {
       console.log("user allowed to log in");
       CloseModal();
-      document.location.href = "/authenticate?" + json.username 
+      Auth(json)
     }
   }
 
@@ -45,4 +45,18 @@ function SendData(api, json) {
     console.log("done")
   }
   f().then(Redirect);
+}
+
+function Auth(json) {
+  async function f() {
+    const response = await fetch('/authenticate', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify(json)
+    });
+  }
 }

@@ -16,10 +16,9 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'foodApp' });
 });
 
-router.get('/authenticate', function(req, res, next) {
+router.post('/authenticate', function(req, res, next) {
+    console.log(req.body);
     res.render('authenticate', { title: 'authenticating' });
-    var url = document.URL;
-    console.log(url);
 });
 
 module.exports = router;
