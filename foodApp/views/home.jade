@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    section.hero.is-primary
+    section.hero.is-success.is-bold
         div.hero-body
             div.container
             h1.title Welcome, #{params.user}
@@ -9,36 +9,30 @@ block content
 
 
     aside.menu
-    p.menu-label General
+    p.menu-label Browse Our Database
     ul.menu-list
         li 
-            a Dashboard
+            a Premade Food
         li 
-            a Customers
-    p.menu-label Administration
+            a Recipes
+        li 
+            a Browse Everything
+    p.menu-label Calculate Your Nutrition
     ul.menu-list
         li
-            a Team Settings
-        li
-            a.is-active Manage Your Team
-        ul
-            li
-                a Members
-            li
-                a Plugins
-            li
-                a Add a member
-        li
-            a Invitations
-        li
-            a Cloud Storage Environment Settings
-        li
-            a Authentication
-    p.menu-label Transactions
+            a Calculator
+    p.menu-label User Info
     ul.menu-list
         li
-            a Payments
+            a My Profile
+            ul
+                li
+                    a Foods I Like
+                li
+                    a Foods I Love
+    p.menu-label Contribute to Our Database
+    ul.menu-list
         li
-            a Transfers
+            a Submit a Premade Food
         li
-            a Balance
+            a Submit a New Recipe
