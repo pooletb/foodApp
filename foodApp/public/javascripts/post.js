@@ -1,5 +1,4 @@
-var express = require('express');
-var router = express.Router();
+var username;
 
 function SendData(api, json) {
   
@@ -39,6 +38,7 @@ function SendData(api, json) {
     }
     else if(api == 2) {
       console.log("user allowed to log in");
+      this.username = json.username;
       CloseModal();
       document.location.href = "/authenticate"
     }
@@ -50,7 +50,4 @@ function SendData(api, json) {
   f().then(Redirect);
 }
 
-router.get('/authenticate', function(req, res, next) {
-  console.log("this was seen");
-  res.render('authenticate', { title: 'authenticating' });
-});
+exports.username = username
