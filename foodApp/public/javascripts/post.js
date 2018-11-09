@@ -1,3 +1,6 @@
+var express = require('express');
+var router = express.Router();
+
 function SendData(api, json) {
   
   if(api == 1) {
@@ -46,3 +49,8 @@ function SendData(api, json) {
   }
   f().then(Redirect);
 }
+
+router.get('/authenticate', function(req, res, next) {
+  console.log("this was seen");
+  res.render('authenticate', { title: 'authenticating' });
+});

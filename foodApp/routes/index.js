@@ -16,9 +16,4 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'foodApp' });
 });
 
-router.get('/authenticate', function(req, res, next) {
-    console.log("this was seen");
-    res.render('authenticate', { title: 'authenticating' });
-  });
-
 module.exports = router;
