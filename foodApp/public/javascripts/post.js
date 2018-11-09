@@ -38,6 +38,7 @@ function SendData(api, json) {
       console.log("user allowed to log in");
       CloseModal();
       window.localStorage.setItem("test","test");
+      console.log(window.localStorage.getItem("test"));
       document.location.href = ("/authenticate/" + json.username + "/" + json.password)
     }
   }
