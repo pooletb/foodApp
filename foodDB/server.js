@@ -61,7 +61,7 @@ app.post('/api/2', function(request, response){
     }
     else if(result[0] != undefined && result[0] != null) {
       console.log(`User exists, allow login`);
-      var randomPass = randomPassword(25);
+      var randomPass = randomPassword(50);
       var encryptedPass = encrypt(randomPass);
       json.result = 0;  
       json.ptPass = randomPass
@@ -96,7 +96,7 @@ function decrypt(text){
 }
 
 function randomPassword(length) {
-  var chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
+  var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP1234567890";
   var pass = "";
   for (var x = 0; x < length; x++) {
       var i = Math.floor(Math.random() * chars.length);
