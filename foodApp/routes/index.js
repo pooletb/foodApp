@@ -32,7 +32,7 @@ router.get('/authenticate/:username/:pass', function(req, res) {
           },
           body: JSON.stringify(json)
         });
-        var results = await response.json()
+        return Promise.resolve(results.json).then(results => {
         if(results.result === undefined) {
           console.log("authentication failed")
           res.render('registration_landing', { title: 'Register Today' });
@@ -41,12 +41,8 @@ router.get('/authenticate/:username/:pass', function(req, res) {
           console.log("authenticated");
           res.render('home', { title: 'foodApp' }, {userInfo: {username: json.username}});
         }
+        })
       }
-
-      var Redirect = () => {
-        console.log("done")
-      }
-      f().then(Redirect);
   });
 
 module.exports = router;
