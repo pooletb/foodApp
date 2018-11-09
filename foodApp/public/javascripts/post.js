@@ -1,4 +1,4 @@
-import Store from "../../node_modules/data-store"
+import Store from "../../node_modules/data-store/index"
 const store = new Store({ path: 'config.json' });
 
 function SendData(api, json) {
