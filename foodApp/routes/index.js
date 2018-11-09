@@ -17,7 +17,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/authenticate', function(req, res, next) {
-    console.log(this.credentials);
+    console.log("this was seen");
     res.render('authenticate', { title: 'authenticating' });
   });
 
