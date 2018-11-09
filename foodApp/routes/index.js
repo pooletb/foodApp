@@ -30,6 +30,7 @@ router.get('/authenticate/:username/:pass', function(req, res) {
           },
           body: JSON.stringify(json)
         });
+        var results = await response.json()
         if(results.result === undefined) {
           console.log("authentication failed")
           res.render('registration_landing', { title: 'Register Today' });
