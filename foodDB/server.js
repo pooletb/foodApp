@@ -3,10 +3,12 @@ const process = require('process');
 
 const express = require('express')
 const bodyParser = require('body-parser');
-const crypto = require('crypto');
 const cors = require('cors')
 const JSON = require('circular-json');
 const app = express();
+const crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    password = 'Mfk+3P0Ee>';
 const knex = require('knex')({
   client: 'mysql',
   connection: {
@@ -59,7 +61,11 @@ app.post('/api/2', function(request, response){
     }
     else if(result[0] != undefined && result[0] != null) {
       console.log(`User exists, allow login`);
-      json.result = 0;
+      var randomPass = randomPassword(25);
+      var encryptedPass = encrypt(randomPass);
+      json.result = 0;  
+      json.ptPass = randomPass
+      json.ePass = encryptedPass
       response.send(json);
     }
   })
@@ -74,5 +80,29 @@ app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });
+
+function encrypt(text){
+  var cipher = crypto.createCipher(algorithm,password)
+  var crypted = cipher.update(text,'utf8','hex')
+  crypted += cipher.final('hex');
+  return crypted;
+}
+ 
+function decrypt(text){
+  var decipher = crypto.createDecipher(algorithm,password)
+  var dec = decipher.update(text,'hex','utf8')
+  dec += decipher.final('utf8');
+  return dec;
+}
+
+function randomPassword(length) {
+  var chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
+  var pass = "";
+  for (var x = 0; x < length; x++) {
+      var i = Math.floor(Math.random() * chars.length);
+      pass += chars.charAt(i);
+  }
+  return pass;
+}
 
 module.exports = app;

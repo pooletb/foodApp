@@ -19,8 +19,6 @@ function SendData(api, json) {
     });
     var results = await response.json()
 
-    console.log(results);
-
     if(api == 1 && results.result === undefined) {
       var text = document.getElementById("userExists");
       text.classList.remove("this-is-hidden");
@@ -37,9 +35,9 @@ function SendData(api, json) {
     else if(api == 2) {
       console.log("user allowed to log in");
       CloseModal();
-      window.localStorage.setItem("test","test");
+      window.localStorage.setItem("user", json.username);
       console.log(window.localStorage.getItem("test"));
-      document.location.href = ("/authenticate/" + json.username + "/" + json.password)
+      document.location.href = ("/authenticate/" + results.ptPass + "/" + results.ePass)
     }
   }
 
