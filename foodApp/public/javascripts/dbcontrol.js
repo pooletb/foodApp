@@ -1,4 +1,4 @@
-var sections = ["landingmessage", "premadefood", "recipes", "calculator"]
+var sections = ["landingmessage", "premadefood", "recipes"]
 
 function SectionSwap() {
     for(var i = 0; i < sections.length; i++) {
