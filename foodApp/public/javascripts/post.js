@@ -37,6 +37,7 @@ function SendData(api, json) {
     else if(api == 2) {
       console.log("user allowed to log in");
       CloseModal();
+      document.location.href = "/authenticate"
     }
   }
 
