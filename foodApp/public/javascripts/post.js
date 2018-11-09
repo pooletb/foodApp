@@ -37,28 +37,7 @@ function SendData(api, json) {
     else if(api == 2) {
       console.log("user allowed to log in");
       CloseModal();
-      Authenticate(json);
     }
-  }
-
-  var Redirect = () => {
-    console.log("done")
-  }
-  f().then(Redirect);
-}
-
-function Authenticate(json) {
-
-  async function f() {
-    const response = await fetch('localhost:8080/authenticate', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify(json)
-    });
   }
 
   var Redirect = () => {
