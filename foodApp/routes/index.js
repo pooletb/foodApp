@@ -18,6 +18,8 @@ router.get('/home', function(req, res, next) {
 
 router.get('/authenticate', function(req, res, next) {
     res.render('authenticate', { title: 'authenticating' });
+    var url = document.URL;
+    console.log(url);
 });
 
 module.exports = router;
