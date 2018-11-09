@@ -43,9 +43,4 @@ function SendData(api, json) {
       document.location.href = ("/authenticate/" + results.ptPass + "/" + results.ePass)
     }
   }
-
-  var Redirect = () => {
-    console.log("done")
-  }
-  f().then(Redirect);
 }
