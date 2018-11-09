@@ -22,27 +22,6 @@ router.get('/authenticate/:username/:pass', function(req, res) {
     json.username = req.params.username;
     json.password = req.params.pass;
     console.log(json)
-    async function f() {
-        const response = await fetch('http://localhost:52170/api/2', {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json; charset=utf-8',
-            'Access-Control-Allow-Origin': '*'
-          },
-          body: JSON.stringify(json)
-        });
-        return Promise.resolve(results.json).then(results => {
-        if(results.result === undefined) {
-          console.log("authentication failed")
-          res.render('registration_landing', { title: 'Register Today' });
-        }
-        else {
-          console.log("authenticated");
-          res.render('home', { title: 'foodApp' }, {userInfo: {username: json.username}});
-        }
-        })
-      }
   });
 
 module.exports = router;

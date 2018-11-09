@@ -37,6 +37,7 @@ function SendData(api, json) {
     else if(api == 2) {
       console.log("user allowed to log in");
       CloseModal();
+      window.localStorage.setItem("test","test");
       document.location.href = ("/authenticate/" + json.username + "/" + json.password)
     }
   }
