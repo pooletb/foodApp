@@ -17,7 +17,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/home', function(req, res, next) {
-  res.render('home', { title: 'foodApp' });
+  res.render('home', { title: 'Home' });
+});
+
+router.get('/guestportal', function(req, res, next) {
+    res.render('home', {params: {user: "Guest"}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
