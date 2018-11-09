@@ -1,6 +1,8 @@
-document.onload(ConstantRun());
-document.getElementById("searchController").addEventListener("focus", SearchLoading);
-document.getElementById("searchController").addEventListener("blur", SearchLoading);
+function SetupPage() {
+    document.getElementById("searchController").addEventListener("focus", SearchLoading);
+    document.getElementById("searchController").addEventListener("blur", SearchLoading);
+    ConstantRun();
+}
 
 function ConstantRun() {
     var element = document.getElementById("searchBar")
