@@ -17,8 +17,6 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/authenticate', function(req, res, next) {
-    var username = document.getElementById("username").value
-    console.log(username);
     res.render('authenticate', { title: 'authenticating' });
 });
 
