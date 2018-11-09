@@ -20,14 +20,15 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'foodApp' });
 });
 
-router.get('/authenticate/:ptPass/:ePass', function(req, res) {
+router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     var ptPass = req.params.ptPass;
     var ePass = req.params.ePass;
+    var username = req.params.username;
 
     var dPass = decrypt(ePass)
 
     if(ptPass === dPass) {
-        res.render('home', { title: 'Home' });
+        res.render('home', {params: {user: username}, title: 'Home'});
     }
     else {
         res.render('registration_landing', { title: 'Register Today' });

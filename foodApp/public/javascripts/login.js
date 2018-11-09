@@ -1,5 +1,3 @@
-user = "wwhy is shrek piss";
-
 function Login() {
     var text = document.getElementById("failedLogin");
     if(text.classList.contains("this-is-hidden")) {
@@ -12,8 +10,4 @@ function Login() {
     credentials.password = document.getElementById("password").value;
 
     SendData(2, credentials);
-}
-
-function UserInfo() {
-    this.user = window.localStorage.getItem("user");
 }

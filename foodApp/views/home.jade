@@ -1,10 +1,10 @@
 extends layout
 
 block content
-
     section.hero.is-primary
-        div.hero-body(onload = "UserInfo();")
+        div.hero-body
             div.container
-            h1.title Welcome, #{this.user}
+            h1.title Welcome, #{params.user}
+
 
 
