@@ -1,6 +1,3 @@
-import Store from "../../node_modules/data-store/index"
-const store = new Store({ path: 'config.json' });
-
 function SendData(api, json) {
   
   if(api == 1) {
@@ -39,7 +36,6 @@ function SendData(api, json) {
     }
     else if(api == 2) {
       console.log("user allowed to log in");
-      store.set('username', json.username);
       CloseModal();
       document.location.href = "/authenticate"
     }
