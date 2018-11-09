@@ -1,4 +1,4 @@
-const Store = require('../../node_modules/data-store');
+import Store from "../../node_modules/data-store"
 const store = new Store({ path: 'config.json' });
 
 function SendData(api, json) {
