@@ -50,7 +50,7 @@ function SendData(api, json) {
 function Authenticate(json) {
 
   async function f() {
-    const response = await fetch('/authenticate', {
+    const response = await fetch('localhost:3000/authenticate', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
