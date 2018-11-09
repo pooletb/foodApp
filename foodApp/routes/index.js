@@ -39,7 +39,6 @@ router.get('/authenticate/:username/:pass', function(req, res) {
         }
         else {
           console.log("authenticated");
-          res.cookie("user",json.username)
           res.render('home', { title: 'foodApp' }, {userInfo: {username: json.username}});
         }
       }
