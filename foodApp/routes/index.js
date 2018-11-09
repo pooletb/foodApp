@@ -20,6 +20,7 @@ router.get('/authenticate/:username/:pass', function(req, res) {
     json = {}
     json.username = req.params.username;
     json.password = req.params.password;
+    console.log(json)
     async function f() {
         const response = await fetch('http://localhost:52170/api/2', {
           method: 'POST',
