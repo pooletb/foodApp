@@ -35,8 +35,11 @@ function SendData(api, json) {
     else if(api == 2) {
       console.log("user allowed to log in");
       CloseModal();
+      authInfo = {};
+      authInfo.plaintext = results.ptPass;
+      authInfo.encrypted = results.ePass;
       window.localStorage.setItem("user", json.username);
-      console.log(window.localStorage.getItem("test"));
+      window.localStorage.setItem("auth", authInfo);
       document.location.href = ("/authenticate/" + results.ptPass + "/" + results.ePass)
     }
   }
