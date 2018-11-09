@@ -17,7 +17,8 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/authenticate', function(req, res, next) {
-    res.render('authenticate',  {pageData: this.credentials.username});
+    console.log(this.credentials);
+    res.render('authenticate', { title: 'authenticating' });
   });
 
 module.exports = router;
