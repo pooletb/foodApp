@@ -59,9 +59,6 @@ function Authenticate(json) {
       },
       body: JSON.stringify(json)
     });
-    var results = await response.json()
-
-    console.log(results);
   }
 
   var Redirect = () => {
