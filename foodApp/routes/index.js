@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var user = require('../public/javascripts/post')
-var username = user.username;
+const Store = require('data-store');
+const store = new Store({ path: 'config.json' });
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,7 +19,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/authenticate', function(req, res, next) {
-    console.log(this.username);
+    console.log(store.get('username'));
     res.render('authenticate', { title: 'authenticating' });
 });
 

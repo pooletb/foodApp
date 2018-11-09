@@ -1,4 +1,5 @@
-var username;
+const Store = require('data-store');
+const store = new Store({ path: 'config.json' });
 
 function SendData(api, json) {
   
@@ -38,7 +39,7 @@ function SendData(api, json) {
     }
     else if(api == 2) {
       console.log("user allowed to log in");
-      this.username = json.username;
+      store.set('username', json.username);
       CloseModal();
       document.location.href = "/authenticate"
     }
@@ -49,5 +50,3 @@ function SendData(api, json) {
   }
   f().then(Redirect);
 }
-
-exports.username = username
