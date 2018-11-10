@@ -14,15 +14,6 @@ app.enable('trust proxy');
 const crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'Mfk+3P0Ee>';
-const knex = require('knex')({
-    client: 'mysql',
-    connection: {
-        host : '127.0.0.1',
-        user : 'root',
-        password : 'noSQLisbetter93',
-        database : 'db'
-    }
-    });
 
 //ROUTING INFORMATION FOLLOWS
 router.get('/', function(req, res, next) {
@@ -60,6 +51,22 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
   });
 
 //API INFORMATION FOLLOWS
+const knex = require('knex')({
+  client: 'mysql',
+  connection: {
+      host : '127.0.0.1',
+      user : 'root',
+      password : 'noSQLisbetter93',
+      database : 'db'
+  }
+});
+
+const config = {
+  user: process.env.SQL_USER,
+  password: process.env.SQL_PASSWORD,
+  database: process.env.SQL_DATABASE
+};
+
 if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
   config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
 }
