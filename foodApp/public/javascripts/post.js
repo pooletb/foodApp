@@ -1,10 +1,10 @@
 function SendData(api, json) {
   
   if(api == 1) {
-    apiLink = 'http://' + window.location.hostname + ':52170/api/1';
+    apiLink = 'https://' + window.location.hostname + ':52170/api/1';
   }
   else if(api == 2) {
-    apiLink = 'http://' + window.location.hostname + ':52170/api/2';
+    apiLink = 'https://' + window.location.hostname + ':52170/api/2';
   }
 
   async function f() {
