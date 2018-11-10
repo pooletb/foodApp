@@ -5,11 +5,9 @@ const cors = require('cors');
 const router = express.Router();
 const app = express();
 
-app.use(cors())
+router.use(cors())
 
-app.use(bodyParser.json());
-
-app.enable('trust proxy');
+router.use(bodyParser.json());
 
 const crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
@@ -71,7 +69,7 @@ if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production
   config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
 }
 //REGISTER A NEW ACCOUNT
-app.post('/api/1', function(request, response){
+router.post('/api/1', function(request, response){
     console.log(request.body);
     var credentials = request.body;
     var json = {};
@@ -90,7 +88,7 @@ app.post('/api/1', function(request, response){
   });
   
   //LOG INTO AN EXISTING ACCOUNT
-  app.post('/api/2', function(request, response){
+  router.post('/api/2', function(request, response){
     console.log(request.body);
     var credentials = request.body;
     var json = {};
@@ -118,12 +116,6 @@ app.post('/api/1', function(request, response){
       console.error(`Failed login attempt`, err);
       response.send(json);
     });
-  });
-  
-  const PORT = 52170;
-  app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`);
-    console.log('Press Ctrl+C to quit.');
   });
   
   function encrypt(text){
