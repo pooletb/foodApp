@@ -109,7 +109,7 @@ app.post('/api/1', function(request, response){
     });
   });
   
-  const PORT = process.env.PORT || 52170;
+  const PORT = 52170;
   app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
