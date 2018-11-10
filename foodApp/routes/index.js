@@ -61,6 +61,9 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
   });
 
 //API INFORMATION FOLLOWS
+if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
+  config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
+}
 //REGISTER A NEW ACCOUNT
 app.post('/api/1', function(request, response){
     console.log(request.body);
