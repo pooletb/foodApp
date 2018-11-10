@@ -25,6 +25,7 @@ const knex = require('knex')({
     }
     });
 
+//ROUTING INFORMATION FOLLOWS
 router.get('/', function(req, res, next) {
     var username = req.cookies.username;
     console.log(username)
@@ -59,7 +60,7 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     console.log(json)
   });
 
-  //REGISTERING A NEW ACCOUNT
+//API INFORMATION FOLLOWS
 app.post('/api/1', function(request, response){
     console.log(request.body);
     var credentials = request.body;
