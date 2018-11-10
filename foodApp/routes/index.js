@@ -61,6 +61,7 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
   });
 
 //API INFORMATION FOLLOWS
+//REGISTER A NEW ACCOUNT
 app.post('/api/1', function(request, response){
     console.log(request.body);
     var credentials = request.body;
