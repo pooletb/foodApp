@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = express.Router();
-const app = express();
 
 router.use(cors())
 
@@ -32,17 +31,17 @@ foodDB = {}
 
 knex('premade_food').select()
 .then((result) => {
-  this.foodDB.premade_food = result;
+  foodDB.premade_food = result;
 })
 
 knex('homemade_food').select()
 .then((result) => {
-  this.foodDB.homemade_food = result;
+  foodDB.homemade_food = result;
 })
 
 knex('ingredients').select()
 .then((result) => {
-  this.foodDB.ingredients = result;
+  foodDB.ingredients = result;
 })
 
 //ROUTING INFORMATION FOLLOWS
