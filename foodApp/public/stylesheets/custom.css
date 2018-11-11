@@ -24,7 +24,7 @@
 
 .menu {
   font-size: 1rem;
-  background-color: black;
+  color: #dbdbdb
 }
 
 .menu.is-small {
@@ -41,7 +41,6 @@
 
 .menu-list {
   line-height: 1.25;
-  color: #dbdbdb
 }
 
 .menu-list a {
@@ -62,7 +61,7 @@
 }
 
 .menu-list li ul {
-  border-left: 1px solid #dbdbdb;
+  border-left: 1px solid hsl(141, 71%, 48%);
   margin: 0.75em;
   padding-left: 0.75em;
 }
