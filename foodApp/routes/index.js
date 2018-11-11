@@ -5,7 +5,6 @@ const cors = require('cors');
 const router = express.Router();
 const fetch = require('node-fetch');
 
-
 router.use(cors())
 
 router.use(bodyParser.json());
@@ -30,25 +29,15 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-    var results;
-    async function f() {
-      const response = await fetch('/api/0', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json; charset=utf-8',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify(1)
-      });
-      results = await response.json()
-    }
-    var Redirect = () => {
-      console.log(results);
-      res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
-    }
-    f().then(Redirect);
-
+    request.post({
+      url: '/api/0',
+      headers: {
+          'User-Agent': UA
+      },
+      json: JSON.stringify(1)
+      }, function(error, response, body) {
+      console.log(response)
+       })
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
