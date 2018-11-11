@@ -41,8 +41,8 @@ router.get('/guestportal', function(req, res, next) {
       });
       var results = await response.json()
       console.log(results);
+      res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
     }
-    res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
