@@ -65,6 +65,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
+  console.log(this.homemade_food);
   res.render('home', {params: {user: "Guest", hfDB: this.homemade_food}, title: 'Home'});
 });
 
