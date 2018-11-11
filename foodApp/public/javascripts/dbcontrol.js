@@ -16,14 +16,12 @@ function PremadeFood() {
     SectionSwap();
     var section = document.getElementById("premadefood");
     section.classList.remove("this-is-hidden");
-    ConstantRun();
 }
 
 function Recipes() {
     SectionSwap();
     var section = document.getElementById("recipes");
     section.classList.remove("this-is-hidden");
-    ConstantRun();
 }
 
 function echoPrint(value) {
