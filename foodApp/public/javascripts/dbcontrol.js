@@ -12,7 +12,7 @@ function SectionSwap() {
         }
     }
     for(var i = 0; i < btns.length; i++) {
-        var element = document.getElementById(sections[i]);
+        var element = document.getElementById(btns[i]);
         if(element.classList.contains("is-active")) {
             element.classList.remove("is-active")
         }
