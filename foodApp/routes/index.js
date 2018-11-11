@@ -18,7 +18,7 @@ const config = {
   user: 'root',
   password: 'noSQLisbetter93',
   database: 'db',
-  // socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
+  socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
 };
 
 const knex = require('knex')({
@@ -76,8 +76,7 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     var dPass = decrypt(ePass)
 
     if(ptPass === dPass) {
-      
-        res.render('home', {params: {user: username}, title: 'Home'});
+      res.render('home', {params: {user: username, pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
     }
     else {
         res.render('registration_landing', { title: 'Register Today' });
