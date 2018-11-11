@@ -19,7 +19,7 @@ const config = {
   user: 'root',
   password: 'noSQLisbetter93',
   database: 'db',
-  socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
+  // socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
 };
 
 const knex = require('knex')({
