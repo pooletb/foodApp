@@ -28,6 +28,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
+    var results;
     async function f() {
       const response = await fetch('/api/0', {
         method: 'POST',
@@ -38,10 +39,14 @@ router.get('/guestportal', function(req, res, next) {
         },
         body: JSON.stringify(1)
       });
-      var results = await response.json()
+      results = await response.json()
     }
-    console.log(results);
-    res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
+    var Redirect = () => {
+      console.log(results);
+      res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
+    }
+    f().then(Redirect);
+
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
