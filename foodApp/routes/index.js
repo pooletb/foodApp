@@ -31,29 +31,20 @@ foodDB = {}
 
 knex('premade_food').select()
 .then((result) => {
-  var array = [];
-  for (var x in result) {
-   array.push(x);
-  }
-  foodDB.premade_food = array;
+  console.log(result);
+  foodDB.premade_food = result;
 })
 
 knex('homemade_food').select()
 .then((result) => {
-  var array = [];
-  for (var x in result) {
-   array.push(x);
-  }
-  foodDB.homemade_food = array;
+  console.log(result);
+  foodDB.homemade_food = result;
 })
 
 knex('ingredients').select()
 .then((result) => {
-  var array = [];
-  for (var x in result) {
-   array.push(x);
-  }
-  foodDB.ingredients = array;
+  console.log(result);
+  foodDB.ingredients = result;
 })
 
 //ROUTING INFORMATION FOLLOWS
@@ -72,7 +63,6 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-  console.log(this.foodDB);
   res.render('home', {params: {user: "Guest", db: this.foodDB}, title: 'Home'});
 });
 
