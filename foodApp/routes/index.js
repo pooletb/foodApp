@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = express.Router();
-const fetch = require('node-fetch');
+const request = require('request')
 
 router.use(cors())
 
