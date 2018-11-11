@@ -21,3 +21,9 @@
 .this-is-hidden {
   display: none;
 }
+
+.menu-background {
+  background-color: hsl(141, 71%, 48%);
+  color: white;
+}
+
