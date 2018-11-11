@@ -18,7 +18,7 @@ const config = {
   user: 'root',
   password: 'noSQLisbetter93',
   database: 'db',
-  socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
+  // socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
 };
 
 const knex = require('knex')({
@@ -65,8 +65,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-  console.log(this.homemade_food);
-  res.render('home', {params: {user: "Guest", hfDB: this.homemade_food}, title: 'Home'});
+  res.render('home', {params: {user: "Guest", pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {

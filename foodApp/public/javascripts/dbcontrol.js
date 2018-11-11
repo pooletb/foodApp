@@ -1,4 +1,4 @@
-var sections = ["landingmessage", "premadefood", "recipes"]
+var sections = ["landingmessage", "premadefood", "recipes", "ingredients"]
 
 function SectionSwap() {
     for(var i = 0; i < sections.length; i++) {
@@ -16,56 +16,88 @@ function PremadeFood() {
     SectionSwap();
     var section = document.getElementById("premadefood");
     section.classList.remove("this-is-hidden");
+    document.location.href = "#premadefood";
 }
 
 function Recipes() {
     SectionSwap();
     var section = document.getElementById("recipes");
     section.classList.remove("this-is-hidden");
+    document.location.href = "#recipes";
+}
+
+function Ingredients() {
+    SectionSwap();
+    var section = document.getElementById("ingredients");
+    section.classList.remove("this-is-hidden");
+    document.location.href = "#ingredients";
 }
 
 function echoPrint(value) {
     console.log(value);
 } 
 
-function myFunction() {
-    // Declare variables 
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
+function myFunction(num) {
+    if (num === 1) {
+        // Declare variables 
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("pInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("pTable");
+        tr = table.getElementsByTagName("tr");
   
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      if (td) {
-        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                } else {
+                tr[i].style.display = "none";
+                }
+            } 
         }
-      } 
     }
-  }
+    if (num === 2) {
+        // Declare variables 
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("rInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("rTable");
+        tr = table.getElementsByTagName("tr");
+  
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                } else {
+                tr[i].style.display = "none";
+                }
+            } 
+        }
+    }
 
-  function myFunction2() {
-    // Declare variables 
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("myInput2");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable2");
-    tr = table.getElementsByTagName("tr");
+    if (num === 3) {
+        // Declare variables 
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("iInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("iTable");
+        tr = table.getElementsByTagName("tr");
   
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      if (td) {
-        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                } else {
+                tr[i].style.display = "none";
+                }
+            } 
         }
-      } 
     }
+
   }

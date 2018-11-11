@@ -51,33 +51,48 @@ block content
                     | , and we would love to have more users
 
             div.this-is-hidden#premadefood
-                br
+                article.message.is-success
+                    .message-body
+                        | Welcome, please navigate using the sidebar, 
+                        strong our database is still under construction
+                        | , we are adding new things everyday, and even allow registered users to submit their own recipes, 
+                        a for free.
+                        |  So, if you have not already please take the time to register an account,
+                        em it couldn't be easier
+                        | , and we would love to have more users
                 div
-                    .control.has-icons-left.is-large.is-loading#searchController
-                        input.input.is-large.is-fullwidth#myInput(type='text', onkeyup='myFunction()', placeholder='Search for names..')
+                    .control.has-icons-left.is-large.is-loading#pSearchController
+                        input.input.is-large.is-fullwidth#pInput(type='text', onkeyup='myFunction(1)', placeholder='Search for premade options..')
                         span.icon.is-medium.is-left
                             i.fas.fa-search
-                        table.table.is-fullwidth.is-hoverable.is-striped#myTable
+                        table.table.is-fullwidth.is-hoverable.is-striped#pTable
                             tbody
                                 tr.header
                                     th Name
-                                    th Manufacturer
-                                each food in ["a","b","c","d"]
+                                each food in params.pmDB
                                     tr
-                                        td= val
-                                        td= val
+                                        td(onclick='echoPrint(#{food.food_ID})')= food.food_name
                                         td 
-                                            i.far.fa-smile
+                                            i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
                                         td
-                                            i.far.fa-heart         
+                                            i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
+       
             div.this-is-hidden#recipes
-                br
+                article.message.is-success
+                    .message-body
+                        | Welcome, please navigate using the sidebar, 
+                        strong our database is still under construction
+                        | , we are adding new things everyday, and even allow registered users to submit their own recipes, 
+                        a for free.
+                        |  So, if you have not already please take the time to register an account,
+                        em it couldn't be easier
+                        | , and we would love to have more users
                 div
-                    .control.has-icons-left.is-large.is-loading#searchController2
-                        input.input.is-large.is-fullwidth#myInput2(type='text', onkeyup='myFunction2()', placeholder='Search for names..')
+                    .control.has-icons-left.is-large.is-loading#rSearchController
+                        input.input.is-large.is-fullwidth#rInput(type='text', onkeyup='myFunction(2)', placeholder='Search for names..')
                         span.icon.is-medium.is-left
                             i.fas.fa-search
-                        table.table.is-fullwidth.is-hoverable.is-striped#myTable2
+                        table.table.is-fullwidth.is-hoverable.is-striped#rTable
                             tbody
                                 tr.header
                                     th Name
@@ -88,6 +103,34 @@ block content
                                             i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
                                         td
                                             i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
+
+            div.this-is-hidden#ingredients
+                article.message.is-success
+                    .message-body
+                        | Welcome, please navigate using the sidebar, 
+                        strong our database is still under construction
+                        | , we are adding new things everyday, and even allow registered users to submit their own recipes, 
+                        a for free.
+                        |  So, if you have not already please take the time to register an account,
+                        em it couldn't be easier
+                        | , and we would love to have more users
+                div
+                    .control.has-icons-left.is-large.is-loading#iSearchController
+                        input.input.is-large.is-fullwidth#iInput(type='text', onkeyup='myFunction(3)', placeholder='Search for ingredients..')
+                        span.icon.is-medium.is-left
+                            i.fas.fa-search
+                        table.table.is-fullwidth.is-hoverable.is-striped#iTable
+                            tbody
+                                tr.header
+                                    th Name
+                                each ingredient in params.iDB
+                                    tr
+                                        td(onclick='echoPrint(#{ingredient.ingredient_ID})')= ingredient.ingredient_name
+                                        td 
+                                            i.far.fa-smile(onclick='echoPrint(#{ingredient.ingredient_ID})')
+                                        td
+                                            i.far.fa-heart(onclick='echoPrint(#{ingredient.ingredient_ID})')
+
 
 
 
