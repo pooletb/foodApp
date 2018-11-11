@@ -40,7 +40,19 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     var dPass = decrypt(ePass)
 
     if(ptPass === dPass) {
-        res.render('home', {params: {user: username}, title: 'Home'});
+      async function f() {
+        const response = await fetch(apiLink, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8',
+            'Access-Control-Allow-Origin': '*'
+          },
+          body: JSON.stringify(json)
+        });
+        var results = await response.json()
+      }
+        res.render('home', {params: {user: username, db: results}, title: 'Home'});
     }
     else {
         res.render('registration_landing', { title: 'Register Today' });
@@ -61,6 +73,26 @@ console.log(config);
 const knex = require('knex')({
   client: 'mysql',
   connection: config
+});
+
+//GET THE FULL LISTS
+router.get('/api/0', function(request, response){
+  foodDB = {}
+
+  knex('premade_food').select()
+  .then((result) => {
+    foodDB.premade_food = result;
+  })
+
+  knex('homemade_food').select()
+  .then((result) => {
+    foodDB.homemade_food = result;
+  })
+
+  knex('ingredients').select()
+  .then((result) => {
+    foodDB.ingredients = result;
+  })
 });
 
 //REGISTER A NEW ACCOUNT
