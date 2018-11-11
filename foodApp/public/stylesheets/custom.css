@@ -61,13 +61,13 @@
 }
 
 .menu-list li ul {
-  border-left: 1px solid #222222;
+  border-left: 1px solid #0e301a;
   margin: 0.75em;
   padding-left: 0.75em;
 }
 
 .menu-label {
-  color: #222222;
+  color: #0e301a;
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
