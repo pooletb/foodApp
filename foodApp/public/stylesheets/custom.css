@@ -22,9 +22,12 @@
   display: none;
 }
 
+.change-background {
+  background-color: hsl(141, 71%, 48%)
+}
+
 .menu {
   font-size: 1rem;
-  color: #dbdbdb
 }
 
 .menu.is-small {
@@ -61,13 +64,13 @@
 }
 
 .menu-list li ul {
-  border-left: 1px solid hsl(141, 71%, 48%);
+  color: #dbdbdb;
   margin: 0.75em;
   padding-left: 0.75em;
 }
 
 .menu-label {
-  color: #7a7a7a;
+  color: #dbdbdb;
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
