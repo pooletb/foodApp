@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = express.Router();
-const request = require('request')
+var request = require('request')
 
 router.use(cors())
 
@@ -29,17 +29,20 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-    request.post({
-      url: '/api/0',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
-        'Access-Control-Allow-Origin': '*'      
-      },
-      json: JSON.stringify(1)
-      }, function(error, response, body) {
-      console.log(response)
-       })
+    async function f() {
+      const response = await request('/api/0', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify(1)
+      });
+      var results = await response.json()
+      console.log(results);
+    }
+    res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
