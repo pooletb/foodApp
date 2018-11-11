@@ -52,7 +52,8 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
 const config = {
   user: 'root',
   password: 'noSQLisbetter93',
-  database: 'db'
+  database: 'db',
+  socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
 };
 
 console.log(config);
@@ -62,9 +63,6 @@ const knex = require('knex')({
   connection: config
 });
 
-if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
-  config.socketPath = `/cloudsql/foodapp-221804:us-east1:cookbook`;
-}
 //REGISTER A NEW ACCOUNT
 router.post('/api/1', function(request, response){
     console.log(request.body);
