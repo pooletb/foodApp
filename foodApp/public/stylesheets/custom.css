@@ -22,10 +22,6 @@
   display: none;
 }
 
-.change-background {
-  background-color: hsl(141, 71%, 48%)
-}
-
 .menu {
   font-size: 1rem;
 }
@@ -48,7 +44,7 @@
 
 .menu-list a {
   border-radius: 2px;
-  color: white;
+  color: hsl(141, 71%, 48%);
   display: block;
   padding: 0.5em 0.75em;
 }
@@ -64,13 +60,13 @@
 }
 
 .menu-list li ul {
-  color: #dbdbdb;
+  color: hsl(141, 71%, 48%);
   margin: 0.75em;
   padding-left: 0.75em;
 }
 
 .menu-label {
-  color: #dbdbdb;
+  color: hsl(141, 71%, 48%);
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
