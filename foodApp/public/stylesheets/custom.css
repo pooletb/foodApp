@@ -23,9 +23,10 @@
 }
 
 .changeme{ 
-  background-image: linear-gradient(141deg, #12af2f 0%, #23d160 71%, #2ce28a 100%);
-  padding-top: 1em;
-  padding-bottom: 1em;
+  background-color: hsl(141, 71%, 48%);
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  color: #fff
 }
 
 .menu {
