@@ -27,24 +27,26 @@ const knex = require('knex')({
 });
 
 //GETTING A FULL LIST TO POPULATE MY TABLES
-foodDB = {}
+premade_food
+homemade_food
+ingredients
 
 knex('premade_food').select()
 .then((result) => {
   console.log(result);
-  foodDB.premade_food = result;
+  premade_food = result;
 })
 
 knex('homemade_food').select()
 .then((result) => {
   console.log(result[1]);
-  foodDB.homemade_food = result;
+  homemade_food = result;
 })
 
 knex('ingredients').select()
 .then((result) => {
   console.log(result[1]);
-  foodDB.ingredients = result;
+  ingredients = result;
 })
 
 //ROUTING INFORMATION FOLLOWS
@@ -63,7 +65,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-  res.render('home', {params: {user: "Guest", db: this.foodDB}, title: 'Home'});
+  res.render('home', {params: {user: "Guest", hfDB: this.homemade_food}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
