@@ -37,13 +37,13 @@ knex('premade_food').select()
 
 knex('homemade_food').select()
 .then((result) => {
-  console.log(result);
+  console.log(result[1]);
   foodDB.homemade_food = result;
 })
 
 knex('ingredients').select()
 .then((result) => {
-  console.log(result);
+  console.log(result[1]);
   foodDB.ingredients = result;
 })
 
