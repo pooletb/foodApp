@@ -81,7 +81,7 @@ block content
                             tbody
                                 tr.header
                                     th Name
-                                each food in #{params.hf}
+                                each food in #{params.hfDB}
                                     tr
                                         td(onclick='echoPrint(#{food.food_id})')= food.food_name
                                         td 
