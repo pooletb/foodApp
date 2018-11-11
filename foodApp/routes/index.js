@@ -61,7 +61,8 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-    res.render('home', {params: {user: "Guest"}, title: 'Home'});
+  console.log(this.foodDB);
+  res.render('home', {params: {user: "Guest", db: this.foodDB}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
