@@ -27,9 +27,9 @@ const knex = require('knex')({
 });
 
 //GETTING A FULL LIST TO POPULATE MY TABLES
-premade_food
-homemade_food
-ingredients
+premade_food = [];
+homemade_food = [];
+ingredients = [];
 
 knex('premade_food').select()
 .then((result) => {
