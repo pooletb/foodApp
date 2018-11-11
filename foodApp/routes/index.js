@@ -3,15 +3,47 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = express.Router();
-var request = require('request')
+const app = express();
 
 router.use(cors())
 
 router.use(bodyParser.json());
 
+//FOR CREATING AN ENCRYPTION KEY
 const crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
     password = 'Mfk+3P0Ee>';
+
+//API INFORMATION FOLLOWS
+const config = {
+  user: 'root',
+  password: 'noSQLisbetter93',
+  database: 'db',
+  socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
+};
+
+const knex = require('knex')({
+  client: 'mysql',
+  connection: config
+});
+
+//GETTING A FULL LIST TO POPULATE MY TABLES
+foodDB = {}
+
+knex('premade_food').select()
+.then((result) => {
+  this.foodDB.premade_food = result;
+})
+
+knex('homemade_food').select()
+.then((result) => {
+  this.foodDB.homemade_food = result;
+})
+
+knex('ingredients').select()
+.then((result) => {
+  this.foodDB.ingredients = result;
+})
 
 //ROUTING INFORMATION FOLLOWS
 router.get('/', function(req, res, next) {
@@ -29,20 +61,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-    async function f() {
-      const response = await request('/api/0', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json; charset=utf-8',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify(1)
-      });
-      var results = await response.json()
-      console.log(results);
-      res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
-    }
+    res.render('home', {params: {user: "Guest"}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
@@ -53,19 +72,8 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     var dPass = decrypt(ePass)
 
     if(ptPass === dPass) {
-        async function f() {
-          const response = await fetch('/api/1', {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json; charset=utf-8',
-              'Access-Control-Allow-Origin': '*'
-            },
-            body: JSON.stringify(1)
-          });
-          var results = await response.json()
-        }
-        res.render('home', {params: {user: username, db: results}, title: 'Home'});
+      
+        res.render('home', {params: {user: username}, title: 'Home'});
     }
     else {
         res.render('registration_landing', { title: 'Register Today' });
@@ -73,39 +81,8 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     console.log(json)
   });
 
-//API INFORMATION FOLLOWS
-const config = {
-  user: 'root',
-  password: 'noSQLisbetter93',
-  database: 'db',
-  // socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
-};
-
-console.log(config);
-
-const knex = require('knex')({
-  client: 'mysql',
-  connection: config
-});
-
-//GET THE FULL LISTS
-router.post('/api/0', function(request, response){
-  foodDB = {}
-
-  knex('premade_food').select()
-  .then((result) => {
-    foodDB.premade_food = result;
-  })
-
-  knex('homemade_food').select()
-  .then((result) => {
-    foodDB.homemade_food = result;
-  })
-
-  knex('ingredients').select()
-  .then((result) => {
-    foodDB.ingredients = result;
-  })
+//DEPRECATED FOR NOW
+router.get('/api/0', function(request, response){
 });
 
 //REGISTER A NEW ACCOUNT
