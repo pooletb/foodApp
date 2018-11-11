@@ -26,22 +26,6 @@ function Recipes() {
     ConstantRun();
 }
 
-function ConstantRun() {
-    var element = document.getElementById("searchBar")
-    element.onkeyup = function(event) {
-      var query = element.value
-      console.log(query);
-    }
-}
-
-function ConstantRun2() {
-    var element = document.getElementById("searchBar2")
-    element.onkeyup = function(event) {
-      var query = element.value
-      console.log(query);
-    }
-}
-
 function echoPrint(value) {
     console.log(value);
 } 
