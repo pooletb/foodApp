@@ -62,7 +62,7 @@ block content
                                 tr.header
                                     th Name
                                     th Manufacturer
-                                each val in ["a","b","c","d"]
+                                each food in ["a","b","c","d"]
                                     tr
                                         td= val
                                         td= val
@@ -81,13 +81,13 @@ block content
                             tbody
                                 tr.header
                                     th Name
-                                each val in ["a","b","c","d"]
+                                each food in #{params.foodDB[1]}
                                     tr
-                                        td= val
+                                        td(onclick='echoPrint(#{food.food_id})')= food.food_name
                                         td 
-                                            i.far.fa-smile(onclick='echoPrint("#{val}")')
+                                            i.far.fa-smile(onclick='echoPrint(#{food.food_id})')
                                         td
-                                            i.far.fa-heart  
+                                            i.far.fa-heart(onclick='echoPrint(#{food.food_id})')
 
 
 
