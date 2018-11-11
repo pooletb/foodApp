@@ -61,18 +61,16 @@
 }
 
 .menu-list li ul {
-  color: hsl(141, 71%, 48%);
+  border-left: 1px solid hsl(141, 71%, 48%);
   margin: 0.75em;
   padding-left: 0.75em;
 }
 
 .menu-label {
-  color: white;
+  color: hsl(141, 71%, 48%);
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  height: 110%;
-  background-color: hsl(141, 71%, 48%);
 }
 
 .menu-label:not(:first-child) {
