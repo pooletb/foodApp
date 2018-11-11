@@ -54,17 +54,35 @@ block content
                 br
                 div
                     .control.has-icons-left.is-large.is-loading#searchController
-                        input.input.is-large.is-fullwidth(type='search', placeholder='Search for Manufactured Food')#searchBar
+                        input.input.is-large.is-fullwidth#myInput(type='text', onkeyup='myFunction()', placeholder='Search for names..')
                         span.icon.is-medium.is-left
                             i.fas.fa-search
+                        table.table.is-fullwidth.is-hoverable.is-striped#myTable
+                            tbody
+                                tr.header
+                                    th Name
+                                    th Manufacturer
+                                each val in ["a","b","c","d"]
+                                    tr
+                                        td= val
+                                        td= val
             
             div.this-is-hidden#recipes
                 br
                 div
                     .control.has-icons-left.is-large.is-loading#searchController2
-                        input.input.is-large.is-fullwidth(type='search', placeholder='Search for Recipes')#searchBar2
+                        input.input.is-large.is-fullwidth#myInput(type='text', onkeyup='myFunction()', placeholder='Search for names..')
                         span.icon.is-medium.is-left
                             i.fas.fa-search
+                        table.table.is-fullwidth.is-hoverable.is-striped#myTable
+                            tbody
+                                tr.header
+                                    th Name
+                                each val in ["a","b","c","d"]
+                                    tr
+                                        td= val
+
+
 
 
     script(src="/javascripts/dbcontrol.js")
