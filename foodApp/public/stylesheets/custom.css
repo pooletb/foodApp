@@ -67,10 +67,11 @@
 }
 
 .menu-label {
-  color: #222222;
+  color: white;
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  background-color: hsl(141, 71%, 48%);
 }
 
 .menu-label:not(:first-child) {
