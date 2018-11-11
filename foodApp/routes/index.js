@@ -3,7 +3,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = express.Router();
-const app = express();
 
 router.use(cors())
 
@@ -29,7 +28,20 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-    res.render('home', {params: {user: "Guest"}, title: 'Home'});
+    async function f() {
+      const response = await fetch('/api/0', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify(1)
+      });
+      var results = await response.json()
+    }
+    console.log(results)
+    res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
@@ -40,18 +52,18 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     var dPass = decrypt(ePass)
 
     if(ptPass === dPass) {
-      async function f() {
-        const response = await fetch(apiLink, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json; charset=utf-8',
-            'Access-Control-Allow-Origin': '*'
-          },
-          body: JSON.stringify(json)
-        });
-        var results = await response.json()
-      }
+        async function f() {
+          const response = await fetch('/api/1', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json; charset=utf-8',
+              'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(1)
+          });
+          var results = await response.json()
+        }
         res.render('home', {params: {user: username, db: results}, title: 'Home'});
     }
     else {
@@ -76,7 +88,7 @@ const knex = require('knex')({
 });
 
 //GET THE FULL LISTS
-router.get('/api/0', function(request, response){
+router.post('/api/0', function(request, response){
   foodDB = {}
 
   knex('premade_food').select()
