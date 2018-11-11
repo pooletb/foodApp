@@ -62,10 +62,10 @@ block content
                                 tr.header
                                     th Name
                                     th Manufacturer
-                                each food in params.hfDB
+                                each food in ["a","b","c","d"]
                                     tr
-                                        td= food.food_name
-                                        td
+                                        td= val
+                                        td= val
                                         td 
                                             i.far.fa-smile
                                         td
@@ -74,16 +74,16 @@ block content
                 br
                 div
                     .control.has-icons-left.is-large.is-loading#searchController2
-                        input.input.is-large.is-fullwidth#myInput(type='text', onkeyup='myFunction()', placeholder='Search for names..')
+                        input.input.is-large.is-fullwidth#myInput2(type='text', onkeyup='myFunction2()', placeholder='Search for names..')
                         span.icon.is-medium.is-left
                             i.fas.fa-search
-                        table.table.is-fullwidth.is-hoverable.is-striped#myTable
+                        table.table.is-fullwidth.is-hoverable.is-striped#myTable2
                             tbody
                                 tr.header
                                     th Name
                                 each food in params.hfDB
                                     tr
-                                        td= food.food_name
+                                        td(onclick='echoPrint(#{food.food_ID})')= food.food_name
                                         td 
                                             i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
                                         td
