@@ -42,6 +42,10 @@ function ConstantRun2() {
     }
 }
 
+function echoPrint(value) {
+    console.log(value);
+} 
+
 function myFunction() {
     // Declare variables 
     var input, filter, table, tr, td, i;

@@ -66,7 +66,10 @@ block content
                                     tr
                                         td= val
                                         td= val
-            
+                                        td 
+                                            i.far.fa-smile
+                                        td
+                                            i.far.fa-heart         
             div.this-is-hidden#recipes
                 br
                 div
@@ -81,6 +84,11 @@ block content
                                 each val in ["a","b","c","d"]
                                     tr
                                         td= val
+                                        td 
+                                            i.far.fa-smile(onclick='echoPrint("#{val}")')
+                                        td
+                                            i.far.fa-heart  
+
 
 
 
