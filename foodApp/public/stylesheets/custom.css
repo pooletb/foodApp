@@ -23,7 +23,7 @@
 }
 
 .changeme{ 
-  background-color: hsl(141, 71%, 48%);
+  background-image: linear-gradient(141deg, #12af2f 0%, #23d160 71%, #2ce28a 100%);
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -57,7 +57,7 @@
 
 .menu-list a:hover {
   background-color:  #d2f9de;
-  color: #222222;
+  color: #0e301a;
 }
 
 .menu-list a.is-active {
@@ -66,13 +66,13 @@
 }
 
 .menu-list li ul {
-  border-left: 1px solid #0e301a;
+  border-left: 1px solid hsl(141, 71%, 48%);
   margin: 0.75em;
   padding-left: 0.75em;
 }
 
 .menu-label {
-  color: #0e301a;
+  color: #fff;
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
