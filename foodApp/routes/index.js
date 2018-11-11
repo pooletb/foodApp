@@ -32,7 +32,9 @@ router.get('/guestportal', function(req, res, next) {
     request.post({
       url: '/api/0',
       headers: {
-          'User-Agent': UA
+        'Accept': 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*'      
       },
       json: JSON.stringify(1)
       }, function(error, response, body) {
