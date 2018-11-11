@@ -71,6 +71,7 @@
   font-size: 0.75em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  height: 110%;
   background-color: hsl(141, 71%, 48%);
 }
 
