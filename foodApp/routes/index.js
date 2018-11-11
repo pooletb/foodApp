@@ -50,10 +50,12 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
 
 //API INFORMATION FOLLOWS
 const config = {
-  user: process.env.SQL_USER,
-  password: process.env.SQL_PASSWORD,
-  database: process.env.SQL_DATABASE
+  user: 'root',
+  password: 'noSQLisbetter93',
+  database: 'db'
 };
+
+console.log(config);
 
 const knex = require('knex')({
   client: 'mysql',
@@ -61,7 +63,7 @@ const knex = require('knex')({
 });
 
 if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
-  config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
+  config.socketPath = `/cloudsql/foodapp-221804:us-east1:cookbook`;
 }
 //REGISTER A NEW ACCOUNT
 router.post('/api/1', function(request, response){
