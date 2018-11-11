@@ -40,7 +40,7 @@ router.get('/guestportal', function(req, res, next) {
       });
       var results = await response.json()
     }
-    console.log(results)
+    console.log(results);
     res.render('home', {params: {user: "Guest", db: results}, title: 'Home'});
 });
 
@@ -77,7 +77,7 @@ const config = {
   user: 'root',
   password: 'noSQLisbetter93',
   database: 'db',
-  socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
+  // socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
 };
 
 console.log(config);
