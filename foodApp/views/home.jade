@@ -81,7 +81,7 @@ block content
                             tbody
                                 tr.header
                                     th Name
-                                each food in #{params.foodDB.homemade_food}
+                                each food in #{params.db.homemade_food}
                                     tr
                                         td(onclick='echoPrint(#{food.food_id})')= food.food_name
                                         td 
