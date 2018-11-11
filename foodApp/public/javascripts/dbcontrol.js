@@ -1,4 +1,5 @@
 var sections = ["landingmessage", "premadefood", "recipes", "ingredients"]
+var btns = ["pmbtn", "rbtn", "ibtn"]
 
 function SectionSwap() {
     for(var i = 0; i < sections.length; i++) {
@@ -10,11 +11,22 @@ function SectionSwap() {
             element.classList.add("this-is-hidden")
         }
     }
+    for(var i = 0; i < btns.length; i++) {
+        var element = document.getElementById(sections[i]);
+        if(element.classList.contains("is-active")) {
+            
+        }
+        else {
+            element.classList.add("is-active")
+        }
+    }
 }
 
 function PremadeFood() {
     SectionSwap();
     var section = document.getElementById("premadefood");
+    var btn = document.getElementById("pmbtn");
+    btn.classList.add("is-active");
     section.classList.remove("this-is-hidden");
     document.location.href = "#premadefood";
 }
@@ -22,6 +34,8 @@ function PremadeFood() {
 function Recipes() {
     SectionSwap();
     var section = document.getElementById("recipes");
+    var btn = document.getElementById("rbtn");
+    btn.classList.add("is-active");
     section.classList.remove("this-is-hidden");
     document.location.href = "#recipes";
 }
@@ -29,6 +43,8 @@ function Recipes() {
 function Ingredients() {
     SectionSwap();
     var section = document.getElementById("ingredients");
+    var btn = document.getElementById("ibtn");
+    btn.classList.add("is-active");
     section.classList.remove("this-is-hidden");
     document.location.href = "#ingredients";
 }
