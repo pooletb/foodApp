@@ -88,7 +88,7 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
 
 function IndexOf(id, db) {
   for(var i = 0; i < db.length; i++) {
-    if(db[i].food_ID === id) {
+    if(db[i].food_ID == id) {
       return i
     }
   }
