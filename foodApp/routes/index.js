@@ -44,7 +44,7 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
 .then(() => {
 for(var i = 0; i < premade_food.length; i++) {
   premade_food.containsAllergen = [];
-  knex('premade_food').where('food_ID', premade_food[i].food_ID).innerJoin('premade_contains', 'premade_food.foodID', 'premade_contains.food_ID')
+  knex('premade_food').where('premade_food.food_ID', premade_food[i].food_ID).innerJoin('premade_contains', 'premade_food.foodID', 'premade_contains.food_ID')
   .then((result) => {
     for(var e = 0; e < result.length; e++) {
       premade_food[i].containsAllergen.push(result[e].allergen_name)
