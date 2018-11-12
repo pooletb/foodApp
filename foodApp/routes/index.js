@@ -47,13 +47,12 @@ for(var i = 0; i < premade_food.length; i++) {
   var containsAllergens = [];
   knex('premade_food').where('premade_food.food_ID', premade_food[i].food_ID).innerJoin('premade_contains', 'premade_food.food_ID', 'premade_contains.food_ID')
   .then((result) => {
-    resultHold = result;
+    for(var e = 0; e < resultHold.length; e++) {
+      containsAllergens.push(resultHold[e].allergen_name)
+    }
+    premade_food[i].containsAllergens = containsAllergens
+    console.log(premade_food)
   })
-  for(var e = 0; e < resultHold.length; e++) {
-    containsAllergens.push(resultHold[e].allergen_name)
-  }
-  premade_food[i].containsAllergens = containsAllergens
-  console.log(premade_food)
 }
 });
 
