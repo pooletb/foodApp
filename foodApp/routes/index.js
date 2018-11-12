@@ -129,7 +129,6 @@ knex.from('homemade_food')
       var index = IndexOf(homemade_food_ingredients[i].food_ID, hmfDBFull)
       hmfDBFull[index].ingredients.push(ingredient)
     }
-    console.log(hmfDBFull);
     console.log(hmfDBFull[0].ingredients)
   })
 })
