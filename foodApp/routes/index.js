@@ -47,24 +47,24 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
 .then(() => {
   for(var i = 0; i < premade_food.length; i++) {
     var pmf = {}
+    pmf.food_ID = premade_food[i].food_ID;
+    pmf.food_name = premade_food[i].food_name
+    pmf.serving_size = premade_food[i].serving_size
+    pmf.servings = premade_food[i].servings
+    pmf.calories = premade_food[i].calories
+    pmf.fat_calories = premade_food[i].fat_calories
+    pmf.sat_fat = premade_food[i].sat_fat
+    pmf.trans_fat = premade_food[i].trans_fat
+    pmf.total_fat = premade_food[i].total_fat
+    pmf.cholesterol = premade_food[i].cholesterol
+    pmf.sodium = premade_food[i].sodium
+    pmf.diet_fiber = premade_food[i].diet_fiber
+    pmf.sugars = premade_food[i].sugars
+    pmf.total_carbs = premade_food[i].total_carbs
+    pmf.protein = premade_food[i].protein
+    pmf.category = premade_food[i].category
+    pmf.manufacturer_name = premade_food[i].manufacturer_name
     pmf.containsAllergens = []
-    pmf.food_ID = premade_food.food_ID;
-    pmf.food_name = premade_food.food_name
-    pmf.serving_size = premade_food.serving_size
-    pmf.servings = premade_food.servings
-    pmf.calories = premade_food.calories
-    pmf.fat_calories = premade_food.fat_calories
-    pmf.sat_fat = premade_food.sat_fat
-    pmf.trans_fat = premade_food.trans_fat
-    pmf.total_fat = premade_food.total_fat
-    pmf.cholesterol = premade_food.cholesterol
-    pmf.sodium = premade_food.sodium
-    pmf.diet_fiber = premade_food.diet_fiber
-    pmf.sugars = premade_food.sugars
-    pmf.total_carbs = premade_food.total_carbs
-    pmf.protein = premade_food.protein
-    pmf.category = premade_food.category
-    pmf.manufacturer_name = premade_food.manufacturer_name
     pmfDBFull.push(pmf)
   }
 })
@@ -77,7 +77,7 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
 .then(() => {
   for(var i = 0; i < premade_food_allergens.length; i++) {
     var index = IndexOf(premade_food.food_ID,pmfDBFull)
-    pmfDBFull[index].containsAllergens.push(premade_food.allergen_name)
+    pmfDBFull[index].containsAllergens.push(premade_food_allergens[i].allergen_name)
   }
   console.log(pmfDBFull);
 })
