@@ -18,7 +18,7 @@ const config = {
   user: 'root',
   password: 'noSQLisbetter93',
   database: 'db',
-  socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
+  // socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
 };
 
 const knex = require('knex')({
@@ -31,23 +31,39 @@ premade_food = [];
 homemade_food = [];
 ingredients = [];
 
-knex('premade_food').select()
+// knex('premade_food').select()
+// .then((result) => {
+//   console.log(result);
+//   premade_food = result;
+// })
+
+knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.food_ID')
 .then((result) => {
-  console.log(result);
   premade_food = result;
 })
 
+for(var i = 0; i < premade_food.length; i++) {
+  premade_food.containsAllergen = [];
+  knex('premade_food').where('food_ID', premade_food[i].food_ID).innerJoin('premade_contains', 'premade_food.foodID', 'premade_contains.food_ID')
+  .then((result) => {
+    for(var e = 0; e < result.length; e++) {
+      premade_food[i].containsAllergen.push(result[e].allergen_name)
+    }
+  })
+}
+
+
 knex('homemade_food').select()
 .then((result) => {
-  console.log(result[1]);
   homemade_food = result;
 })
 
 knex('ingredients').select()
 .then((result) => {
-  console.log(result[1]);
   ingredients = result;
 })
+
+
 
 //ROUTING INFORMATION FOLLOWS
 router.get('/', function(req, res, next) {
@@ -65,6 +81,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
+  console.log(this.premade_food)
   res.render('home', {params: {user: "Guest", pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
 });
 
