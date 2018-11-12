@@ -278,7 +278,7 @@ block content
                             td.blank-cell
                             th Saturated Fat
                             td Less than
-                            td 20gs
+                            td 20g
                             td 25g
                           tr
                             th(colspan='2') Cholesterol
@@ -347,7 +347,7 @@ block content
                                         td
                                             i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
 
-                each food in params.pmDB
+            each food in params.pmDB
                     - var total_fatDV = ((food.total_fat / 65) * 100) + ' %'
                     - var sat_fatDV = (((food.sat_fat + food.trans_fat) / 20) * 100) + ' %'
                     - var cholesterolDV = ((food.cholesterol / 300) * 100) + ' %'
