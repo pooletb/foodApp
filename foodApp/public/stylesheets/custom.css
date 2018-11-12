@@ -185,6 +185,9 @@ p {
 .text-center {
   text-align: center;
 }
+.font-black{
+  color: black;
+}
 .thick-end {
   border-bottom: 10px solid black;
 }
