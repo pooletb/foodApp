@@ -70,7 +70,7 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
 })
 .then(() => {
   knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.food_ID')
-  .rightOuterJoin('premade_contains', 'made_by.food_ID', 'premade_contains.food_ID')
+  .rightJoin('premade_contains', 'made_by.food_ID', 'premade_contains.food_ID')
   .then((result) => {
     premade_food_allergens = result;
   })
@@ -78,8 +78,8 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
     for(var i = 0; i < premade_food_allergens.length; i++) {
       var index = IndexOf(premade_food.food_ID,pmfDBFull)
       console.log(pmfDBFull[i])
-      
-      // pmfDBFull[index].containsAllergens.push(premade_food_allergens[i].allergen_name)
+      console.log(index);
+      pmfDBFull[index].containsAllergens.push(premade_food_allergens[i].allergen_name)
     }
     console.log(pmfDBFull);
   })
