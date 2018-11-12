@@ -60,14 +60,26 @@ function echoPrint(value) {
 } 
 
 function OpenInfo(id, db) {
-    console.log(id);
-    var modal = document.getElementById(id)
+    var prefix
+    if (db == 1) {
+        prefix = "pm"
+    }
+    else if (db == 2) {
+        prefix = "hf"
+    }
+    var modal = document.getElementById(prefix + id)
     modal.classList.add("is-active");
 }
 
 function CloseInfo(id, db) {
-    console.log(id);
-    var modal = document.getElementById(id)
+    var prefix
+    if (db == 1) {
+        prefix = "pm"
+    }
+    else if (db == 2) {
+        prefix = "hf"
+    }
+    var modal = document.getElementById(prefix + id)
     modal.classList.remove("is-active");
 }
 

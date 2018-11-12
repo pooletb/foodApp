@@ -39,12 +39,6 @@ hmfDBFull = []
 ingredients = [];
 resultHold = [];
 
-// knex('premade_food').select()
-// .then((result) => {
-//   console.log(result);
-//   premade_food = result;
-// })
-
 knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.food_ID')
 .then((result) => {
   premade_food = result;
@@ -195,7 +189,7 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     var dPass = decrypt(ePass)
 
     if(ptPass === dPass) {
-      res.render('home', {params: {user: username, pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
+      res.render('home', {params: {user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients}, title: 'Home'});
     }
     else {
       res.render('registration_landing', { title: 'Register Today' });

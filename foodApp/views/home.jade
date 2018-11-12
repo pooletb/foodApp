@@ -99,11 +99,7 @@ block content
                                     th Name
                                 each food in params.hfDB
                                     tr
-                                        td(onclick='echoPrint(#{food.food_ID})')= food.food_name
-                                        td
-                                            i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
-                                        td
-                                            i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
+                                        td(onclick='OpenInfo(#{food.food_ID},2)')= food.food_name
 
             div.this-is-hidden#ingredients
                 article.message.is-success
@@ -126,10 +122,6 @@ block content
                                 each ingredient in params.iDB
                                     tr
                                         td(onclick='echoPrint(#{ingredient.ingredient_ID})')= ingredient.ingredient_name
-                                        td
-                                            i.far.fa-smile(onclick='echoPrint(#{ingredient.ingredient_ID})')
-                                        td
-                                            i.far.fa-heart(onclick='echoPrint(#{ingredient.ingredient_ID})')
 
 
             div.this-is-hidden#advanced
@@ -331,7 +323,7 @@ block content
               - var sodiumDV = ((food.sodium / 2400) * 100).toFixed(0) + ' %'
               - var total_carbsDV = ((food.total_carbs / 300) * 100).toFixed(0) + ' %'
               - var diet_fiberDV = ((food.diet_fiber / 25) * 100).toFixed(0) + ' %'
-              .modal(id="#{food.food_ID}")
+              .modal(id="pm#{food.food_ID}")
                 .modal-background
                 .modal-card
                   header.modal-card-head
@@ -535,11 +527,11 @@ block content
                     br
                     article.message.is-danger.is-fullwidth
                       .message-body
-                          strong  Be careful! This food contains the following allergens:
+                          strong  Be careful! #{food.food_name} contains the following allergens:
                     table.table.is-fullwidth.is-hoverable.is-striped#rTable
                       tbody
                           tr.header
-                              th #{food.food_name} contains the following allergens:
+                              th Allergen
                           each allergen in food.containsAllergens
                               tr
                                   td=allergen
@@ -554,5 +546,245 @@ block content
                       span Like it!
 
 
+            each food in params.hfDB
+              - var total_fatDV = ((food.total_fat / 65) * 100).toFixed(0) + ' %'
+              - var sat_fatDV = (((food.sat_fat + food.trans_fat) / 20) * 100).toFixed(0) + ' %'
+              - var cholesterolDV = ((food.cholesterol / 300) * 100).toFixed(0) + ' %'
+              - var sodiumDV = ((food.sodium / 2400) * 100).toFixed(0) + ' %'
+              - var total_carbsDV = ((food.total_carbs / 300) * 100).toFixed(0) + ' %'
+              - var diet_fiberDV = ((food.diet_fiber / 25) * 100).toFixed(0) + ' %'
+              .modal(id="hf#{food.food_ID}")
+                .modal-background
+                .modal-card
+                  header.modal-card-head
+                    p2.modal-card-title #{food.food_name}
+                    button.delete(onclick='CloseInfo(#{food.food_ID},2)')
+                  .modal-card-body
+                    section.performance-facts.xl
+                      header.performance-facts__header
+                        h1.performance-facts__title Nutrition Facts
+                        p2
+                          | Serving Size #{food.serving_size}g
+                        p2 Serving Per Container #{food.servings}
+                      table.performance-facts__table
+                        thead
+                          tr
+                            th.small-info(colspan='3')
+                              | Amount Per Serving
+                        tbody
+                          tr
+                            th(colspan='2')
+                              b Calories
+                              |           
+                              a.font-black=food.calories
+                            td
+                              | Calories from Fat
+                              | 
+                              a.font-black=food.fat_calories
+                          tr.thick-row
+                            td.small-info(colspan='3')
+                              b % Daily Value*
+                          tr
+                            th(colspan='2')
+                              b Total Fat
+                              |          
+                              a.font-black=food.total_fat
+                              a.font-black g
+                            td
+                              b=total_fatDV
+                          tr
+                            td.blank-cell
+                            th
+                              | Saturated Fat
+                              | 
+                              a.font-black=food.sat_fat
+                              a.font-black g
+                            td
+                              b=sat_fatDV
+                          tr
+                            td.blank-cell
+                            th
+                              | Trans Fat
+                              | 
+                              a.font-black=food.trans_fat
+                              a.font-black g
+                            td
+                          tr
+                            th(colspan='2')
+                              b Cholesterol
+                              |           
+                              a.font-black=food.cholesterol
+                              a.font-black mg
+                            td
+                              b=cholesterolDV
+                          tr
+                            th(colspan='2')
+                              b Sodium
+                              |           
+                              a.font-black=food.sodium
+                              a.font-black mg
+                            td
+                              b=sodiumDV
+                          tr
+                            th(colspan='2')
+                              b Total Carbohydrate
+                              |           
+                              a.font-black=food.total_carbs
+                              a.font-black g
+                            td
+                              b=total_carbsDV
+                          tr
+                            td.blank-cell
+                            th
+                              | Dietary Fiber
+                              | 
+                              a.font-black=food.diet_fiber
+                              a.font-black g
+                            td
+                              b=diet_fiberDV
+                          tr
+                            td.blank-cell
+                            th
+                              | Sugars
+                              | 
+                              a.font-black=food.sugars
+                              a.font-black g
+                            td
+                          tr.thick-end
+                            th(colspan='2')
+                              b Protein
+                              |           
+                              a.font-black=food.protein
+                              a.font-black g
+                            td
+                      table.performance-facts__table--grid
+                        tbody
+                          tr
+                            td(colspan='2')
+                              | Vitamin A
+                              | N/A
+                            td
+                              | Vitamin C
+                              | N/A
+                          tr.thin-end
+                            td(colspan='2')
+                              | Calcium
+                              | N/A
+                            td
+                              | Iron
+                              | N/A
+                      p2.small-info
+                        | * Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:
+                      table.performance-facts__table--small.small-info
+                        thead
+                          tr
+                            td(colspan='2')
+                            th Calories:
+                            th 2,000
+                            th 2,500
+                        tbody
+                          tr
+                            th(colspan='2') Total Fat
+                            td Less than
+                            td 65g
+                            td 80g
+                          tr
+                            td.blank-cell
+                            th Saturated Fat
+                            td Less than
+                            td 20g
+                            td 25g
+                          tr
+                            th(colspan='2') Cholesterol
+                            td Less than
+                            td 300mg
+                            td 300 mg
+                          tr
+                            th(colspan='2') Sodium
+                            td Less than
+                            td 2,400mg
+                            td 2,400mg
+                          tr
+                            th(colspan='3') Total Carbohydrate
+                            td 300g
+                            td 375g
+                          tr
+                            td.blank-cell
+                            th(colspan='2') Dietary Fiber
+                            td 25g
+                            td 30g
+                      p2.small-info
+                        | Calories per gram:
+                      p2.small-info.text-center
+                        | Fat 9
+                        | •
+                        | Carbohydrate 4
+                        | •
+                        | Protein 4
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    br
+                    article.message.is-success
+                      .message-body
+                          strong  #{food.food_name} contains the following ingredients:
+                    table.table.is-fullwidth.is-hoverable.is-striped#rTable
+                      tbody
+                          tr.header
+                              th Ingredient
+                              th Amount
+                          each ingredient in food.ingredients
+                              tr
+                                  td=ingredient.ingredient_name
+                                  td=ingredient.measurement
+                    article.message.is-danger
+                      .message-body
+                          strong  Be careful! #{food.food_name} contains the following allergens:
+                    table.table.is-fullwidth.is-hoverable.is-striped#rTable
+                      tbody
+                          tr.header
+                              th Allergen
+                          each allergen in food.containsAllergens
+                              tr
+                                  td=allergen
+                  footer.modal-card-foot
+                    a.button.is-large.is-fullwidth.is-danger
+                      span.icon.is-medium
+                        i.far.fa-heart
+                      span Love it!
+                    a.button.is-large.is-fullwidth.is-success
+                      span.icon.is-medium
+                        i.far.fa-smile
+                      span Like it!
 
     script(src="/javascripts/dbcontrol.js")
