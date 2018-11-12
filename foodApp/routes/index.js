@@ -112,6 +112,7 @@ knex.from('homemade_food')
     pmf.category = premade_food[i].category
     pmf.containsAllergens = []
     pmf.ingredients = []
+    pmf.ingredients.measurement = ""
     hmfDBFull.push(pmf)
   }
 })
