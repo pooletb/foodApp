@@ -183,7 +183,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-  console.log(this.hmfDB);
+  console.log(this.hmfDBFull);
   res.render('home', {params: {user: "Guest", pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
 });
 
