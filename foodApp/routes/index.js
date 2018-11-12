@@ -128,7 +128,7 @@ knex.from('homemade_food')
       hmfDBFull[index].ingredients[hmfDBFull[index].ingredients.length - 1].measurement = homemade_food_ingredients[i].ingredient_name;
     }
     console.log(hmfDBFull);
-    console.log(hmfDBFull[index].ingredients[1].measurement)
+    console.log(hmfDBFull[index].ingredients[0].measurement)
   })
 })
 
