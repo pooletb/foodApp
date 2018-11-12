@@ -84,7 +84,6 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
       var index = IndexOf(premade_food_allergens[i].food_ID, pmfDBFull)
       pmfDBFull[index].containsAllergens.push(premade_food_allergens[i].allergen_name)
     }
-    console.log(pmfDBFull);
   })
 })
 
