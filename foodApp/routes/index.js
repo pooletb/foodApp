@@ -116,7 +116,7 @@ knex.from('homemade_food')
   }
 })
 .then(() => {
-  knex.from('homemade_food').innerJoin('made_with', 'hoememade.food_ID', 'made_with.food_ID')
+  knex.from('homemade_food').innerJoin('made_with', 'hoememade_foodfood_ID', 'made_with.food_ID')
   .then((result) => {
     homemade_food_ingredients = result;
   })
