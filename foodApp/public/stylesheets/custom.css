@@ -101,6 +101,12 @@ body {
 p {
   margin: 0;
 }
+
+.nutritionInput {
+  width:10%;
+  border: 0px;
+}
+
 .performance-facts {
   border: 1px solid black;
   margin: 20px;
