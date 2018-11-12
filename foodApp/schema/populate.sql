@@ -40,5 +40,6 @@ INSERT INTO ingredients VALUES (4, "pepper", 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, "s
 INSERT INTO ingredients VALUES (5, "raw chicken", 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, "murder");
 INSERT INTO ingredients VALUES (6, "dog food", 6.1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, "trash");
 INSERT INTO measurements VALUES (1);
+
 INSERT INTO made_with VALUES (1, 3, 1);
 INSERT INTO made_with VALUES (1, 6, 1);

@@ -111,7 +111,7 @@ knex.from('homemade_food')
     pmf.protein =  homemade_food[i].protein
     pmf.category = homemade_food[i].category
     pmf.containsAllergens = []
-    pmf.ingredients = []
+    pmf.ingredients = [{}]
     hmfDBFull.push(pmf)
   }
 })
