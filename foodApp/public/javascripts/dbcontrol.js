@@ -50,6 +50,16 @@ function echoPrint(value) {
     console.log(value);
 } 
 
+function OpenInfo(id, db) {
+    var modal = document.getElementById('pm' + id)
+    modal.classList.add("is-active");
+}
+
+function CloseInfo(id, db) {
+    var modal = document.getElementById('pm' + id)
+    modal.classList.remove("is-active");
+}
+
 function myFunction(num) {
     if (num === 1) {
         // Declare variables 
