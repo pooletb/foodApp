@@ -77,8 +77,8 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
   .then(() => {
     for(var i = 0; i < premade_food_allergens.length; i++) {
       var index = IndexOf(premade_food.food_ID,pmfDBFull)
-      console.log(pmfDBFull)
-      pmfDBFull[index].containsAllergens = []
+      console.log(pmfDBFull[index].containsAllergens)
+      
       pmfDBFull[index].containsAllergens.push(premade_food_allergens[i].allergen_name)
     }
     console.log(pmfDBFull);
