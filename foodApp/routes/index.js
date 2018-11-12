@@ -49,10 +49,10 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
         containsAllergens.push(result[e].allergen_name)
       }
     })
+    premade_food[i].containsAllergens = containsAllergens
     setTimeout(function() {
       console.log(i);
     }, 500);
-    premade_food[i].containsAllergens = containsAllergens
   }
 });
 
