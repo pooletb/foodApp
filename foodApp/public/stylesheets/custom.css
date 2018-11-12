@@ -124,6 +124,7 @@ p2 {
 
 .performance-facts.xl {
   border: 1px solid black;
+  margin: 0px;
   float: left;
   width: 345px;
   padding: 0.5rem;
