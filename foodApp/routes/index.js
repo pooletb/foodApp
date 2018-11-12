@@ -48,6 +48,7 @@ for(var i = 0; i < premade_food.length; i++) {
   .then((result) => {
     for(var e = 0; e < result.length; e++) {
       premade_food[i].containsAllergen.push(result[e].allergen_name)
+      console.log(premade_food);
     }
   })
 }
@@ -81,7 +82,6 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-  console.log(this.premade_food)
   res.render('home', {params: {user: "Guest", pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
 });
 
