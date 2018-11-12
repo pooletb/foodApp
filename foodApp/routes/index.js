@@ -183,8 +183,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-  console.log(this.hmfDBFull);
-  res.render('home', {params: {user: "Guest", pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
+  res.render('home', {params: {user: "Guest", pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients}, title: 'Home'});
 });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
