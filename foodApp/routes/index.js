@@ -48,7 +48,7 @@ for(var i = 0; i < premade_food.length; i++) {
   .then((result) => {
     for(var e = 0; e < result.length; e++) {
       containsAllergens.push(result[e].allergen_name)
-      premade_food[1].containsAllergens = containsAllergens
+      premade_food[4].containsAllergens = containsAllergens
       console.log(premade_food);
     }
   })
