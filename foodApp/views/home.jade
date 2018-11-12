@@ -524,14 +524,16 @@ block content
                             | Carbohydrate 4
                             | •
                             | Protein 4
-                    a.font-black #{food.food_name} contains the following allergens:
-                    table.table.is-fullwidth.is-hoverable.is-striped#rTable
-                      tbody
-                          tr.header
-                              th Name
-                          each allergen in food.containsAllergens
-                              tr
-                                  td= allergen_name
+                    //- .card-content
+                    //-   .content
+                    //-     a.font-black #{food.food_name} contains the following allergens:
+                    //-     table.table.is-fullwidth.is-hoverable.is-striped#rTable
+                    //-       tbody
+                    //-           tr.header
+                    //-               th Name
+                    //-           each allergen in food.containsAllergens
+                    //-               tr
+                    //-                   td= allergen_name
                     footer.card-footer
                       a.card-footer-item(href='#') Save
                       a.card-footer-item(href='#') Edit
