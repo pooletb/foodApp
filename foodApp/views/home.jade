@@ -15,11 +15,11 @@ block content
             ul.menu-list
                 li
                     a#pmbtn(onclick='PremadeFood()') Premade Food
-                li 
+                li
                     a#rbtn(onclick='Recipes()') Recipes
-                li 
+                li
                     a#ibtn(onclick='Ingredients()') Ingredients
-                li 
+                li
                     a(onclick='AdvancedSearch()') Advanced Search
             .changeme
                 p.menu-label Calculate Your Nutrition
@@ -43,14 +43,14 @@ block content
                     a Submit a Premade Food
                 li
                     a Submit a New Recipe
-        
+
         div.column
 
             article.message.is-success#landingmessage
                 .message-body
-                    | Welcome, please navigate using the sidebar, 
+                    | Welcome, please navigate using the sidebar,
                     strong our database is still under construction
-                    | , we are adding new things everyday, and even allow registered users to submit their own recipes, 
+                    | , we are adding new things everyday, and even allow registered users to submit their own recipes,
                     a for free.
                     |  So, if you have not already please take the time to register an account,
                     em it couldn't be easier
@@ -59,11 +59,11 @@ block content
             div.this-is-hidden#premadefood
                 article.message.is-success
                     .message-body
-                        | Here you will find every premade food option that is in our database. 
+                        | Here you will find every premade food option that is in our database.
                         strong  Selecting an entry will bring up the nutritional information for that food.
                         |   All nutritional information is provided
                         a by the manufacturer,
-                        |  for your convenince.  If you know what you're looking for, 
+                        |  for your convenince.  If you know what you're looking for,
                         em you can even search the database with the searchbar below
                 div
                     .control.has-icons-left.is-large.is-loading#pSearchController
@@ -77,19 +77,19 @@ block content
                                 each food in params.pmDB
                                     tr
                                         td(onclick='echoPrint(#{food.food_ID})')= food.food_name
-                                        td 
+                                        td
                                             i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
                                         td
                                             i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
-       
+
             div.this-is-hidden#recipes
                 article.message.is-success
                     .message-body
-                        | Here you will find every recipe that is in our database. 
+                        | Here you will find every recipe that is in our database.
                         strong  Selecting an entry will bring up the nutritional information for that recipe.
-                        |   All nutritional information is derived 
+                        |   All nutritional information is derived
                         a from the sum of the ingredients,
-                        |  for your convenince.  If you know what you're looking for, 
+                        |  for your convenince.  If you know what you're looking for,
                         em you can even search the database with the searchbar below
                 div
                     .control.has-icons-left.is-large.is-loading#rSearchController
@@ -103,7 +103,7 @@ block content
                                 each food in params.hfDB
                                     tr
                                         td(onclick='echoPrint(#{food.food_ID})')= food.food_name
-                                        td 
+                                        td
                                             i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
                                         td
                                             i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
@@ -111,11 +111,11 @@ block content
             div.this-is-hidden#ingredients
                 article.message.is-success
                     .message-body
-                        | Here you will find every ingredient that is used in a recipe on our database. 
+                        | Here you will find every ingredient that is used in a recipe on our database.
                         strong  Selecting an entry will bring up the nutritional information for that ingredient.
                         |   All ingredient nutritional information is calculated
                         a by the gram,
-                        |  for your convenince.  If you know what you're looking for, 
+                        |  for your convenince.  If you know what you're looking for,
                         em you can even search the database with the searchbar below
                 div
                     .control.has-icons-left.is-large.is-loading#iSearchController
@@ -129,7 +129,7 @@ block content
                                 each ingredient in params.iDB
                                     tr
                                         td(onclick='echoPrint(#{ingredient.ingredient_ID})')= ingredient.ingredient_name
-                                        td 
+                                        td
                                             i.far.fa-smile(onclick='echoPrint(#{ingredient.ingredient_ID})')
                                         td
                                             i.far.fa-heart(onclick='echoPrint(#{ingredient.ingredient_ID})')
@@ -137,14 +137,159 @@ block content
 
             div#advanced
                 article.message.is-success
-                    .message-body 
+                    .message-body
                         strong  Welcome to Advanced Search!
-                        |   Any query imaginable should be able to be perfordmed here
+                        |   Any query imaginable can be able to be performed here
                 div.columns
                     div.column
                         button.button.is-dark.is-fullwidth.is-large Premade Food
                     div.column
                         button.button.is-dark.is-fullwidth.is-large Recipes
+
+                    img.image(src='https://s.cdpn.io/3/NutritionFacts.gif')
+                    section.performance-facts
+                      header.performance-facts__header
+                        h1.performance-facts__title Nutrition Facts
+                        p
+                          | Serving Size 1/2 cup (about 82g)
+                        p Serving Per Container 8
+                      table.performance-facts__table
+                        thead
+                          tr
+                            th.small-info(colspan='3')
+                              | Amount Per Serving
+                        tbody
+                          tr
+                            th(colspan='2')
+                              b Calories
+                              |           200
+                            td
+                              | Calories from Fat
+                              | 130
+                          tr.thick-row
+                            td.small-info(colspan='3')
+                              b % Daily Value*
+                          tr
+                            th(colspan='2')
+                              b Total Fat
+                              |           14g
+                            td
+                              b 22%
+                          tr
+                            td.blank-cell
+                            th
+                              | Saturated Fat
+                              | 9g
+                            td
+                              b 22%
+                          tr
+                            td.blank-cell
+                            th
+                              | Trans Fat
+                              | 0g
+                            td
+                          tr
+                            th(colspan='2')
+                              b Cholesterol
+                              |           55mg
+                            td
+                              b 18%
+                          tr
+                            th(colspan='2')
+                              b Sodium
+                              |           40mg
+                            td
+                              b 2%
+                          tr
+                            th(colspan='2')
+                              b Total Carbohydrate
+                              |           17g
+                            td
+                              b 6%
+                          tr
+                            td.blank-cell
+                            th
+                              | Dietary Fiber
+                              | 1g
+                            td
+                              b 4%
+                          tr
+                            td.blank-cell
+                            th
+                              | Sugars
+                              | 14g
+                            td
+                          tr.thick-end
+                            th(colspan='2')
+                              b Protein
+                              |           3g
+                            td
+                      table.performance-facts__table--grid
+                        tbody
+                          tr
+                            td(colspan='2')
+                              | Vitamin A
+                              | 10%
+                            td
+                              | Vitamin C
+                              | 0%
+                          tr.thin-end
+                            td(colspan='2')
+                              | Calcium
+                              | 10%
+                            td
+                              | Iron
+                              | 6%
+                      p.small-info
+                        | * Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:
+                      table.performance-facts__table--small.small-info
+                        thead
+                          tr
+                            td(colspan='2')
+                            th Calories:
+                            th 2,000
+                            th 2,500
+                        tbody
+                          tr
+                            th(colspan='2') Total Fat
+                            td Less than
+                            td 65g
+                            td 80g
+                          tr
+                            td.blank-cell
+                            th Saturated Fat
+                            td Less than
+                            td 20g
+                            td 25g
+                          tr
+                            th(colspan='2') Cholesterol
+                            td Less than
+                            td 300mg
+                            td 300 mg
+                          tr
+                            th(colspan='2') Sodium
+                            td Less than
+                            td 2,400mg
+                            td 2,400mg
+                          tr
+                            th(colspan='3') Total Carbohydrate
+                            td 300g
+                            td 375g
+                          tr
+                            td.blank-cell
+                            th(colspan='2') Dietary Fiber
+                            td 25g
+                            td 30g
+                      p.small-info
+                        | Calories per gram:
+                      p.small-info.text-center
+                        | Fat 9
+                        | •
+                        | Carbohydrate 4
+                        | •
+                        | Protein 4
+
+
 
                 div
                     .control.has-icons-left.is-large.is-loading#rSearchController
@@ -158,7 +303,7 @@ block content
                                 each food in params.hfDB
                                     tr
                                         td(onclick='echoPrint(#{food.food_ID})')= food.food_name
-                                        td 
+                                        td
                                             i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
                                         td
                                             i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
@@ -166,4 +311,3 @@ block content
 
 
     script(src="/javascripts/dbcontrol.js")
-
