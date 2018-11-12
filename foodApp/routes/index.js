@@ -28,6 +28,7 @@ const knex = require('knex')({
 
 //GETTING A FULL LIST TO POPULATE MY TABLES
 premade_food = [];
+pmfDBFull = []
 homemade_food = [];
 ingredients = [];
 resultHold = [];
@@ -39,28 +40,51 @@ resultHold = [];
 // })
 
 knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.food_ID')
+.fullOuterJoin('premade_contains', 'made_by.food_ID', 'premade_contains.food_ID')
 .then((result) => {
   premade_food = result;
-  var i = 0
-  while(i < premade_food.length) {
-    console.log(i)
-    var containsAllergens = [];
-    knex('premade_food').where('premade_food.food_ID', premade_food[i].food_ID).innerJoin('premade_contains', 'premade_food.food_ID', 'premade_contains.food_ID')
-    .then((result) => {
-    var e = 0
-    console.log(result);
-    while(e < result.length) {
-      containsAllergens.push(result[e].allergen_name)
-      console.log(result[e].allergen_name);
-      e++;
+})
+.then(() => {
+  for(var i = 0; i < premade_food.length; i++) {
+    var pmf = {}
+    var verdict = contains(premade_food.food_ID,pmfDBFull)
+    if(verdict != false) {
+      pmfDBFull[verdict].containsAllergens.push(premade_food.allergen_name)
     }
-    console.log(containsAllergens)
-    premade_food[i].containsAllergens = containsAllergens
-    i++;
-  });
-
+    else {
+      pmf.food_ID = premade_food.food_ID;
+      pmf.food_name = premade_food.food_name
+      pmf.serving_size = premade_food.serving_size
+      pmf.servings = premade_food.servings  
+      pmf.calories = premade_food.calories  
+      pmf.fat_calories = premade_food.fat_calories
+      pmf.sat_fat = premade_food.sat_fat 
+      pmf.trans_fat = premade_food.trans_fat  
+      pmf.total_fat = premade_food.total_fat
+      pmf.cholesterol = premade_food.cholesterol
+      pmf.sodium = premade_food.sodium
+      pmf.diet_fiber = premade_food.diet_fiber
+      pmf.sugars = premade_food.sugars
+      pmf.total_carbs = premade_food.total_carbs
+      pmf.protein = premade_food.protein
+      pmf.category = premade_food.category
+      pmf.manufacturer_name = premade_food.manufacturer_name
+      pmf.containsAllergens.push(premade_food.allergen_name)
+      pmfDBFull.push(pmf)
+    }
   }
-});
+  console.log(pmfDBFull);
+})
+
+function contains(id, db) {
+  for(var i = 0; i < db.length; i++) {
+    if(db[i].food_ID === id) {
+      return i
+    }
+  }
+  return false;
+}
+
 
 
 
