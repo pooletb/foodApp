@@ -140,8 +140,11 @@ block content
                     .message-body 
                         strong  Welcome to Advanced Search!
                         |   Any query imaginable should be able to be perfordmed here
-                button.button.is-dark.is-fullwidth.is-large Premade Food
-                button.button.is-dark.is-fullwidth.is-large Recipes
+                div.columns
+                    div.column
+                        button.button.is-dark.is-fullwidth.is-large Premade Food
+                    div.column
+                        button.button.is-dark.is-fullwidth.is-large Recipes
 
                 div
                     .control.has-icons-left.is-large.is-loading#rSearchController
