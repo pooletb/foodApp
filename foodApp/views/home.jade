@@ -135,7 +135,30 @@ block content
                                             i.far.fa-heart(onclick='echoPrint(#{ingredient.ingredient_ID})')
 
 
+            div#advanced
+                article.message.is-success
+                    .message-body 
+                        strong  Welcome to Advanced Search!
+                        |   Any query imaginable should be able to be perfordmed here
+                button.buttonis-dark.is-fullwidth Premade Food
+                button.buttonis-dark.is-fullwidth Recipes
 
+                div
+                    .control.has-icons-left.is-large.is-loading#rSearchController
+                        input.input.is-large.is-fullwidth#rInput(type='text', onkeyup='myFunction(2)', placeholder='Search for names..')
+                        span.icon.is-medium.is-left
+                            i.fas.fa-search
+                        table.table.is-fullwidth.is-hoverable.is-striped#rTable
+                            tbody
+                                tr.header
+                                    th Name
+                                each food in params.hfDB
+                                    tr
+                                        td(onclick='echoPrint(#{food.food_ID})')= food.food_name
+                                        td 
+                                            i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
+                                        td
+                                            i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
 
 
 
