@@ -20,7 +20,7 @@ block content
                 li
                     a#ibtn(onclick='Ingredients()') Ingredients
                 li
-                    a(onclick='AdvancedSearch()') Advanced Search
+                    a#abtn(onclick='Advanced()') Advanced Search
             .changeme
                 p.menu-label Calculate Your Nutrition
             ul.menu-list
@@ -132,7 +132,7 @@ block content
                                             i.far.fa-heart(onclick='echoPrint(#{ingredient.ingredient_ID})')
 
 
-            div#advanced
+            div.this-is-hidden#advanced
                 article.message.is-success
                     .message-body
                         strong  Welcome to Advanced Search!

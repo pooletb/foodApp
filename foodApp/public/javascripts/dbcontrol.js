@@ -1,5 +1,5 @@
-var sections = ["landingmessage", "premadefood", "recipes", "ingredients"]
-var btns = ["pmbtn", "rbtn", "ibtn"]
+var sections = ["landingmessage", "premadefood", "recipes", "ingredients", "advanced"]
+var btns = ["pmbtn", "rbtn", "ibtn", "abtn"]
 
 function SectionSwap() {
     for(var i = 0; i < sections.length; i++) {
@@ -44,6 +44,15 @@ function Ingredients() {
     btn.classList.add("is-active");
     section.classList.remove("this-is-hidden");
     document.location.href = "#ingredients";
+}
+
+function Advanced() {
+    SectionSwap();
+    var section = document.getElementById("advanced");
+    var btn = document.getElementById("abtn");
+    btn.classList.add("is-active");
+    section.classList.remove("this-is-hidden");
+    document.location.href = "#advanced";
 }
 
 function echoPrint(value) {
