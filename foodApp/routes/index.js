@@ -129,10 +129,20 @@ knex.from('homemade_food')
       var index = IndexOf(homemade_food_ingredients[i].food_ID, hmfDBFull)
       hmfDBFull[index].ingredients.push(ingredient)
     }
-    console.log(hmfDBFull[0].ingredients)
   })
 })
-
+.then(() => {
+  knex.from('homemade_food').rightJoin('homemade_contains', 'homemade_food.food_ID', 'homemade_contains.food_ID')
+  .then((result) => {
+    homemade_food_allergens = result;
+  })
+  .then(() => {
+    for(var i = 0; i < homemade_food_allergens.length; i++) {
+      var index = IndexOf(homemade_food_allergens[i].food_ID, hmfDBFull)
+      hmfDBFull[index].containsAllergens.push(homemade_food_allergens[i].allergen_name)
+    }
+  })
+})
 
 function IndexOf(id, db) {
   for(var i = 0; i < db.length; i++) {
@@ -173,7 +183,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
-  console.log(this.premade_food);
+  console.log(this.hmfDB);
   res.render('home', {params: {user: "Guest", pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
 });
 
@@ -188,7 +198,7 @@ router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
       res.render('home', {params: {user: username, pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
     }
     else {
-        res.render('registration_landing', { title: 'Register Today' });
+      res.render('registration_landing', { title: 'Register Today' });
     }
     console.log(json)
   });
