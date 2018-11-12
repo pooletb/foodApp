@@ -40,7 +40,7 @@ resultHold = [];
 // })
 
 knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.food_ID')
-.fullOuterJoin('premade_contains', 'made_by.food_ID', 'premade_contains.food_ID')
+.leftJoin('premade_contains', 'made_by.food_ID', 'premade_contains.food_ID')
 .then((result) => {
   premade_food = result;
 })
