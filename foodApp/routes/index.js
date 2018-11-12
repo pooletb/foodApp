@@ -54,6 +54,7 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
 });
 
 
+
 knex('homemade_food').select()
 .then((result) => {
   homemade_food = result;
@@ -69,7 +70,6 @@ knex('ingredients').select()
 //ROUTING INFORMATION FOLLOWS
 router.get('/', function(req, res, next) {
     var username = req.cookies.username;
-    console.log(username)
     if (username != undefined) {
         res.render('index', { title: 'Express' });
     } else {
@@ -82,6 +82,7 @@ router.get('/home', function(req, res, next) {
 });
 
 router.get('/guestportal', function(req, res, next) {
+  console.log(this.premade_food)
   res.render('home', {params: {user: "Guest", pmDB: this.premade_food, hfDB: this.homemade_food, iDB: this.ingredients}, title: 'Home'});
 });
 
