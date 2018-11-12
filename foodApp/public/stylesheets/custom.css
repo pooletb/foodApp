@@ -23,7 +23,7 @@
 }
 
 .changeme{ 
-  background-color: hsl(141, 71%, 48%);
+  background-color: hsl(0, 0%, 21%);
   padding-top: 0.75em;
   padding-bottom: 0.75em;
   color: #fff
@@ -51,7 +51,7 @@
 
 .menu-list a {
   border-radius: 2px;
-  color: hsl(0, 0%, 21%);
+  color: hsl(141, 71%, 48%);
   display: block;
   padding: 0.5em 0.75em;
 }
