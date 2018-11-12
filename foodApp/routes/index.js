@@ -123,9 +123,11 @@ knex.from('homemade_food')
   })
   .then(() => {
     for(var i = 0; i < homemade_food_ingredients.length; i++) {
+      var ingredient = {}
+      ingredient.ingredient_name = homemade_food_ingredients[i].ingredient_name
+      ingredient.measurement = homemade_food_ingredients[i].measurement
       var index = IndexOf(homemade_food_ingredients[i].food_ID, hmfDBFull)
-      hmfDBFull[index].ingredients.push(homemade_food_ingredients[i].ingredient_name)
-      hmfDBFull[index].ingredients[hmfDBFull[index].ingredients.length - 1].measurement = homemade_food_ingredients[i].measurement;
+      hmfDBFull[index].ingredients.push(ingredient)
     }
     console.log(hmfDBFull);
     console.log(hmfDBFull[index].ingredients[hmfDBFull[index].ingredients.length - 1].measurement)
