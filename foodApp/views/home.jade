@@ -348,12 +348,12 @@ block content
                                             i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
 
             each food in params.pmDB
-                    - var total_fatDV = ((food.total_fat / 65) * 100) + ' %'
-                    - var sat_fatDV = (((food.sat_fat + food.trans_fat) / 20) * 100) + ' %'
-                    - var cholesterolDV = ((food.cholesterol / 300) * 100) + ' %'
-                    - var sodiumDV = ((food.sodium / 2400) * 100) + ' %'
-                    - var total_carbsDV = ((food.total_carbs / 300) * 100) + ' %'
-                    - var diet_fiberDV = ((food.diet_fiber / 25) * 100) + ' %'
+                    - var total_fatDV = ((food.total_fat / 65) * 100).toFixed(0) + ' %'
+                    - var sat_fatDV = (((food.sat_fat + food.trans_fat) / 20) * 100).toFixed(0) + ' %'
+                    - var cholesterolDV = ((food.cholesterol / 300) * 100).toFixed(0) + ' %'
+                    - var sodiumDV = ((food.sodium / 2400) * 100).toFixed(0) + ' %'
+                    - var total_carbsDV = ((food.total_carbs / 300) * 100).toFixed(0) + ' %'
+                    - var diet_fiberDV = ((food.diet_fiber / 25) * 100).toFixed(0) + ' %'
                     section.performance-facts
                       header.performance-facts__header
                         h1.performance-facts__title Nutrition Facts
