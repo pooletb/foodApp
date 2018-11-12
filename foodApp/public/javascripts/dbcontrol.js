@@ -56,6 +56,7 @@ function OpenInfo(id, db) {
 }
 
 function CloseInfo(id, db) {
+    console.log(id);
     var modal = document.getElementById(id)
     modal.classList.remove("is-active");
 }
