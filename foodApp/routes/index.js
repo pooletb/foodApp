@@ -49,7 +49,7 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
     .then((result) => {
     var e = 0
     console.log(result);
-    while(e < 5) {
+    while(e < result.length) {
       containsAllergens.push(result[e].allergen_name)
       console.log(result[e].allergen_name);
       e++;
@@ -57,7 +57,6 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
   });
     console.log(containsAllergens)
     premade_food[i].containsAllergens = containsAllergens
-    console.log(premade_food[i]);
     i++;
   }
 });
