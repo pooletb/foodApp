@@ -532,6 +532,7 @@ block content
                     br
                     br
                     br
+                    br
                     article.message.is-danger.is-fullwidth
                       .message-body
                           strong  Be careful! This food contains the following allergens:
@@ -543,7 +544,14 @@ block content
                               tr
                                   td=allergen
                   footer.modal-card-foot
-                    button.button.is-success ok
+                    a.button.is-large.is-fullwidth.is-danger
+                      span.icon.is-medium
+                        i.far.fa-heart
+                      span Love it!
+                    a.button.is-large.is-fullwidth.is-success
+                      span.icon.is-medium
+                        i.far.fa-smile
+                      span Like it!
 
 
 
