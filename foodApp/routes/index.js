@@ -50,8 +50,10 @@ for(var i = 0; i < premade_food.length; i++) {
       containsAllergens.push(result[e].allergen_name)
     }
   })
+  .then((result) => {
   premade_food[i].containsAllergens = containsAllergens
   console.log(premade_food)
+  });
 }
 });
 
