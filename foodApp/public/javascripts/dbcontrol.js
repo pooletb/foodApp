@@ -51,6 +51,7 @@ function echoPrint(value) {
 } 
 
 function OpenInfo(id, db) {
+    console.log(id);
     var modal = document.getElementById(id)
     modal.classList.add("is-active");
 }
