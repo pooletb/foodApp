@@ -47,7 +47,7 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
     var containsAllergens = [];
     var result = knex('premade_food').where('premade_food.food_ID', premade_food[i].food_ID).innerJoin('premade_contains', 'premade_food.food_ID', 'premade_contains.food_ID')
     var e = 0
-    while(e < result.length) {
+    while(e < 5) {
       containsAllergens.push(result[e].allergen_name)
       console.log(result[e].allergen_name);
       e++;
