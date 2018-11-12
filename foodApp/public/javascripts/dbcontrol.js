@@ -51,12 +51,12 @@ function echoPrint(value) {
 } 
 
 function OpenInfo(id, db) {
-    var modal = document.getElementById('pm' + id)
+    var modal = document.getElementById(id)
     modal.classList.add("is-active");
 }
 
 function CloseInfo(id, db) {
-    var modal = document.getElementById('pm' + id)
+    var modal = document.getElementById(id)
     modal.classList.remove("is-active");
 }
 
