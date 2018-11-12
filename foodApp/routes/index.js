@@ -94,7 +94,7 @@ knex.from('homemade_food')
 .then(() => {
   for(var i = 0; i < homemade_food.length; i++) {
     var pmf = {}
-    pmf.food_ID = premad_food[i].food_ID;
+    pmf.food_ID = homemade_food[i].food_ID;
     pmf.food_name =  homemade_food[i].food_name
     pmf.serving_size =  homemade_food[i].serving_size
     pmf.servings =  homemade_food[i].servings
