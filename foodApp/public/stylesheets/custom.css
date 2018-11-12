@@ -121,6 +121,14 @@ p2 {
   width: 320px;
   padding: 0.5rem;
 }
+
+.performance-facts.xl {
+  border: 1px solid black;
+  margin: 20px;
+  float: left;
+  width: 3350px;
+  padding: 0.5rem;
+}
 .performance-facts table {
   border-collapse: collapse;
 }
