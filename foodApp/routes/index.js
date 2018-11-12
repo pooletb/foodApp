@@ -49,6 +49,7 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
     var pmf = {}
     pmf.containsAllergens = []
     var verdict = contains(premade_food.food_ID,pmfDBFull)
+    console.log(premade_food[i])
     if(verdict != false) {
       pmfDBFull[verdict].containsAllergens.push(premade_food.allergen_name)
     }
@@ -74,7 +75,6 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
       pmfDBFull.push(pmf)
     }
   }
-  console.log(pmfDBFull);
 })
 
 function contains(id, db) {
