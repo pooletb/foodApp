@@ -34,7 +34,7 @@ pmfDBFull = []
 homemade_food = [];
 homemade_food_ingredients = [];
 homemade_food_allergens = [];
-pmfDBFull = []
+hmfDBFull = []
 
 ingredients = [];
 resultHold = [];
