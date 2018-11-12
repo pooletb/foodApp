@@ -83,6 +83,14 @@ function CloseInfo(id, db) {
     modal.classList.remove("is-active");
 }
 
+function LoveIt(user, id, db) {
+    console.log(user + " loves " + db + " " + id);
+}
+
+function LikeIt(user, id, db) {
+    console.log(user + " likes " + db + " " + id);
+}
+
 function myFunction(num) {
     if (num === 1) {
         // Declare variables 

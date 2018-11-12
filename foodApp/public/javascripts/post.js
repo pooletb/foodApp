@@ -24,8 +24,9 @@ function SendData(api, json) {
       text.classList.remove("this-is-hidden");
     }
     else if(api == 1) {
-      console.log("account created, logged in");
-      CloseModal();
+      var text = document.getElementById("registerSuccess");
+      text.classList.remove("this-is-hidden")
+      console.log("account created");
     }
 
     if(api == 2 && results.result === undefined) {
@@ -38,8 +39,8 @@ function SendData(api, json) {
       authInfo = {};
       authInfo.plaintext = results.ptPass;
       authInfo.encrypted = results.ePass;
-      window.localStorage.setItem("user", json.username);
-      window.localStorage.setItem("auth", authInfo);
+      // window.localStorage.setItem("user", json.username);
+      // window.localStorage.setItem("auth", authInfo);
       document.location.href = ("/authenticate/" + results.ptPass + "/" + results.ePass + "/" + json.username)
     }
   }

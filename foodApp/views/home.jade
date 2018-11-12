@@ -536,11 +536,11 @@ block content
                               tr
                                   td=allergen
                   footer.modal-card-foot
-                    a.button.is-large.is-fullwidth.is-danger
+                    a.button.is-large.is-fullwidth.is-danger(onclick='LoveIt(#{food.food_ID}, 1)')
                       span.icon.is-medium
                         i.far.fa-heart
                       span Love it!
-                    a.button.is-large.is-fullwidth.is-success
+                    a.button.is-large.is-fullwidth.is-success(onclick='LikeIt(#{food.food_ID}, 1)')
                       span.icon.is-medium
                         i.far.fa-smile
                       span Like it!
@@ -778,11 +778,11 @@ block content
                               tr
                                   td=allergen
                   footer.modal-card-foot
-                    a.button.is-large.is-fullwidth.is-danger
+                    a.button.is-large.is-fullwidth.is-danger(onclick='LoveIt(#{params.user}, #{food.food_ID}, 2)')
                       span.icon.is-medium
                         i.far.fa-heart
                       span Love it!
-                    a.button.is-large.is-fullwidth.is-success
+                    a.button.is-large.is-fullwidth.is-success(onclick='LikeIt(#{params.user}, #{food.food_ID}, 2)')
                       span.icon.is-medium
                         i.far.fa-smile
                       span Like it!

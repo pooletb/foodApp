@@ -176,10 +176,10 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'Home' });
 });
 
-router.get('/guestportal', function(req, res, next) {
-  console.log(pmfDBFull);
-  res.render('home', {params: {user: "Guest", pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients}, title: 'Home'});
-});
+// router.get('/guestportal', function(req, res, next) {
+//   console.log(pmfDBFull);
+//   res.render('home', {params: {user: "Guest", pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients}, title: 'Home'});
+// });
 
 router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
     var ptPass = req.params.ptPass;

@@ -11,6 +11,8 @@ block content
                 section.modal-card-body
                     h1.is-danger.this-is-hidden#userExists User already registered, please login
                     h1.is-danger.this-is-hidden#failedLogin Incorrect login attempy, please try again
+                    h1.is-danger.this-is-hidden#registerSuccess Successfully created account! Please login.
+
                     div.field
                     p.control.has-icons-left.has-icons-right
                         input.input(type="username" placeholder="Username")#username
@@ -35,9 +37,6 @@ block content
                 h1.title.has-text-centered.text-large.text-title foodApp
                 h1.title.has-text-centered.text-splash-title
                     button.button.is-large.is-inverted.is-success(onclick='OpenModal()') &nbsp; &nbsp; &nbsp; Login / Register Now &nbsp; &nbsp; &nbsp; 
-                
-                h2.subtitle.has-text-centered.text-splash-subtitle
-                    a(onclick='Guest()') Continue as Guest
 
 
 
