@@ -30,7 +30,7 @@ const knex = require('knex')({
 premade_food = [];
 homemade_food = [];
 ingredients = [];
-containsAllergens = [];
+resultHold = [];
 
 // knex('premade_food').select()
 // .then((result) => {
@@ -44,14 +44,15 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
 })
 .then(() => {
 for(var i = 0; i < premade_food.length; i++) {
+  var containsAllergens = [];
   knex('premade_food').where('premade_food.food_ID', premade_food[i].food_ID).innerJoin('premade_contains', 'premade_food.food_ID', 'premade_contains.food_ID')
   .then((result) => {
-    for(var e = 0; e < result.length; e++) {
-      containsAllergens.push(result[e].allergen_name)
-      console.log(containsAllergens)
-    }
-    premade_food[i].containsAllergens = containsAllergens
+    resultHold = result;
   })
+  for(var e = 0; e < resultHold.length; e++) {
+    containsAllergens.push(resultHold[e].allergen_name)
+  }
+  premade_food[i].containsAllergens = containsAllergens
   console.log(premade_food)
 }
 });
