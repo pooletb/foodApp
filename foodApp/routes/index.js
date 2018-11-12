@@ -28,6 +28,7 @@ const knex = require('knex')({
 
 //GETTING A FULL LIST TO POPULATE MY TABLES
 premade_food = [];
+premade_food_allergens = [];
 pmfDBFull = []
 homemade_food = [];
 ingredients = [];
@@ -40,7 +41,6 @@ resultHold = [];
 // })
 
 knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.food_ID')
-.rightOuterJoin('premade_contains', 'made_by.food_ID', 'premade_contains.food_ID')
 .then((result) => {
   premade_food = result;
 })
@@ -48,36 +48,41 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
   for(var i = 0; i < premade_food.length; i++) {
     var pmf = {}
     pmf.containsAllergens = []
-    var verdict = contains(premade_food.food_ID,pmfDBFull)
-    console.log(premade_food[i])
-    if(verdict != false) {
-      pmfDBFull[verdict].containsAllergens.push(premade_food.allergen_name)
-    }
-    else {
-      pmf.food_ID = premade_food.food_ID;
-      pmf.food_name = premade_food.food_name
-      pmf.serving_size = premade_food.serving_size
-      pmf.servings = premade_food.servings  
-      pmf.calories = premade_food.calories  
-      pmf.fat_calories = premade_food.fat_calories
-      pmf.sat_fat = premade_food.sat_fat 
-      pmf.trans_fat = premade_food.trans_fat  
-      pmf.total_fat = premade_food.total_fat
-      pmf.cholesterol = premade_food.cholesterol
-      pmf.sodium = premade_food.sodium
-      pmf.diet_fiber = premade_food.diet_fiber
-      pmf.sugars = premade_food.sugars
-      pmf.total_carbs = premade_food.total_carbs
-      pmf.protein = premade_food.protein
-      pmf.category = premade_food.category
-      pmf.manufacturer_name = premade_food.manufacturer_name
-      pmf.containsAllergens.push(premade_food.allergen_name)
-      pmfDBFull.push(pmf)
-    }
+    pmf.food_ID = premade_food.food_ID;
+    pmf.food_name = premade_food.food_name
+    pmf.serving_size = premade_food.serving_size
+    pmf.servings = premade_food.servings
+    pmf.calories = premade_food.calories
+    pmf.fat_calories = premade_food.fat_calories
+    pmf.sat_fat = premade_food.sat_fat
+    pmf.trans_fat = premade_food.trans_fat
+    pmf.total_fat = premade_food.total_fat
+    pmf.cholesterol = premade_food.cholesterol
+    pmf.sodium = premade_food.sodium
+    pmf.diet_fiber = premade_food.diet_fiber
+    pmf.sugars = premade_food.sugars
+    pmf.total_carbs = premade_food.total_carbs
+    pmf.protein = premade_food.protein
+    pmf.category = premade_food.category
+    pmf.manufacturer_name = premade_food.manufacturer_name
+    pmfDBFull.push(pmf)
   }
 })
 
-function contains(id, db) {
+knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.food_ID')
+.rightOuterJoin('premade_contains', 'made_by.food_ID', 'premade_contains.food_ID')
+.then((result) => {
+  premade_food_allergens = result;
+})
+.then(() => {
+  for(var i = 0; i < premade_food_allergens.length; i++) {
+    var index = IndexOf(premade_food.food_ID,pmfDBFull)
+    pmfDBFull[index].containsAllergens.push(premade_food.allergen_name)
+  }
+  console.log(pmfDBFull);
+})
+
+function IndexOf(id, db) {
   for(var i = 0; i < db.length; i++) {
     if(db[i].food_ID === id) {
       return i
