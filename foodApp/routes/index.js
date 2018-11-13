@@ -207,7 +207,7 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function(req, res) {
     var dUser = decrypt(eUser)
 
     if(ptPass === dPass && username === dUser) {
-      res.render('home', {params: {user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens}, man: this.manufacturers, title: 'Home'});
+      res.render('home', {params: {user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers}, title: 'Home'});
     }
     else {
       res.render('registration_landing', { title: 'Register Today' });
