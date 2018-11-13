@@ -699,6 +699,7 @@ function SuperQuery(num) {
 
         if(categories.length > 0) {
             for(var e = 0; e < phaseOne.length; e++) {
+                console.log(phaseOne.length)
                 for(var i = 0; i < categories.length; i++) {
                     var count = 0
                     console.log(phaseOne[e].category)
