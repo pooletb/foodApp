@@ -198,10 +198,8 @@ function SuperQuery(num) {
     var db
     var json = {};
     json.post = 1;
-
-    if(num == 1) {
-        async function f() {
-            const response = await fetch('/api/3', {
+    async function f() {
+        const response = await fetch('/api/3', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -209,453 +207,459 @@ function SuperQuery(num) {
                 'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify(json)
-            });
-            var results = await response.json()   
-            console.log(results) 
-        }
-        f()
-    }
-    else {
-        SendData(4,json).db;
+        });
+        var results = await response.json()
+        console.log(results)
     }
 
-    var phaseOne = db
-
-    var cals = document.getElementById('aCalsInput').value;
-    var fatCals = document.getElementById('aFatCalsInput').value;
-    var totalFat = document.getElementById('aTotalFatInput').value;
-    var satFat = document.getElementById('aSatFatInput').value;
-    var transFat = document.getElementById('aTransFatInput').value;
-    var cholesterol = document.getElementById('aCholesterolInput').value;
-    var sodium = document.getElementById('aSodiumInput').value;
-    var carbs = document.getElementById('aCarbsInput').value;
-    var dietFiber = document.getElementById('aFiberInput').value;
-    var sugars = document.getElementById('aSugarsInput').value;
-    var protein = document.getElementById('aProteinInput').value;
-
-    if (cals != "") {
-        if (cals.charAt(0) === '<') {
-            cals = cals.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (cals > db[i].calories) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (cals.charAt(0) === '>') {
-            cals = cals.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (cals < db[i].calories) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
+    var Part2 = (results) => {
+        if (num == 1) {
+            db = results.db1
         }
         else {
-            for (var i = 0; i < db.length; i++) {
-                if (cals != db[i].calories) {
+            db = results.db2
+        }
+
+        var phaseOne = db
+
+        var cals = document.getElementById('aCalsInput').value;
+        var fatCals = document.getElementById('aFatCalsInput').value;
+        var totalFat = document.getElementById('aTotalFatInput').value;
+        var satFat = document.getElementById('aSatFatInput').value;
+        var transFat = document.getElementById('aTransFatInput').value;
+        var cholesterol = document.getElementById('aCholesterolInput').value;
+        var sodium = document.getElementById('aSodiumInput').value;
+        var carbs = document.getElementById('aCarbsInput').value;
+        var dietFiber = document.getElementById('aFiberInput').value;
+        var sugars = document.getElementById('aSugarsInput').value;
+        var protein = document.getElementById('aProteinInput').value;
+
+        if (cals != "") {
+            if (cals.charAt(0) === '<') {
+                cals = cals.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (cals > db[i].calories) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
                 }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
+            }
+            else if (cals.charAt(0) === '>') {
+                cals = cals.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (cals < db[i].calories) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (cals != db[i].calories) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
                 }
             }
         }
+
+        if (fatCals != "") {
+            if (fatcals.charAt(0) === '<') {
+                fatCals = fatCals.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (fatCals > db[i].fat_calories) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (fatCals.charAt(0) === '>') {
+                fatCals = fatCals.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (fatCals < db[i].fat_calories) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (fatCals != db[i].fat_calories) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (transFat != "") {
+            if (transFat.charAt(0) === '<') {
+                transFat = transFat.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (transFat > db[i].trans_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (transFat.charAt(0) === '>') {
+                transFat = transFat.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (transFat < db[i].trans_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (transFat != db[i].trans_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (satFat != "") {
+            if (satFat.charAt(0) === '<') {
+                satFat = satFat.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (satFat > db[i].sat_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (satFat.charAt(0) === '>') {
+                satFat = satFat.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (satFat < db[i].sat_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (satFat != db[i].sat_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (totalFat != "") {
+            if (totalFat.charAt(0) === '<') {
+                totalFat = totalFat.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (totalFat > db[i].total_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (totalFat.charAt(0) === '>') {
+                totalFat = totalFat.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (totalFat < db[i].total_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (totalFat != db[i].total_fat) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (cholesterol != "") {
+            if (cholesterol.charAt(0) === '<') {
+                cholesterol = cholesterol.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (cholesterol > db[i].cholesterol) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (cholesterol.charAt(0) === '>') {
+                cholesterol = cholesterol.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (cholesterol < db[i].cholesterol) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (cholesterol != db[i].cholesterol) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (sodium != "") {
+            if (sodium.charAt(0) === '<') {
+                sodium = sodium.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (sodium > db[i].sodium) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (sodium.charAt(0) === '>') {
+                sodium = sodium.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (sodium < db[i].sodium) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (sodium != db[i].sodium) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (carbs != "") {
+            if (carbs.charAt(0) === '<') {
+                carbs = carbs.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (carbs > db[i].total_carbs) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (carbs.charAt(0) === '>') {
+                carbs = carbs.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (carbs < db[i].total_carbs) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (carbs != db[i].total_carbs) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (dietFiber != "") {
+            if (dietFiber.charAt(0) === '<') {
+                dietFiber = dietFiber.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (dietFiber > db[i].diet_fiber) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (dietFiber.charAt(0) === '>') {
+                dietFiber = dietFiber.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (dietFiber < db[i].diet_fiber) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (dietFiber != db[i].diet_fiber) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (sugars != "") {
+            if (sugars.charAt(0) === '<') {
+                sugars = sugars.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (sugars > db[i].sugars) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (sugars.charAt(0) === '>') {
+                sugars = sugars.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (sugars < db[i].sugars) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (sugars != db[i].sugars) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        if (protein != "") {
+            if (protein.charAt(0) === '<') {
+                protein = protein.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (protein > db[i].protein) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else if (protein.charAt(0) === '>') {
+                protein = protein.substr(1);
+                for (var i = 0; i < db.length; i++) {
+                    if (protein < db[i].protein) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+            else {
+                for (var i = 0; i < db.length; i++) {
+                    if (protein != db[i].protein) {
+                    }
+                    else {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== db[i]
+                        })
+                    }
+                }
+            }
+        }
+
+        console.log(phaseOne);
+
+        var ingredients = getSelectValues(document.getElementById('aIngredients'))
+        var allergens = getSelectValues(document.getElementById('aAllergens'))
+        var categories = getSelectValues(document.getElementById('aCategories'))
+
+        console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein, ingredients, allergens, categories)
+
     }
-
-    if (fatCals != "") {
-        if (fatcals.charAt(0) === '<') {
-        fatCals = fatCals.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (fatCals > db[i].fat_calories) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (fatCals.charAt(0) === '>') {
-        fatCals = fatCals.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (fatCals < db[i].fat_calories) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (fatCals != db[i].fat_calories) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (transFat != "") {
-        if (transFat.charAt(0) === '<') {
-        transFat = transFat.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (transFat > db[i].trans_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (transFat.charAt(0) === '>') {
-        transFat = transFat.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (transFat < db[i].trans_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (transFat != db[i].trans_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (satFat != "") {
-        if (satFat.charAt(0) === '<') {
-        satFat = satFat.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (satFat > db[i].sat_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (satFat.charAt(0) === '>') {
-        satFat = satFat.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (satFat < db[i].sat_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (satFat != db[i].sat_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (totalFat != "") {
-        if (totalFat.charAt(0) === '<') {
-            totalFat = totalFat.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (totalFat > db[i].total_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (totalFat.charAt(0) === '>') {
-            totalFat = totalFat.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (totalFat < db[i].total_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (totalFat != db[i].total_fat) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (cholesterol != "") {
-        if (cholesterol.charAt(0) === '<') {
-        cholesterol = cholesterol.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (cholesterol > db[i].cholesterol) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (cholesterol.charAt(0) === '>') {
-        cholesterol = cholesterol.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (cholesterol < db[i].cholesterol) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (cholesterol != db[i].cholesterol) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (sodium != "") {
-        if (sodium.charAt(0) === '<') {
-        sodium = sodium.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (sodium > db[i].sodium) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (sodium.charAt(0) === '>') {
-        sodium = sodium.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (sodium < db[i].sodium) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (sodium != db[i].sodium) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (carbs != "") {
-        if (carbs.charAt(0) === '<') {
-        carbs = carbs.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (carbs > db[i].total_carbs) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (carbs.charAt(0) === '>') {
-        carbs = carbs.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (carbs < db[i].total_carbs) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (carbs != db[i].total_carbs) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (dietFiber != "") {
-        if (dietFiber.charAt(0) === '<') {
-        dietFiber = dietFiber.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (dietFiber > db[i].diet_fiber) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (dietFiber.charAt(0) === '>') {
-        dietFiber = dietFiber.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (dietFiber < db[i].diet_fiber) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (dietFiber != db[i].diet_fiber) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (sugars != "") {
-        if (sugars.charAt(0) === '<') {
-        sugars = sugars.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (sugars > db[i].sugars) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (sugars.charAt(0) === '>') {
-        sugars = sugars.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (sugars < db[i].sugars) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (sugars != db[i].sugars) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    if (protein != "") {
-        if (protein.charAt(0) === '<') {
-        protein = protein.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (protein > db[i].protein) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else if (protein.charAt(0) === '>') {
-        protein = protein.substr(1);
-            for (var i = 0; i < db.length; i++) {
-                if (protein < db[i].protein) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-        else {
-            for (var i = 0; i < db.length; i++) {
-                if (protein != db[i].protein) {
-                }
-                else {
-                    phaseOne = phaseOne.filter(function(item) { 
-                        return item !== db[i]
-                    })                
-                }
-            }
-        }
-    }
-
-    console.log(phaseOne);
-
-    var ingredients = getSelectValues(document.getElementById('aIngredients'))
-    var allergens = getSelectValues(document.getElementById('aAllergens'))
-    var categories = getSelectValues(document.getElementById('aCategories'))
-
-    console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein, ingredients, allergens, categories)
+  f().then(Part2);
 }

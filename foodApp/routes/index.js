@@ -268,14 +268,10 @@ router.post('/api/1', function(request, response){
 //SEND PREMADE INFO
 router.post('/api/3', function(request, response){
     json = {}
-    json.db = this.pmfDBFull
+    json.db1 = this.pmfDBFull
+    json.db2 = this.hmfDBFull
     response.send(json);
 });
-
-router.post('/api/4', function(request, response){
-    json = {}
-    json.db = this.hmfDBFull
-    response.send(json);});
 
 function IndexOf(id, db) {
   for(var i = 0; i < db.length; i++) {
