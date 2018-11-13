@@ -190,7 +190,7 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function(req, res) {
     var dPass = decrypt(ePass)
     var dUser = decrypt(eUser)
 
-    if(ptPass === dPass && eUser === dUser) {
+    if(ptPass === dPass && username === dUser) {
       res.render('home', {params: {user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients}, title: 'Home'});
     }
     else {
