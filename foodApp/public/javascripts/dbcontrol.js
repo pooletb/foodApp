@@ -303,11 +303,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (fatCals != db[i].fat_calories) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
+                    }
+                    else {
                     }
                 }
             }
