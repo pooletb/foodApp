@@ -665,13 +665,17 @@ function SuperQuery(num) {
         }
 
         if(manufacturers.length != 0) {
-            for(var e = 0; e < manufacturers.length; e++) {
-                for(var i = 0; i < phaseOne; i++) {
-                    if(phaseOne[i].manufacturer_name === manufacturers[e]) {
-                        phaseOne = phaseOne.filter(function (item) {
-                            return item.manufacturer_name !== manufacturers[i]
-                        })     
+            for(var e = 0; e < phaseOne; e++) {
+                for(var i = 0; i < manufacturers; i++) {
+                var count = 0
+                    if(phaseOne[e].manufacturer_name === manufacturers[i]) {
+                        count++;
                     }
+                }
+                if(count == 0) {
+                     phaseOne = phaseOne.filter(function (item) {
+                        return item !== phaseOne[i]
+                    })    
                 }
             }
         }
