@@ -661,9 +661,11 @@ function SuperQuery(num) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             console.log(manufacturers)
             if(manufacturers.length > 0) {
+                console.log('seen')
                 for(var e = 0; e < phaseOne; e++) {
+                    console.log("seen")
                     for(var i = 0; i < manufacturers; i++) {
-                    var count = 0
+                        var count = 0
                         if(phaseOne[e].manufacturer_name === manufacturers[i]) {
                             count++;
                         }
