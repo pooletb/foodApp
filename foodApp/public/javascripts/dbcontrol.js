@@ -215,7 +215,7 @@ function SuperQuery(num) {
         results = await response.json()
     }
 
-    var Part2 = (num) => {
+    var Part2 = () => {
         if (num == 1) {
             db = results.db1
         }
@@ -658,6 +658,7 @@ function SuperQuery(num) {
         var ingredients
 
         if(num == 0) {
+            console.log("seen")
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
         }
         else {
