@@ -180,7 +180,7 @@ function myFunction(num) {
       }
   }
 
-  function SuperQuery(db) {
+  function SuperQuery(num, db) {
       var phaseOne = []
 
       var cals = document.getElementById('aCalsInput').value;
@@ -194,6 +194,14 @@ function myFunction(num) {
       var dietFiber = document.getElementById('aFiberInput').value;
       var sugars = document.getElementById('aSugarsInput').value;
       var protein = document.getElementById('aProteinInput').value;
+
+      var ingredients = document.getElementById('aIngredients').value;
+      var allergens = document.getElementById('aAllegerns').value;  
+      var categories = document.getElementById('aCategories').value;
+
+      console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein, ingredients, allergens, categories)
+
+
 
       
 

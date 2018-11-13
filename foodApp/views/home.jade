@@ -333,7 +333,7 @@ block content
                     article.message.is-info
                       .message-body
                           strong  Want a dish of all veggies?  Go for it!  Select any particuarlar ingredients you want to ensure are in your dish:
-                    .select.is-multiple
+                    .select.is-multiple#aIngredients
                       select(multiple='', size='8')
                         each item in params.iDB
                           option(value=item.ingredient_name) #{item.ingredient_name}
@@ -342,7 +342,7 @@ block content
                     article.message.is-danger
                       .message-body
                           strong  Got allergy problems?  No problem!  Select all allergens you want to explicitly exclude from your dish:  
-                    .select.is-multiple
+                    .select.is-multiple#aAllergens
                       select(multiple='', size='8')
                         each item in params.all
                           option(value=item.allergen_name) #{item.allergen_name}
@@ -351,11 +351,13 @@ block content
                     article.message.is-primary
                       .message-body
                           strong  Picky eater?  Fine by us, just select the types of foods you are actually willing to eat from the list below:
-                    .select.is-multiple
+                    .select.is-multiple#aCategories
                       select(multiple='', size='8')
                         each item in params.cat
                           option(value=item) #{item}
-
+                div.columns
+                  div.column
+                      button.button.is-success.is-fullwidth.is-large(onclick='SuperQuery(1,1)') Premade Food
 
                 div
                     .control.has-icons-left.is-large.is-loading#rSearchController
