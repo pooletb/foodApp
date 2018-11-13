@@ -48,7 +48,7 @@ block content
 
             article.message.is-success#landingmessage
                 .message-body
-                    | Welcome, please navigate using the sidebar,
+                    | Welcome, please navigate using the sidebar, 
                     strong our database is still under construction
                     | , we are adding new things everyday, and even allow registered users to submit their own recipes,
                     a for free.
@@ -316,6 +316,21 @@ block content
                                             i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
                                         td
                                             i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
+          div.column
+            .select.is-multiple
+              select(multiple='', size='8')
+                option(value='Argentina') Argentina
+                option(value='Bolivia') Bolivia
+                option(value='Brazil') Brazil
+                option(value='Chile') Chile
+                option(value='Colombia') Colombia
+                option(value='Ecuador') Ecuador
+                option(value='Guyana') Guyana
+                option(value='Paraguay') Paraguay
+                option(value='Peru') Peru
+                option(value='Suriname') Suriname
+                option(value='Uruguay') Uruguay
+                option(value='Venezuela') Venezuela
 
             each food in params.pmDB
               - var total_fatDV = ((food.total_fat / 65) * 100).toFixed(0) + ' %'
