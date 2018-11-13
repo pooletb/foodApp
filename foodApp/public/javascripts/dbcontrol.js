@@ -196,7 +196,7 @@ function myFunction(num) {
       var protein = document.getElementById('aProteinInput').value;
 
       var ingredients = document.getElementById('aIngredients').value;
-      var allergens = document.getElementById('aAllegerns').value;  
+      var allergens = document.getElementById('aAllergens').value;  
       var categories = document.getElementById('aCategories').value;
 
       console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein, ingredients, allergens, categories)
