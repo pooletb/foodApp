@@ -49,6 +49,7 @@ function SendData(api, json) {
       document.location.href = ("/authenticate/" + results.ptPass + "/" + results.ePass + "/" + json.username + "/" + results.eUser)
     }
     else {
+      console.log(results)
       return results;
     }
   }
