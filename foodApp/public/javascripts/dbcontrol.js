@@ -669,10 +669,11 @@ function SuperQuery(num) {
                         }
                     }
                     if(count == 0) {
+                        var hold = e
+                        e = 0
                         phaseOne = phaseOne.filter(function (item) {
-                            return item !== phaseOne[e]
+                            return item !== phaseOne[hold]
                         })    
-                    e = 0;
                     }
                 }
             }
@@ -692,10 +693,11 @@ function SuperQuery(num) {
                     }
                 }
                 if(count > 0) {
+                    var hold = e
+                    e = 0
                     phaseOne = phaseOne.filter(function (item) {
                         return item !== phaseOne[e]
                     })    
-                    e = 0
                 }
             }
         }
@@ -709,10 +711,11 @@ function SuperQuery(num) {
                     }
                 }
                 if(count == 0) {
+                    var hold = e
+                    e = 0
                     phaseOne = phaseOne.filter(function (item) {
                         return item !== phaseOne[e]
                     })    
-                e = 0
                 }
             }
         }
