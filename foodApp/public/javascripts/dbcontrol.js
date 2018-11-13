@@ -211,6 +211,7 @@ function SuperQuery(num, db) {
 
     if (cals != "") {
         if (cals.charAt(0) === '<') {
+            cals = cals.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (cals > db[i].calories) {
                 }
@@ -222,6 +223,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (cals.charAt(0) === '>') {
+            cals = cals.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (cals < db[i].calories) {
                 }
@@ -247,6 +249,7 @@ function SuperQuery(num, db) {
 
     if (fatCals != "") {
         if (fatcals.charAt(0) === '<') {
+        fatCals = fatCals.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (fatCals > db[i].fat_calories) {
                 }
@@ -258,6 +261,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (fatCals.charAt(0) === '>') {
+        fatCals = fatCals.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (fatCals < db[i].fat_calories) {
                 }
@@ -283,6 +287,7 @@ function SuperQuery(num, db) {
 
     if (transFat != "") {
         if (transFat.charAt(0) === '<') {
+        transFat = transFat.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (transFat > db[i].trans_fat) {
                 }
@@ -294,6 +299,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (transFat.charAt(0) === '>') {
+        transFat = transFat.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (transFat < db[i].trans_fat) {
                 }
@@ -319,6 +325,7 @@ function SuperQuery(num, db) {
 
     if (satFat != "") {
         if (satFat.charAt(0) === '<') {
+        satFat = satFat.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (satFat > db[i].sat_fat) {
                 }
@@ -330,6 +337,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (satFat.charAt(0) === '>') {
+        satFat = satFat.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (satFat < db[i].sat_fat) {
                 }
@@ -355,6 +363,7 @@ function SuperQuery(num, db) {
 
     if (totalFat != "") {
         if (totalFat.charAt(0) === '<') {
+            totalFat = totalFat.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (totalFat > db[i].total_fat) {
                 }
@@ -366,6 +375,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (totalFat.charAt(0) === '>') {
+            totalFat = totalFat.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (totalFat < db[i].total_fat) {
                 }
@@ -391,6 +401,7 @@ function SuperQuery(num, db) {
 
     if (cholesterol != "") {
         if (cholesterol.charAt(0) === '<') {
+        cholesterol = cholesterol.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (cholesterol > db[i].cholesterol) {
                 }
@@ -402,6 +413,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (cholesterol.charAt(0) === '>') {
+        cholesterol = cholesterol.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (cholesterol < db[i].cholesterol) {
                 }
@@ -427,6 +439,7 @@ function SuperQuery(num, db) {
 
     if (sodium != "") {
         if (sodium.charAt(0) === '<') {
+        sodium = sodium.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (sodium > db[i].sodium) {
                 }
@@ -438,6 +451,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (sodium.charAt(0) === '>') {
+        sodium = sodium.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (sodium < db[i].sodium) {
                 }
@@ -463,6 +477,7 @@ function SuperQuery(num, db) {
 
     if (carbs != "") {
         if (carbs.charAt(0) === '<') {
+        carbs = carbs.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (carbs > db[i].total_carbs) {
                 }
@@ -474,6 +489,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (carbs.charAt(0) === '>') {
+        carbs = carbs.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (carbs < db[i].total_carbs) {
                 }
@@ -499,6 +515,7 @@ function SuperQuery(num, db) {
 
     if (dietFiber != "") {
         if (dietFiber.charAt(0) === '<') {
+        dietFiber = dietFiber.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (dietFiber > db[i].diet_fiber) {
                 }
@@ -510,6 +527,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (dietFiber.charAt(0) === '>') {
+        dietFiber = dietFiber.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (dietFiber < db[i].diet_fiber) {
                 }
@@ -535,6 +553,7 @@ function SuperQuery(num, db) {
 
     if (sugars != "") {
         if (sugars.charAt(0) === '<') {
+        sugars = sugars.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (sugars > db[i].sugars) {
                 }
@@ -546,6 +565,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (sugars.charAt(0) === '>') {
+        sugars = sugars.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (sugars < db[i].sugars) {
                 }
@@ -571,6 +591,7 @@ function SuperQuery(num, db) {
 
     if (protein != "") {
         if (protein.charAt(0) === '<') {
+        protein = protein.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (protein > db[i].protein) {
                 }
@@ -582,6 +603,7 @@ function SuperQuery(num, db) {
             }
         }
         else if (protein.charAt(0) === '>') {
+        protein = protein.substr(1);
             for (var i = 0; i < db.length; i++) {
                 if (protein < db[i].protein) {
                 }
