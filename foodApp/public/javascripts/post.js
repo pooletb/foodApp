@@ -48,9 +48,11 @@ function SendData(api, json) {
       // window.localStorage.setItem("auth", authInfo);
       document.location.href = ("/authenticate/" + results.ptPass + "/" + results.ePass + "/" + json.username + "/" + results.eUser)
     }
-    else {
-      console.log(results)
-      return results;
+    if(api == 3) {
+      window.localStorage.setItem("pmfDB", results);
+    }
+    if(api == 4) {
+      window.localStorage.setItem("hmfDB", results);
     }
   }
   var Redirect = () => {
