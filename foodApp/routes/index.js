@@ -265,6 +265,15 @@ router.post('/api/1', function(request, response){
     });
   });
 
+//SEND PREMADE INFO
+router.post('/api/3', function(request, response){
+    response.send(this.pmfDBFull);
+});
+
+router.post('/api/4', function(request, response){
+    response.send(this.hmfDBFull);
+});
+
 function IndexOf(id, db) {
   for(var i = 0; i < db.length; i++) {
     if(db[i].food_ID == id) {

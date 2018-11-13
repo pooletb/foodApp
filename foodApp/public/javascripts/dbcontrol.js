@@ -194,7 +194,15 @@ function getSelectValues(select) {
     return result;
 }
 
-function SuperQuery(num, db) {
+function SuperQuery(num) {
+    var db
+
+    if(num == 1) {
+        db = SendData(3,1);
+    }
+    else {
+        db = SendData(4,1);
+    }
     var phaseOne = db
 
     var cals = document.getElementById('aCalsInput').value;

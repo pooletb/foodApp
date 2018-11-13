@@ -6,6 +6,12 @@ function SendData(api, json) {
   else if(api == 2) {
     apiLink = '/api/2';
   }
+  else if(api == 3) {
+    apiLink = '/api/3'
+  }
+  else if(api == 4) {
+    apiLink = '/api/3'
+  }
 
   async function f() {
     const response = await fetch(apiLink, {
