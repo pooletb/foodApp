@@ -200,10 +200,10 @@ function SuperQuery(num) {
     json.post = 1;
 
     if(num == 1) {
-        db = SendData(3,json);
+        db = SendData(3,json).db;
     }
     else {
-        db = SendData(4,json);
+        db = SendData(4,json).db;
     }
 
     var phaseOne = db
