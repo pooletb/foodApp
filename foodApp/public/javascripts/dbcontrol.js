@@ -659,11 +659,8 @@ function SuperQuery(num) {
 
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
-            console.log(manufacturers)
             if(manufacturers.length > 0) {
-                console.log('seen')
                 for(var e = 0; e < phaseOne.length; e++) {
-                    console.log("seen")
                     for(var i = 0; i < manufacturers.length; i++) {
                         var count = 0
                         if(phaseOne[e].manufacturer_name === manufacturers[i]) {
@@ -681,11 +678,44 @@ function SuperQuery(num) {
         else {
             ingredients = getSelectValues(document.getElementById('aIngredients'))
         }
+        var allergens = getSelectValues(document.getElementById('aAllergens'))
+        var categories = getSelectValues(document.getElementById('aCategories'))
+
+        if(allergens.length > 0) {
+            for(var e = 0; e < phaseOne.length; e++) {
+                for(var i = 0; i < allergens.length; i++) {
+                    var count = 0
+                    if(phaseOne[e].containsAllergens.includes(allergens[i])) {
+                        count++;
+                    }
+                }
+                if(count > 0) {
+                    phaseOne = phaseOne.filter(function (item) {
+                        return item !== phaseOne[e]
+                    })    
+                }
+            }
+        }
+
+        if(categories.length > 0) {
+            for(var e = 0; e < phaseOne.length; e++) {
+                for(var i = 0; i < categories.length; i++) {
+                    var count = 0
+                    if(phaseOne[e].category === categories[i]) {
+                        count++;
+                    }
+                }
+                if(count == 0) {
+                    phaseOne = phaseOne.filter(function (item) {
+                        return item !== phaseOne[e]
+                    })    
+                }
+            }
+        }
+
 
         console.log(phaseOne);
 
-        var allergens = getSelectValues(document.getElementById('aAllergens'))
-        var categories = getSelectValues(document.getElementById('aCategories'))
     }
   f().then(Part2);
 }
