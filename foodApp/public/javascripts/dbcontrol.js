@@ -239,7 +239,7 @@ function SuperQuery(num) {
                 cals = cals.substr(1);
                 console.log(cals)
                 for (var i = 0; i < db.length; i++) {
-                    if (cals > db[i].calories) {
+                    if (cals < db[i].calories) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -251,7 +251,7 @@ function SuperQuery(num) {
             else if (cals.charAt(0) === '>') {
                 cals = cals.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (cals < db[i].calories) {
+                    if (cals > db[i].calories) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
