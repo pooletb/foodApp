@@ -120,6 +120,7 @@ knex.from('homemade_food')
       var ingredient = {}
       ingredient.ingredient_name = homemade_food_ingredients[i].ingredient_name
       ingredient.measurement = homemade_food_ingredients[i].measurement
+      ingredient.category = homemade_food_ingredients[i].category
       var index = IndexOf(homemade_food_ingredients[i].food_ID, hmfDBFull)
       hmfDBFull[index].ingredients.push(ingredient)
     }
