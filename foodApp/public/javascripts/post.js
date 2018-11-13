@@ -52,8 +52,8 @@ function SendData(api, json) {
     }
   }
 
-  var Redirect = () => {
-    console.log("done")
+  var Redirect = (results) => {
+    return results;
   }
   f().then(Redirect);
 }
