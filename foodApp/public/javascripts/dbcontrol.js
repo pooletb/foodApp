@@ -237,24 +237,22 @@ function SuperQuery(num) {
         if (cals != "") {
             if (cals.charAt(0) === '<') {
                 cals = cals.substr(1);
-                console.log(cals)
                 for (var i = 0; i < db.length; i++) {
-                    if (cals < db[i].calories) {
+                    console.log(cals);
+                    console.log(db[i].calories);
+                    if (cals > db[i].calories) {
                     }
-                    else if (cals > db[i].calories) {
+                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
-                    }
-                    else {
-                        
                     }
                 }
             }
             else if (cals.charAt(0) === '>') {
                 cals = cals.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (cals > db[i].calories) {
+                    if (cals < db[i].calories) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
