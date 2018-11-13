@@ -213,6 +213,7 @@ function SuperQuery(num) {
             var results = await response.json()   
             console.log(results) 
         }
+        f()
     }
     else {
         SendData(4,json).db;
