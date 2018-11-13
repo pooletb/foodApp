@@ -139,13 +139,9 @@ block content
 
                 .columns
                   .column
-                    .control
-                      label.radio
-                        input(type='radio', name='answer')
-                        |     At Least:
-                      label.radio
-                        input(type='radio', name='answer')
-                        |     No Greater Than:
+                    article.message.is-warning
+                      .message-body
+                          strong  Enter the values you want.  A "<" or ">" is supported in front of a number and represent a less than or greater than respectively.  No operation indicates an exact amount.
                     section.performance-facts.xl
                           header.performance-facts__header
                             h1.performance-facts__title Nutrition Facts
