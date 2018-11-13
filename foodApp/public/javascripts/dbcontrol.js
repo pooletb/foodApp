@@ -240,7 +240,7 @@ function SuperQuery(num) {
                 for (var i = 0; i < db.length; i++) {
                     console.log(cals);
                     console.log(db[i].calories);
-                    if (cals > db[i].calories) {
+                    if (cals >= db[i].calories) {
                     }
                     else {
                         console.log('thishappened')
