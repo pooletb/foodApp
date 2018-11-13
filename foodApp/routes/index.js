@@ -18,7 +18,7 @@ const config = {
   user: 'root',
   password: 'noSQLisbetter93',
   database: 'db',
-  socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
+  // socketPath: `/cloudsql/foodapp-221804:us-east1:cookbook`
 };
 
 const knex = require('knex')({
@@ -181,14 +181,16 @@ router.get('/home', function(req, res, next) {
 //   res.render('home', {params: {user: "Guest", pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients}, title: 'Home'});
 // });
 
-router.get('/authenticate/:ptPass/:ePass/:username', function(req, res) {
+router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function(req, res) {
     var ptPass = req.params.ptPass;
     var ePass = req.params.ePass;
     var username = req.params.username;
+    var eUser = req.params.eUser
 
     var dPass = decrypt(ePass)
+    var dUser = decrypt(eUser)
 
-    if(ptPass === dPass) {
+    if(ptPass === dPass && eUser === dUser) {
       res.render('home', {params: {user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients}, title: 'Home'});
     }
     else {
@@ -239,9 +241,11 @@ router.post('/api/1', function(request, response){
         console.log(`User exists, allow login`);
         var randomPass = randomPassword(50);
         var encryptedPass = encrypt(randomPass);
+        var encryptedUser = encrypt(credentials.username);
         json.result = 0;  
         json.ptPass = randomPass
         json.ePass = encryptedPass
+        json.eUser = encryptedUser
         response.send(json);
       }
     })
