@@ -209,9 +209,9 @@ function getSelectValues(select) {
       var sugars = document.getElementById('aSugarsInput').value;
       var protein = document.getElementById('aProteinInput').value;
 
-      var ingredients = getSelectedValues(document.getElementById('aIngredients'))
-      var allergens = getSelectedValues(document.getElementById('aAllergens'))
-      var categories = getSelectedValues(document.getElementById('aCategories'))
+      var ingredients = getSelectValues(document.getElementById('aIngredients'))
+      var allergens = getSelectValues(document.getElementById('aAllergens'))
+      var categories = getSelectValues(document.getElementById('aCategories'))
 
       console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein, ingredients, allergens, categories)
   }
