@@ -656,12 +656,11 @@ function SuperQuery(num) {
         }
         var manufacturers
         var ingredients
-        var phaseTwo = phaseOne;
 
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length > 0) {
-                for(var e = 0; e < phaseTwo.length; e++) {
+                for(var e = 0; e < phaseOne.length; e++) {
                     for(var i = 0; i < manufacturers.length; i++) {
                         var count = 0
                         if(phaseOne[e].manufacturer_name === manufacturers[i]) {
@@ -672,6 +671,7 @@ function SuperQuery(num) {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== phaseOne[e]
                         })    
+                        e = 0;
                     }
                 }
             }
@@ -681,10 +681,9 @@ function SuperQuery(num) {
         }
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
-        var phaseThree = phaseOne
 
         if(allergens.length > 0) {
-            for(var e = 0; e < phaseThree.length; e++) {
+            for(var e = 0; e < phaseOne.length; e++) {
                 for(var i = 0; i < allergens.length; i++) {
                     var count = 0
                     if(phaseOne[e].containsAllergens.includes(allergens[i])) {
@@ -695,16 +694,18 @@ function SuperQuery(num) {
                     phaseOne = phaseOne.filter(function (item) {
                         return item !== phaseOne[e]
                     })    
+                    e = 0
                 }
             }
         }
 
-        var phaseFour = phaseOne;
-
         if(categories.length > 0) {
-            for(var e = 0; e < phaseFour.length; e++) {
+            for(var e = 0; e < phaseOne.length; e++) {
+                console.log(phaseOne.length)
                 for(var i = 0; i < categories.length; i++) {
                     var count = 0
+                    console.log(phaseOne[e].category)
+                    console.log(categories[i])
                     if(phaseOne[e].category === categories[i]) {
                         count++;
                     }
@@ -713,6 +714,7 @@ function SuperQuery(num) {
                     phaseOne = phaseOne.filter(function (item) {
                         return item !== phaseOne[e]
                     })    
+                e = 0
                 }
             }
         }
