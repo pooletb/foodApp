@@ -660,7 +660,7 @@ function SuperQuery(num) {
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             console.log(manufacturers)
-            if(manufacturers.length != 0) {
+            if(manufacturers.length > 0) {
                 for(var e = 0; e < phaseOne; e++) {
                     for(var i = 0; i < manufacturers; i++) {
                     var count = 0
