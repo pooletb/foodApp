@@ -196,14 +196,16 @@ function getSelectValues(select) {
 
 function SuperQuery(num) {
     var db
+    var json = {};
+    json.post = 1;
 
     if(num == 1) {
-        db = SendData(3,1);
+        db = SendData(3,json);
     }
     else {
-        db = SendData(4,1);
+        db = SendData(4,json);
     }
-    
+
     var phaseOne = db
 
     var cals = document.getElementById('aCalsInput').value;
