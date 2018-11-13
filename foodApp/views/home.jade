@@ -329,7 +329,7 @@ block content
                     br
                     br
 
-                  div.column.this-is-hidden#ingColumn
+                  div.column.this-is-hidden.is-narrow#ingColumn
                     article.message.is-info
                       .message-body
                           strong  Want a dish of all veggies?  Go for it!  Select any particuarlar ingredients you want to ensure are in your dish:
@@ -338,7 +338,7 @@ block content
                         each item in params.iDB
                           option(value=item.ingredient_name) #{item.ingredient_name}
 
-                  div.column
+                  div.column.is-narrow
                     article.message.is-danger
                       .message-body
                           strong  Got allergy problems?  No problem!  Select all allergens you want to explicitly exclude from your dish:  
@@ -347,7 +347,7 @@ block content
                         each item in params.all
                           option(value=item.allergen_name) #{item.allergen_name}
                   
-                  div.column
+                  div.column.is-narrow
                     article.message.is-primary
                       .message-body
                           strong  Picky eater?  Fine by us, just select the types of foods you are actually willing to eat from the list below:
