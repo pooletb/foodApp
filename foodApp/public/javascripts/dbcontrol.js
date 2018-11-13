@@ -215,7 +215,7 @@ function SuperQuery(num) {
         results = await response.json()
     }
 
-    var Part2 = () => {
+    var Part2 = (num) => {
         if (num == 1) {
             db = results.db1
         }
