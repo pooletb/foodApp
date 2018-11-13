@@ -179,19 +179,20 @@ function myFunction(num) {
           }
       }
   }
-function getSelectValues(select) {
-    var result = [];
-    var options = select && select.options;
-    var opt;
+function getSelectValues(sel) {
+  var opts = [],
+    opt;
+  var len = sel.options.length;
+  for (var i = 0; i < len; i++) {
+    opt = sel.options[i];
 
-    for (var i=0, iLen=options.length; i<iLen; i++) {
-        opt = options[i];
-
-        if (opt.selected) {
-        result.push(opt.value || opt.text);
-        }
+    if (opt.selected) {
+      opts.push(opt);
+      alert(opt.value);
     }
-    return result;
+  }
+
+  return opts;
 }
 
   function SuperQuery(num, db) {
