@@ -659,34 +659,31 @@ function SuperQuery(num) {
 
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
+            if(manufacturers.length != 0) {
+                for(var e = 0; e < phaseOne; e++) {
+                    for(var i = 0; i < manufacturers; i++) {
+                    var count = 0
+                        if(phaseOne[e].manufacturer_name === manufacturers[i]) {
+                            count++;
+                            console.log(count);
+                        }
+                    }
+                    if(count == 0) {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item !== phaseOne[e]
+                        })    
+                    }
+                }
+            }
         }
         else {
             ingredients = getSelectValues(document.getElementById('aIngredients'))
-        }
-
-        if(manufacturers.length != 0) {
-            for(var e = 0; e < phaseOne; e++) {
-                for(var i = 0; i < manufacturers; i++) {
-                var count = 0
-                    if(phaseOne[e].manufacturer_name === manufacturers[i]) {
-                        count++;
-                    }
-                }
-                if(count == 0) {
-                     phaseOne = phaseOne.filter(function (item) {
-                        return item !== phaseOne[e]
-                    })    
-                }
-            }
         }
 
         console.log(phaseOne);
 
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
-
-        console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein, ingredients, allergens, categories)
-
     }
   f().then(Part2);
 }
