@@ -210,7 +210,7 @@ function getSelectValues(sel) {
       var sugars = document.getElementById('aSugarsInput').value;
       var protein = document.getElementById('aProteinInput').value;
 
-      var ingredients = getSelectValues(document.getElementById('aIngredients'))
+    //   var ingredients = getSelectValues(document.getElementById('aIngredients'))
       var allergens = getSelectValues(document.getElementById('aAllergens'))
       var categories = getSelectValues(document.getElementById('aCategories'))
 
