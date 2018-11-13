@@ -657,8 +657,7 @@ function SuperQuery(num) {
         var manufacturers
         var ingredients
 
-        if(num == 0) {
-            console.log("seen")
+        if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
         }
         else {
