@@ -658,14 +658,15 @@ function SuperQuery(num) {
         var ingredients
 
         if(num == 1) {
+
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length != 0) {
                 for(var e = 0; e < phaseOne; e++) {
                     for(var i = 0; i < manufacturers; i++) {
                     var count = 0
+                    console.log(manufacturers[i]);
                         if(phaseOne[e].manufacturer_name === manufacturers[i]) {
                             count++;
-                            console.log(count);
                         }
                     }
                     if(count == 0) {
