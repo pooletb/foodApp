@@ -333,7 +333,7 @@ block content
                     article.message.is-info
                       .message-body
                           strong  Want a dish of all veggies?  Go for it!  Select any particuarlar ingredients you want to ensure are in your dish:
-                    .select.is-multiple.move-left#aIngredients
+                    .select.is-multiple.is-fullwidth#aIngredients
                       select(multiple='', size='8')
                         each item in params.iDB
                           option(value=item.ingredient_name) #{item.ingredient_name}
@@ -342,7 +342,7 @@ block content
                     article.message.is-danger
                       .message-body
                           strong  Got allergy problems?  No problem!  Select all allergens you want to explicitly exclude from your dish:  
-                    .select.is-multiple.move-left#aAllergens
+                    .select.is-multiple.is-fullwidth#aAllergens
                       select(multiple='', size='8')
                         each item in params.all
                           option(value=item.allergen_name) #{item.allergen_name}
