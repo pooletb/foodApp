@@ -24,8 +24,6 @@ function SendData(api, json) {
       body: JSON.stringify(json)
     });
     var results = await response.json()
-    console.log(results);
-
     if(api == 1 && results.result === undefined) {
       var text = document.getElementById("userExists");
       text.classList.remove("this-is-hidden");
@@ -50,11 +48,12 @@ function SendData(api, json) {
       // window.localStorage.setItem("auth", authInfo);
       document.location.href = ("/authenticate/" + results.ptPass + "/" + results.ePass + "/" + json.username + "/" + results.eUser)
     }
+    else {
+      return results;
+    }
   }
+  var Redirect = () => {
 
-  var Redirect = (results) => {
-    console.log(results)
-    return results;
   }
   f().then(Redirect);
 }
