@@ -179,6 +179,20 @@ function myFunction(num) {
           }
       }
   }
+function getSelectValues(select) {
+    var result = [];
+    var options = select && select.options;
+    var opt;
+
+    for (var i=0, iLen=options.length; i<iLen; i++) {
+        opt = options[i];
+
+        if (opt.selected) {
+        result.push(opt.value || opt.text);
+        }
+    }
+    return result;
+}
 
   function SuperQuery(num, db) {
       var phaseOne = []
@@ -195,14 +209,9 @@ function myFunction(num) {
       var sugars = document.getElementById('aSugarsInput').value;
       var protein = document.getElementById('aProteinInput').value;
 
-      var ingredients = document.getElementById('aIngredients').value;
-      var allergens = document.getElementById('aAllergens').value;  
-      var categories = document.getElementById('aCategories').value;
+      var ingredients = getSelectedValues(document.getElementById('aIngredients'))
+      var allergens = getSelectedValues(document.getElementById('aAllergens'))
+      var categories = getSelectedValues(document.getElementById('aCategories'))
 
       console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein, ingredients, allergens, categories)
-
-
-
-      
-
   }
