@@ -329,29 +329,29 @@ block content
                     br
                     br
 
-                  div.column.this-is-hidden.is-vertical-center#ingColumn
+                  div.column.this-is-hidden#ingColumn
                     article.message.is-info
                       .message-body
                           strong  Want a dish of all veggies?  Go for it!  Select any particuarlar ingredients you want to ensure are in your dish:
-                    .select.is-multiple#aIngredients
+                    .select.is-multiple.is-vertical-center#aIngredients
                       select(multiple='', size='8')
                         each item in params.iDB
                           option(value=item.ingredient_name) #{item.ingredient_name}
 
-                  div.column.is-vertical-center
+                  div.column
                     article.message.is-danger
                       .message-body
                           strong  Got allergy problems?  No problem!  Select all allergens you want to explicitly exclude from your dish:  
-                    .select.is-multiple#aAllergens
+                    .select.is-multiple.is-vertical-center#aAllergens
                       select(multiple='', size='8')
                         each item in params.all
                           option(value=item.allergen_name) #{item.allergen_name}
                   
-                  div.column.is-vertical-center
+                  div.column
                     article.message.is-primary
                       .message-body
                           strong  Picky eater?  Fine by us, just select the types of foods you are actually willing to eat from the list below:
-                    .select.is-multiple#aCategories
+                    .select.is-multiple.is-vertical-center#aCategories
                       select(multiple='', size='8')
                         each item in params.cat
                           option(value=item) #{item}
