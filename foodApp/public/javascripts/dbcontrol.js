@@ -200,8 +200,9 @@ function SuperQuery(num) {
     json.post = 1;
 
     if(num == 1) {
-        SendData(3,json);
-        db = window.localStorage.getItem("pmfDB").db
+        SendData(3,json).then(() => function () {
+            db = window.localStorage.getItem("pmfDB").db
+        })
     }
     else {
         SendData(4,json).db;
