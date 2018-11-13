@@ -105,6 +105,7 @@ p2 {
 .nutritionInput {
   width:33%;
   border: 0px;
+  text-align:right;
   font-size: 0.9rem;
 }
 
