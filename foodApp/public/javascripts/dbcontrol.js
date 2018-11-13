@@ -661,8 +661,8 @@ function SuperQuery(num) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length > 0) {
                 for(var e = 0; e < phaseOne.length; e++) {
+                    var count = 0
                     for(var i = 0; i < manufacturers.length; i++) {
-                        var count = 0
                         if(phaseOne[e].manufacturer_name === manufacturers[i]) {
                             count++;
                         }
@@ -684,8 +684,8 @@ function SuperQuery(num) {
 
         if(allergens.length > 0) {
             for(var e = 0; e < phaseOne.length; e++) {
+                var count = 0
                 for(var i = 0; i < allergens.length; i++) {
-                    var count = 0
                     if(phaseOne[e].containsAllergens.includes(allergens[i])) {
                         count++;
                     }
@@ -701,8 +701,8 @@ function SuperQuery(num) {
 
         if(categories.length > 0) {
             for(var e = 0; e < phaseOne.length; e++) {
+                var count = 0
                 for(var i = 0; i < categories.length; i++) {
-                    var count = 0
                     if(phaseOne[e].category === categories[i]) {
                         count++;
                     }
