@@ -198,7 +198,7 @@ function SuperQuery(num) {
     var db
     var json = {};
     json.post = 1;
-    results
+    var results
     async function f() {
         const response = await fetch('/api/3', {
             method: 'POST',
