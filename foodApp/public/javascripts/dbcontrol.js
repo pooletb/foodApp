@@ -701,6 +701,8 @@ function SuperQuery(num) {
             for(var e = 0; e < phaseOne.length; e++) {
                 for(var i = 0; i < categories.length; i++) {
                     var count = 0
+                    console.log(phaseOne[e].category)
+                    console.log(categories[i])
                     if(phaseOne[e].category === categories[i]) {
                         count++;
                     }
