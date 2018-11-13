@@ -210,7 +210,6 @@ function SuperQuery(num) {
             body: JSON.stringify(json)
         });
         results = await response.json()
-        console.log(results)
     }
 
     var Part2 = () => {
