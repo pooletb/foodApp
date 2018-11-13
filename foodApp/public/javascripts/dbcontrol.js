@@ -155,3 +155,46 @@ function myFunction(num) {
     }
 
   }
+
+  function SwapAdv(num) {
+      var pmButton = document.getElementById('aPMButton');
+      var hfButton = document.getElementById('aHFButton');
+      var ingColumn = document.getElementById('ingColumn');
+      if(num == 0) {
+          if(pmButton.classList.contains('is-outlined')) {
+              pmButton.classList.remove('is-outlined');
+              hfButton.classList.add('is-outlined')
+              ingColumn.classList.add('this-is-hidden')
+          }
+          else {
+          }
+      }
+      if(num == 1) {
+          if(hfButton.classList.contains('is-outlined')) {
+              hfButton.classList.remove('is-outlined');
+              pmButton.classList.add('is-outlined')
+              ingColumn.classList.remove('this-is-hidden')
+          }
+          else {
+          }
+      }
+  }
+
+  function SuperQuery(db) {
+      var phaseOne = []
+
+      var cals = document.getElementById('aCalsInput').value;
+      var fatCals = document.getElementById('aFatCalsInput').value;
+      var totalFat = document.getElementById('aTotalFatInput').value;
+      var satFat = document.getElementById('aSatFatInput').value;
+      var transFat = document.getElementById('aTransFatInput').value;
+      var cholesterol = document.getElementById('aCholesterolInput').value;
+      var sodium = document.getElementById('aSodiumInput').value;
+      var carbs = document.getElementById('aCarbsInput').value;
+      var dietFiber = document.getElementById('aFiberInput').value;
+      var sugars = document.getElementById('aSugarsInput').value;
+      var protein = document.getElementById('aProteinInput').value;
+
+      
+
+  }

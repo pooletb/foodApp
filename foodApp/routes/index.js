@@ -39,6 +39,9 @@ hmfDBFull = []
 ingredients = [];
 resultHold = [];
 
+categories = [];
+allergens = [];
+
 knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.food_ID')
 .then((result) => {
   premade_food = result;
@@ -78,6 +81,15 @@ knex.from('premade_food').innerJoin('made_by', 'premade_food.food_ID', 'made_by.
       var index = IndexOf(premade_food_allergens[i].food_ID, pmfDBFull)
       pmfDBFull[index].containsAllergens.push(premade_food_allergens[i].allergen_name)
     }
+  }).then(() => {
+      for(var i = 0; i < pmfDBFull.length; i++) {
+        if(categories.includes(pmfDBFull[i].category)) {
+
+        }
+        else {
+          categories.push(pmfDBFull[i].category)
+        }
+      }
   })
 })
 
@@ -136,24 +148,21 @@ knex.from('homemade_food')
       var index = IndexOf(homemade_food_allergens[i].food_ID, hmfDBFull)
       hmfDBFull[index].containsAllergens.push(homemade_food_allergens[i].allergen_name)
     }
+  }).then(() => {
+      for(var i = 0; i < hmfDBFull.length; i++) {
+        if(categories.includes(hmfDBFull[i].category)) {
+
+        }
+        else {
+          categories.push(hmfDBFull[i].category)
+        }
+      }
   })
 })
 
-function IndexOf(id, db) {
-  for(var i = 0; i < db.length; i++) {
-    if(db[i].food_ID == id) {
-      return i
-    }
-  }
-  return false;
-}
-
-
-
-
-knex('homemade_food').select()
+knex.from('allergens')
 .then((result) => {
-  homemade_food = result;
+  allergens = result;
 })
 
 knex('ingredients').select()
@@ -192,7 +201,7 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function(req, res) {
     var dUser = decrypt(eUser)
 
     if(ptPass === dPass && username === dUser) {
-      res.render('home', {params: {user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients}, title: 'Home'});
+      res.render('home', {params: {user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens}, title: 'Home'});
     }
     else {
       res.render('registration_landing', { title: 'Register Today' });
@@ -255,29 +264,38 @@ router.post('/api/1', function(request, response){
       response.send(json);
     });
   });
-  
-  function encrypt(text){
-    var cipher = crypto.createCipher(algorithm,password)
-    var crypted = cipher.update(text,'utf8','hex')
-    crypted += cipher.final('hex');
-    return crypted;
-  }
-   
-  function decrypt(text){
-    var decipher = crypto.createDecipher(algorithm,password)
-    var dec = decipher.update(text,'hex','utf8')
-    dec += decipher.final('utf8');
-    return dec;
-  }
-  
-  function randomPassword(length) {
-    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP1234567890";
-    var pass = "";
-    for (var x = 0; x < length; x++) {
-        var i = Math.floor(Math.random() * chars.length);
-        pass += chars.charAt(i);
+
+function IndexOf(id, db) {
+  for(var i = 0; i < db.length; i++) {
+    if(db[i].food_ID == id) {
+      return i
     }
-    return pass;
   }
+  return false;
+}
+  
+function encrypt(text){
+  var cipher = crypto.createCipher(algorithm,password)
+  var crypted = cipher.update(text,'utf8','hex')
+  crypted += cipher.final('hex');
+  return crypted;
+}
+   
+function decrypt(text){
+  var decipher = crypto.createDecipher(algorithm,password)
+  var dec = decipher.update(text,'hex','utf8')
+  dec += decipher.final('utf8');
+  return dec;
+}
+  
+function randomPassword(length) {
+  var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP1234567890";
+  var pass = "";
+  for (var x = 0; x < length; x++) {
+      var i = Math.floor(Math.random() * chars.length);
+      pass += chars.charAt(i);
+  }
+  return pass;
+}
 
 module.exports = router;

@@ -132,9 +132,9 @@ block content
                         |   Any query imaginable can be able to be performed here
                 div.columns
                     div.column
-                        button.button.is-dark.is-fullwidth.is-large Premade Food
+                        button.button.is-dark.is-fullwidth.is-large#aPMButton(onclick='SwapAdv(0)') Premade Food
                     div.column
-                        button.button.is-dark.is-fullwidth.is-large Recipes
+                        button.button.is-dark.is-fullwidth.is-large.is-outlined#aHFButton(onclick='SwapAdv(1)') Recipes
 
 
                 .columns
@@ -329,43 +329,23 @@ block content
                     br
                     br
 
-                  div.column
+                  div.column.this-is-hidden#ingColumn
                     article.message.is-info
                       .message-body
                           strong  Select any ingredients you want to ensure are in the dish:
                     .select.is-multiple
                       select(multiple='', size='8')
-                        option(value='Argentina') Argentina
-                        option(value='Bolivia') Bolivia
-                        option(value='Brazil') Brazil
-                        option(value='Chile') Chile
-                        option(value='Colombia') Colombia
-                        option(value='Ecuador') Ecuador
-                        option(value='Guyana') Guyana
-                        option(value='Paraguay') Paraguay
-                        option(value='Peru') Peru
-                        option(value='Suriname') Suriname
-                        option(value='Uruguay') Uruguay
-                        option(value='Venezuela') Venezuela
-                  
+                        each item in params.iDB
+                          option(value=item.ingredient_name) #{item.ingredient_name}
+
                   div.column
                     article.message.is-danger
                       .message-body
                           strong  Select any allergens you want to ensure are not in the dish:  
                     .select.is-multiple
                       select(multiple='', size='8')
-                        option(value='Argentina') Argentina
-                        option(value='Bolivia') Bolivia
-                        option(value='Brazil') Brazil
-                        option(value='Chile') Chile
-                        option(value='Colombia') Colombia
-                        option(value='Ecuador') Ecuador
-                        option(value='Guyana') Guyana
-                        option(value='Paraguay') Paraguay
-                        option(value='Peru') Peru
-                        option(value='Suriname') Suriname
-                        option(value='Uruguay') Uruguay
-                        option(value='Venezuela') Venezuela
+                        each item in params.all
+                          option(value=item.allergen_name) #{item.allergen_name}
                   
                   div.column
                     article.message.is-primary
@@ -373,19 +353,8 @@ block content
                           strong  Select one to many categories: 
                     .select.is-multiple
                       select(multiple='', size='8')
-                        option(value='Argentina') Argentina
-                        option(value='Bolivia') Bolivia
-                        option(value='Brazil') Brazil
-                        option(value='Chile') Chile
-                        option(value='Colombia') Colombia
-                        option(value='Ecuador') Ecuador
-                        option(value='Guyana') Guyana
-                        option(value='Paraguay') Paraguay
-                        option(value='Peru') Peru
-                        option(value='Suriname') Suriname
-                        option(value='Uruguay') Uruguay
-                        option(value='Venezuela') Venezuela
-
+                        each item in params.cat
+                          option(value=item) #{item}
 
 
                 div
