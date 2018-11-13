@@ -332,7 +332,7 @@ block content
                   div.column.this-is-hidden#ingColumn
                     article.message.is-info
                       .message-body
-                          strong  Select any ingredients you want to ensure are in the dish:
+                          strong  Want a dish of all veggies?  Go for it!  Select any particuarlar ingredients you want to ensure are in your dish:
                     .select.is-multiple
                       select(multiple='', size='8')
                         each item in params.iDB
@@ -341,7 +341,7 @@ block content
                   div.column
                     article.message.is-danger
                       .message-body
-                          strong  Select any allergens you want to ensure are not in the dish:  
+                          strong  Got allergy problems?  No problem!  Select all allergens you want to explicitly exclude from your dish:  
                     .select.is-multiple
                       select(multiple='', size='8')
                         each item in params.all
