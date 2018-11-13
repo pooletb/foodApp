@@ -88,6 +88,11 @@
   margin-bottom: 1em;
 }
 
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @import "compass/css3";
 .image {
   width: 250px;
