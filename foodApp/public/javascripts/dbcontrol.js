@@ -241,10 +241,13 @@ function SuperQuery(num) {
                 for (var i = 0; i < db.length; i++) {
                     if (cals < db[i].calories) {
                     }
-                    else {
+                    else if (cals > db[i].calories) {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
+                    }
+                    else {
+                        
                     }
                 }
             }
