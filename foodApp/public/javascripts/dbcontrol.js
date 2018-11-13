@@ -200,10 +200,11 @@ function SuperQuery(num) {
     json.post = 1;
 
     if(num == 1) {
-        db = window.localStorage.getItem('pmfDB').db
+        SendData(3,json);
+        db = window.localStorage.getItem("pmfDB").db
     }
     else {
-        db = window.localStorage.getItem('hmfDB').db
+        SendData(4,json).db;
     }
 
     var phaseOne = db
