@@ -105,13 +105,13 @@ p2 {
 .nutritionInput {
   width:12%;
   border: 0px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .nutritionInputCals {
-  width:22%;
+  width:20%;
   border: 0px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .performance-facts {
