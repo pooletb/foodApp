@@ -337,6 +337,15 @@ block content
                       select#aIngredients(multiple='', size='8')
                         each item in params.iDB
                           option(value=item.ingredient_name) #{item.ingredient_name}
+            
+                  div.column#manColumn
+                    article.message.is-info
+                      .message-body
+                          strong  Dont want to give McDonald's money?  Good for you!  Select any particuarlar manufacturers you will eat food from:
+                    .select.is-multiple.is-fullwidth
+                      select#aManufacturers(multiple='', size='8')
+                        each item in params.man
+                          option(value=item.manufacturer_name) #{item.manufacturer_name}
 
                   div.column
                     article.message.is-danger

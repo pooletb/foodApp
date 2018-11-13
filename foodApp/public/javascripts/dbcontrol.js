@@ -160,11 +160,13 @@ function SwapAdv(num) {
     var pmButton = document.getElementById('aPMButton');
     var hfButton = document.getElementById('aHFButton');
     var ingColumn = document.getElementById('ingColumn');
+    var manColumn = document.getElementById('manColumn');
     if (num == 0) {
         if (pmButton.classList.contains('is-outlined')) {
             pmButton.classList.remove('is-outlined');
             hfButton.classList.add('is-outlined')
             ingColumn.classList.add('this-is-hidden')
+            manColumn.classList.remove('this-is-hidden')
         }
         else {
         }
@@ -173,6 +175,7 @@ function SwapAdv(num) {
         if (hfButton.classList.contains('is-outlined')) {
             hfButton.classList.remove('is-outlined');
             pmButton.classList.add('is-outlined')
+            manColumn.classList.add('this-is-hidden')
             ingColumn.classList.remove('this-is-hidden')
         }
         else {
@@ -238,12 +241,9 @@ function SuperQuery(num) {
             if (cals.charAt(0) === '<') {
                 cals = cals.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    console.log(cals);
-                    console.log(db[i].calories);
                     if (cals >= db[i].calories) {
                     }
                     else {
-                        console.log('thishappened')
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
@@ -265,11 +265,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (cals != db[i].calories) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
+                    }
+                    else {
                     }
                 }
             }
@@ -279,7 +279,7 @@ function SuperQuery(num) {
             if (fatcals.charAt(0) === '<') {
                 fatCals = fatCals.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (fatCals > db[i].fat_calories) {
+                    if (fatCals >= db[i].fat_calories) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -290,7 +290,7 @@ function SuperQuery(num) {
             }
             else if (fatCals.charAt(0) === '>') {
                 fatCals = fatCals.substr(1);
-                for (var i = 0; i < db.length; i++) {
+                for (var i = 0; i <= db.length; i++) {
                     if (fatCals < db[i].fat_calories) {
                     }
                     else {
@@ -317,7 +317,7 @@ function SuperQuery(num) {
             if (transFat.charAt(0) === '<') {
                 transFat = transFat.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (transFat > db[i].trans_fat) {
+                    if (transFat >= db[i].trans_fat) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -329,7 +329,7 @@ function SuperQuery(num) {
             else if (transFat.charAt(0) === '>') {
                 transFat = transFat.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (transFat < db[i].trans_fat) {
+                    if (transFat <= db[i].trans_fat) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -341,11 +341,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (transFat != db[i].trans_fat) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
-                        })
+                        })                        
+                    }
+                    else {
                     }
                 }
             }
@@ -355,7 +355,7 @@ function SuperQuery(num) {
             if (satFat.charAt(0) === '<') {
                 satFat = satFat.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (satFat > db[i].sat_fat) {
+                    if (satFat >= db[i].sat_fat) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -367,7 +367,7 @@ function SuperQuery(num) {
             else if (satFat.charAt(0) === '>') {
                 satFat = satFat.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (satFat < db[i].sat_fat) {
+                    if (satFat <= db[i].sat_fat) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -379,11 +379,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (satFat != db[i].sat_fat) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
-                        })
+                        })                        
+                    }
+                    else {
                     }
                 }
             }
@@ -393,7 +393,7 @@ function SuperQuery(num) {
             if (totalFat.charAt(0) === '<') {
                 totalFat = totalFat.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (totalFat > db[i].total_fat) {
+                    if (totalFat >= db[i].total_fat) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -405,7 +405,7 @@ function SuperQuery(num) {
             else if (totalFat.charAt(0) === '>') {
                 totalFat = totalFat.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (totalFat < db[i].total_fat) {
+                    if (totalFat <= db[i].total_fat) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -417,11 +417,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (totalFat != db[i].total_fat) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
-                        })
+                        })                        
+                    }
+                    else {
                     }
                 }
             }
@@ -431,7 +431,7 @@ function SuperQuery(num) {
             if (cholesterol.charAt(0) === '<') {
                 cholesterol = cholesterol.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (cholesterol > db[i].cholesterol) {
+                    if (cholesterol >= db[i].cholesterol) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -443,7 +443,7 @@ function SuperQuery(num) {
             else if (cholesterol.charAt(0) === '>') {
                 cholesterol = cholesterol.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (cholesterol < db[i].cholesterol) {
+                    if (cholesterol <= db[i].cholesterol) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -455,11 +455,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (cholesterol != db[i].cholesterol) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
+                    }
+                    else {
                     }
                 }
             }
@@ -469,7 +469,7 @@ function SuperQuery(num) {
             if (sodium.charAt(0) === '<') {
                 sodium = sodium.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (sodium > db[i].sodium) {
+                    if (sodium >= db[i].sodium) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -481,7 +481,7 @@ function SuperQuery(num) {
             else if (sodium.charAt(0) === '>') {
                 sodium = sodium.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (sodium < db[i].sodium) {
+                    if (sodium <= db[i].sodium) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -493,11 +493,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (sodium != db[i].sodium) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
+                    }
+                    else {
                     }
                 }
             }
@@ -507,7 +507,7 @@ function SuperQuery(num) {
             if (carbs.charAt(0) === '<') {
                 carbs = carbs.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (carbs > db[i].total_carbs) {
+                    if (carbs >= db[i].total_carbs) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -519,7 +519,7 @@ function SuperQuery(num) {
             else if (carbs.charAt(0) === '>') {
                 carbs = carbs.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (carbs < db[i].total_carbs) {
+                    if (carbs <= db[i].total_carbs) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -531,11 +531,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (carbs != db[i].total_carbs) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
+                    }
+                    else {
                     }
                 }
             }
@@ -545,7 +545,7 @@ function SuperQuery(num) {
             if (dietFiber.charAt(0) === '<') {
                 dietFiber = dietFiber.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (dietFiber > db[i].diet_fiber) {
+                    if (dietFiber >= db[i].diet_fiber) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -557,7 +557,7 @@ function SuperQuery(num) {
             else if (dietFiber.charAt(0) === '>') {
                 dietFiber = dietFiber.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (dietFiber < db[i].diet_fiber) {
+                    if (dietFiber <= db[i].diet_fiber) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -569,11 +569,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (dietFiber != db[i].diet_fiber) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
+                    }
+                    else {
                     }
                 }
             }
@@ -583,7 +583,7 @@ function SuperQuery(num) {
             if (sugars.charAt(0) === '<') {
                 sugars = sugars.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (sugars > db[i].sugars) {
+                    if (sugars >= db[i].sugars) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -595,7 +595,7 @@ function SuperQuery(num) {
             else if (sugars.charAt(0) === '>') {
                 sugars = sugars.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (sugars < db[i].sugars) {
+                    if (sugars <= db[i].sugars) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -607,11 +607,11 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (sugars != db[i].sugars) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
+                    }
+                    else {
                     }
                 }
             }
@@ -621,7 +621,7 @@ function SuperQuery(num) {
             if (protein.charAt(0) === '<') {
                 protein = protein.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (protein > db[i].protein) {
+                    if (protein >= db[i].protein) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -633,7 +633,7 @@ function SuperQuery(num) {
             else if (protein.charAt(0) === '>') {
                 protein = protein.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (protein < db[i].protein) {
+                    if (protein <= db[i].protein) {
                     }
                     else {
                         phaseOne = phaseOne.filter(function (item) {
@@ -645,11 +645,32 @@ function SuperQuery(num) {
             else {
                 for (var i = 0; i < db.length; i++) {
                     if (protein != db[i].protein) {
-                    }
-                    else {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
-                        })
+                        })                        
+                    }
+                    else {
+                    }
+                }
+            }
+        }
+        var manufacturers
+        var ingredients
+
+        if(num == 0) {
+            manufacturers = getSelectValues(document.getElementById('aManufacturers'))
+        }
+        else {
+            ingredients = getSelectValues(document.getElementById('aIngredients'))
+        }
+
+        if(manufacturers.length != 0) {
+            for(var e = 0; e < manufacturers.length; e++) {
+                for(var i = 0; i < phaseOne; i++) {
+                    if(phaseOne[i].manufacturer_name === manufacturers[e]) {
+                        phaseOne = phaseOne.filter(function (item) {
+                            return item.manufacturer_name !== manufacturers[i]
+                        })     
                     }
                 }
             }
@@ -657,7 +678,6 @@ function SuperQuery(num) {
 
         console.log(phaseOne);
 
-        var ingredients = getSelectValues(document.getElementById('aIngredients'))
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
 
