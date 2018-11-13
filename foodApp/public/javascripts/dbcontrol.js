@@ -674,7 +674,7 @@ function SuperQuery(num) {
                 }
                 if(count == 0) {
                      phaseOne = phaseOne.filter(function (item) {
-                        return item !== phaseOne[i]
+                        return item !== phaseOne[e]
                     })    
                 }
             }
