@@ -53,6 +53,7 @@ function SendData(api, json) {
   }
 
   var Redirect = (results) => {
+    console.log(results)
     return results;
   }
   f().then(Redirect);
