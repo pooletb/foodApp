@@ -203,6 +203,7 @@ function SuperQuery(num) {
     else {
         db = SendData(4,1);
     }
+    
     var phaseOne = db
 
     var cals = document.getElementById('aCalsInput').value;

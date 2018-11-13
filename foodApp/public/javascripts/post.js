@@ -24,6 +24,7 @@ function SendData(api, json) {
       body: JSON.stringify(json)
     });
     var results = await response.json()
+    console.log(results);
 
     if(api == 1 && results.result === undefined) {
       var text = document.getElementById("userExists");
