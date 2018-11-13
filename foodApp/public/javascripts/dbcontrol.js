@@ -243,6 +243,7 @@ function SuperQuery(num) {
                     if (cals > db[i].calories) {
                     }
                     else {
+                        console.log('thishappened')
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
                         })
