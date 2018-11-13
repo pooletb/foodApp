@@ -88,9 +88,8 @@
   margin-bottom: 1em;
 }
 
-.is-vertical-center {
-  display: flex;
-  align-items: center;
+.moce-left {
+  left:50%
 }
 
 @import "compass/css3";
