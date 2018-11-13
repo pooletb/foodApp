@@ -200,9 +200,19 @@ function SuperQuery(num) {
     json.post = 1;
 
     if(num == 1) {
-        SendData(3,json).then(() => function () {
-            db = window.localStorage.getItem("pmfDB").db
-        })
+        async function f() {
+            const response = await fetch('/api/3', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(json)
+            });
+            var results = await response.json()   
+            console.log(results) 
+        }
     }
     else {
         SendData(4,json).db;
