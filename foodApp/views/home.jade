@@ -74,6 +74,7 @@ block content
                             tbody
                                 tr.header
                                     th Name
+                                    th Manufacturer
                                 each food in params.pmDB
                                     tr(onclick='OpenInfo(#{food.food_ID},1)')
                                         td=food.food_name
