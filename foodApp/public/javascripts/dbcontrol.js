@@ -161,12 +161,17 @@ function SwapAdv(num) {
     var hfButton = document.getElementById('aHFButton');
     var ingColumn = document.getElementById('ingColumn');
     var manColumn = document.getElementById('manColumn');
+    var sBtnP = document.getElementById('queryBtnP');
+    var sBtnH = document.getElementById('queryBtnH');
+
     if (num == 0) {
         if (pmButton.classList.contains('is-outlined')) {
             pmButton.classList.remove('is-outlined');
             hfButton.classList.add('is-outlined')
             ingColumn.classList.add('this-is-hidden')
             manColumn.classList.remove('this-is-hidden')
+            sBtnH.classList.add('this-is-hidden')
+            sBtnP.classList.remove('this-is-hidden')
         }
         else {
         }
@@ -177,6 +182,8 @@ function SwapAdv(num) {
             pmButton.classList.add('is-outlined')
             manColumn.classList.add('this-is-hidden')
             ingColumn.classList.remove('this-is-hidden')
+            sBtnH.classList.remove('this-is-hidden')
+            sBtnP.classList.add('this-is-hidden')
         }
         else {
         }
@@ -673,6 +680,16 @@ function SuperQuery(num) {
         }
         else {
             ingredients = getSelectValues(document.getElementById('aIngredients'))
+            if(ingredients.length > 0) {
+                for(var e = 0; e < phaseOne.length; e++) {
+                    var count = 0
+                    for(var i = 0; i < manufacturers.length; i++) {
+                        if(phaseOne[e].ingredients.ingredient_name === ingredients[i]) {
+                            phaseTwo.push(phaseOne[e])
+                        }
+                    }
+                }
+            }
         }
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
