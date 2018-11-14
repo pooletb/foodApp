@@ -676,7 +676,7 @@ function SuperQuery(num) {
                 }
                 for(var e = 0; e < removalList.length; e++) {
                     if(!removalList.includes(e)) {
-                        phaseTwo.push(e);
+                        phaseTwo.push(phaseOne[e]);
                     }
                 }
                 phaseOne = phaseTwo
