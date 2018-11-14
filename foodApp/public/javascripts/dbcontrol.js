@@ -205,10 +205,10 @@ function SuperQuery() {
     var results
     var manColumn = document.getElementById('manColumn');
     if(manColumn.classList.contains('this-is-hidden')) {
-        num = 1;
+        num = 0;
     }
     else {
-        num = 0;
+        num = 1;
     }
     async function f() {
         const response = await fetch('/api/3', {
