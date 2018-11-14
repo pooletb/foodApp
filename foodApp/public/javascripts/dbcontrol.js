@@ -225,6 +225,7 @@ function SuperQuery() {
     }
 
     var Part2 = () => {
+        console.log(num);
         if (num == 1) {
             db = results.db1
         }
@@ -667,7 +668,7 @@ function SuperQuery() {
         var ingredients
         var phaseTwo = []
 
-        console.log(num);
+        console.log(phaseOne);
 
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
@@ -737,5 +738,5 @@ function SuperQuery() {
 
         console.log(phaseOne);
     }
-  f().then(Part2);
+    f().then(Part2);
 }
