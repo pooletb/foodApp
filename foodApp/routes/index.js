@@ -327,6 +327,7 @@ function getInfo (user) {
       console.log(json)
       return json;
     })
+    return json;
 }
 
 router.post('/api/5', function (request, response) {
