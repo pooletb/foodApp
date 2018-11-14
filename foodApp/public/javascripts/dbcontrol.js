@@ -676,7 +676,9 @@ function SuperQuery(num) {
         }
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
-
+        
+        phaseOne = phaseTwo
+        
         if(allergens.length > 0) {
             for(var e = 0; e < phaseOne.length; e++) {
                 var count = 0
