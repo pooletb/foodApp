@@ -209,6 +209,8 @@ function SwapAdv(num) {
     var hfButton = document.getElementById('aHFButton');
     var ingColumn = document.getElementById('ingColumn');
     var manColumn = document.getElementById('manColumn');
+    var aSearchPre = document.getElementById("aSearchPre")
+    var aSearchRecipe = document.getElementById("aSearchRecipe")
 
     if (num == 0) {
         if (pmButton.classList.contains('is-outlined')) {
@@ -216,6 +218,8 @@ function SwapAdv(num) {
             hfButton.classList.add('is-outlined')
             ingColumn.classList.add('this-is-hidden')
             manColumn.classList.remove('this-is-hidden')
+            aSearchRecipe.classList.add('this-is-hidden')
+            aSearchPre.classList.remove('this-is-hidden')
         }
         else {
         }
@@ -226,6 +230,8 @@ function SwapAdv(num) {
             pmButton.classList.add('is-outlined')
             manColumn.classList.add('this-is-hidden')
             ingColumn.classList.remove('this-is-hidden')
+            aSearchRecipe.classList.remove('this-is-hidden')
+            aSearchPre.classList.add('this-is-hidden')
         }
         else {
         }
