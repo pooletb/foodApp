@@ -117,6 +117,7 @@ function LikeLoveIt(user, id, num) {
     var Part2 = () => {
         
     }
+    f.then(Part2)
 }
 
 function myFunction(num) {
