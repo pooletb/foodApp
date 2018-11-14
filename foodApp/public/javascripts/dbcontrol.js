@@ -701,10 +701,12 @@ function SuperQuery() {
         }
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
-        
-        phaseOne = phaseTwo
-        phaseTwo = []
-        
+
+        if(phaseTwo.length > 0) {
+            phaseOne = phaseTwo
+            phaseTwo = []
+        }
+
         if(allergens.length > 0) {
             for(var e = 0; e < phaseOne.length; e++) {
                 var count = 0
@@ -719,8 +721,10 @@ function SuperQuery() {
             }
         }
 
-        phaseOne = phaseTwo
-        phaseTwo = []
+        if(phaseTwo.length > 0) {
+            phaseOne = phaseTwo
+            phaseTwo = []
+        }
 
         if(categories.length > 0) {
             for(var e = 0; e < phaseOne.length; e++) {
@@ -733,8 +737,10 @@ function SuperQuery() {
             }
         }
 
-        phaseOne = phaseTwo
-        phaseTwo = []
+        if(phaseTwo.length > 0) {
+            phaseOne = phaseTwo
+            phaseTwo = []
+        }
 
         console.log(phaseOne);
     }
