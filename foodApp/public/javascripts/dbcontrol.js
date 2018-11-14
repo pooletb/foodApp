@@ -656,6 +656,7 @@ function SuperQuery(num) {
         }
         var manufacturers
         var ingredients
+        var phaseTwo = []
 
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
@@ -674,10 +675,11 @@ function SuperQuery(num) {
                     }
                 }
                 for(var e = 0; e < removalList.length; e++) {
-                    phaseOne = phaseOne.filter(function (item) {
-                            return item !== phaseOne[removalList[e]]
-                    })    
+                    if(!removalList.includes(e)) {
+                        phaseTwo.push(e);
+                    }
                 }
+                phaseOne = phaseTwo
             }
         }
         else {
