@@ -814,6 +814,7 @@ function SuperQuery() {
                     }
                 }
             }
+            console.log(indeces)
             for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[1];
                 if (td) {
