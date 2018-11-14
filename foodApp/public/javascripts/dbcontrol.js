@@ -55,6 +55,10 @@ function Advanced() {
     document.location.href = "#advanced";
 }
 
+function Likes() {
+    document.location.reload();
+}
+
 function echoPrint(value) {
     console.log(value);
 }
