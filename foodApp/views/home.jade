@@ -48,44 +48,44 @@ block content
                   .message-body
                       | Welcome to your profile, #{params.user} 
                       strong you will find foods you have saved below!
-              div.columns 
-                div.column        
-                  section.hero
-                    .hero-body
-                      .container
-                        h1.title
-                          | Like
-                        h2.subtitle
-                          | You Like these Foods
-                  table.table.is-fullwidth.is-hoverable.is-striped#lTable
-                    tbody
-                        tr.header
-                            th Name
-                        each food in params.userSaved.premade_likes
-                            tr(onclick='OpenInfo(#{food.food_ID},1)')
-                                td=food.food_name
-                        each food in params.userSaved.homemade_likes
-                            tr(onclick='OpenInfo(#{food.food_ID},2)')
-                                td=food.food_name
+              //- div.columns 
+              //-   div.column        
+              //-     section.hero
+              //-       .hero-body
+              //-         .container
+              //-           h1.title
+              //-             | Like
+              //-           h2.subtitle
+              //-             | You Like these Foods
+              //-     table.table.is-fullwidth.is-hoverable.is-striped#lTable
+              //-       tbody
+              //-           tr.header
+              //-               th Name
+              //-           each food in params.userSaved.premade_likes
+              //-               tr(onclick='OpenInfo(#{food.food_ID},1)')
+              //-                   td=food.food_name
+              //-           each food in params.userSaved.homemade_likes
+              //-               tr(onclick='OpenInfo(#{food.food_ID},2)')
+              //-                   td=food.food_name
             
-                div.column        
-                  section.hero
-                    .hero-body
-                      .container
-                        h1.title
-                          | Love
-                        h2.subtitle
-                          | You Love these Foods
-                  table.table.is-fullwidth.is-hoverable.is-striped#lTable
-                    tbody
-                        tr.header
-                            th Name
-                        each food in params.userSaved.premade_fav
-                            tr(onclick='OpenInfo(#{food.food_ID},1)')
-                                td=food.food_name
-                        each food in params.userSaved.homemade_fav
-                            tr(onclick='OpenInfo(#{food.food_ID},2)')
-                                td=food.food_name
+              //-   div.column        
+              //-     section.hero
+              //-       .hero-body
+              //-         .container
+              //-           h1.title
+              //-             | Love
+              //-           h2.subtitle
+              //-             | You Love these Foods
+              //-     table.table.is-fullwidth.is-hoverable.is-striped#lTable
+              //-       tbody
+              //-           tr.header
+              //-               th Name
+              //-           each food in params.userSaved.premade_fav
+              //-               tr(onclick='OpenInfo(#{food.food_ID},1)')
+              //-                   td=food.food_name
+              //-           each food in params.userSaved.homemade_fav
+              //-               tr(onclick='OpenInfo(#{food.food_ID},2)')
+              //-                   td=food.food_name
 
             div.this-is-hidden#premadefood
                 article.message.is-success
