@@ -818,6 +818,7 @@ function SuperQuery() {
                 td = tr[i].getElementsByTagName("td")[1];
                 if (td) {
                     if (!indeces.includes(i)) {
+                        console.log(i)
                         tr[i].style.display = 'none';
                     }
                 }
