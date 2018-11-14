@@ -688,7 +688,7 @@ function SuperQuery() {
             if(ingredients.length > 0) {
                 for(var e = 0; e < phaseOne.length; e++) {
                     var count = 0
-                    for(var i = 0; i < manufacturers.length; i++) {
+                    for(var i = 0; i < ingredients.length; i++) {
                         if(phaseOne[e].ingredients.ingredient_name === ingredients[i]) {
                             count++
                         }
