@@ -55,7 +55,7 @@ function Advanced() {
     document.location.href = "#advanced";
 }
 
-function Likes() {
+function Like() {
     document.location.reload();
 }
 
