@@ -808,19 +808,16 @@ function SuperQuery() {
                     td = tr[i].getElementsByTagName("td")[1];
                     if (td) {
                         if (td.innerHTML.indexOf(filter[e].food_ID) > -1) {
-                            console.log(td.innerHTML.indexOf(filter[e].food_ID));
                             tr[i].style.display = "";
-                            indeces.push(td.innerHTML.indexOf(filter[e].food_ID));
+                            indeces.push(i);
                         }
                     }
                 }
             }
-            console.log(indeces)
             for (i = 0; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[1];
                 if (td) {
                     if (!indeces.includes(i)) {
-                        console.log(i)
                         tr[i].style.display = 'none';
                     }
                 }
@@ -839,7 +836,7 @@ function SuperQuery() {
                     if (td) {
                         if (td.innerHTML.indexOf(filter[e].food_ID) > -1) {
                             tr[i].style.display = "";
-                            indeces.push(td.innerHTML.indexOf(filter[e].food_ID));
+                            indeces.push(i);
                         }
                     }
                 }
