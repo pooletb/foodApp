@@ -209,7 +209,6 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
   else {
     res.render('registration_landing', { title: 'Register Today' });
   }
-  console.log(json)
 });
 
 //DEPRECATED FOR NOW
@@ -277,7 +276,7 @@ router.post('/api/3', function (request, response) {
 });
 
 function getInfo (user) {
-  var json = {}
+  var json = {};
   knex('premade_likes').where({
     username: user,
   }).select()
