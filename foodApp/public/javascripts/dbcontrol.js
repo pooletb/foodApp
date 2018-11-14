@@ -661,25 +661,14 @@ function SuperQuery(num) {
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length > 0) {
-                var removalList = []
                 for(var e = 0; e < phaseOne.length; e++) {
                     var count = 0
                     for(var i = 0; i < manufacturers.length; i++) {
                         if(phaseOne[e].manufacturer_name === manufacturers[i]) {
-                            count++;
-                            console.log(phaseOne[e].manufacturer_name, manufacturers[i],e,i)
+                            phaseTwo.push(phaseOne[e])
                         }
                     }
-                    if(count == 0) {
-                        removalList.push(e);
-                    }
                 }
-                for(var e = 0; e < removalList.length; e++) {
-                    if(!removalList.includes(e)) {
-                        phaseTwo.push(phaseOne[e]);
-                    }
-                }
-                phaseOne = phaseTwo
             }
         }
         else {
