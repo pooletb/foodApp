@@ -667,6 +667,8 @@ function SuperQuery() {
         var ingredients
         var phaseTwo = []
 
+        console.log(num);
+
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length > 0) {
