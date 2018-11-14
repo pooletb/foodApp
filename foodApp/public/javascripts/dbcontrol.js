@@ -801,6 +801,7 @@ function SuperQuery() {
             filter = phaseOne;
             table = document.getElementById("pTable2");
             tr = table.getElementsByTagName("tr");
+            var indeces = [];
 
             for (i = 0; i < tr.length; i++) {
                 for(e = 0; e < filter.length; e++) {
@@ -827,7 +828,7 @@ function SuperQuery() {
             filter = phaseOne;
             table = document.getElementById("rTable2");
             tr = table.getElementsByTagName("tr");
-            indeces = [];
+            var indeces = [];
 
             for (i = 0; i < tr.length; i++) {
                 for(e = 0; e < filter.length; e++) {
