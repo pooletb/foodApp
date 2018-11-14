@@ -687,8 +687,11 @@ function SuperQuery() {
                     var count = 0
                     for(var i = 0; i < manufacturers.length; i++) {
                         if(phaseOne[e].ingredients.ingredient_name === ingredients[i]) {
-                            phaseTwo.push(phaseOne[e])
+                            count++
                         }
+                    }
+                    if(count == ingredients.length) {
+                        phaseTwo.push(phaseOne[e])
                     }
                 }
             }
