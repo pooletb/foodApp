@@ -673,7 +673,6 @@ function SuperQuery(num) {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== phaseOne[e]
                         })    
-                        e = 0;
                     }
                 }
             }
