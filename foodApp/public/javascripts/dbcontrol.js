@@ -203,6 +203,7 @@ function SuperQuery() {
     var json = {};
     json.post = 1;
     var results
+    var num
     var manColumn = document.getElementById('manColumn');
     if(manColumn.classList.contains('this-is-hidden')) {
         num = 0;
