@@ -275,59 +275,58 @@ router.post('/api/3', function (request, response) {
   response.send(json);
 });
 
-function getInfo (user) {
+function getInfo(user) {
   var json = {};
   json.premade_likes = []
   json.premade_fav = []
   json.homemade_fav = []
   json.homemade_likes = []
-  knex('premade_likes').where({
-    username: user,
-  }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_likes.food_ID')
-    .then((result) => {
-      json.premade_likes = result
-    })
-    .catch((err) => {
-      json.premade_likes = result = []
-    })
-    .then(() => {
-      knex('homemade_likes').where({
-        username: user,
-      }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
-        .then((result) => {
-          json.homemade_likes = result
-        })
-        .catch((err) => {
-          json.homemade_likes = []
-        })
-    })
-    .then(() => {
-      knex('premade_fav').where({
-        username: user,
-      }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
-        .then((result) => {
-          json.premade_fav = result
-        })
-        .catch((err) => {
-          json.premade_fav = []
-        })
-    })
-    .then(() => {
-      knex('homemade_fav').where({
-        username: user,
-      }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
-        .then((result) => {
-          json.homemade_fav = result
-        })
-        .catch((err) => {
-          json.homemade_fav = []
-        });
-    })
-    .then(() => {
-      console.log(json)
-      return json;
-    })
+  async function f() {
+    knex('premade_likes').where({
+      username: user,
+    }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_likes.food_ID')
+      .then((result) => {
+        json.premade_likes = result
+      })
+      .catch((err) => {
+        json.premade_likes = result = []
+      })
+
+    knex('homemade_likes').where({
+      username: user,
+    }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
+      .then((result) => {
+        json.homemade_likes = result
+      })
+      .catch((err) => {
+        json.homemade_likes = []
+      })
+
+    knex('premade_fav').where({
+      username: user,
+    }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
+      .then((result) => {
+        json.premade_fav = result
+      })
+      .catch((err) => {
+        json.premade_fav = []
+      })
+
+    knex('homemade_fav').where({
+      username: user,
+    }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
+      .then((result) => {
+        json.homemade_fav = result
+      })
+      .catch((err) => {
+        json.homemade_fav = []
+      });
+  }
+  var Finished = () => {
+    console.log(json)
     return json;
+  }
+  f().then(Finished);
 }
 
 router.post('/api/5', function (request, response) {
