@@ -661,6 +661,7 @@ function SuperQuery(num) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length > 0) {
                 for(var e = 0; e < phaseOne.length; e++) {
+                    e = 0;
                     console.log(e)
                     var count = 0
                     for(var i = 0; i < manufacturers.length; i++) {
@@ -669,11 +670,10 @@ function SuperQuery(num) {
                         }
                     }
                     if(count == 0) {
-                        var hold = e
-                        e = 0
                         phaseOne = phaseOne.filter(function (item) {
-                            return item !== phaseOne[hold]
+                            return item !== phaseOne[e]
                         })    
+                        e = 0;
                     }
                 }
             }
