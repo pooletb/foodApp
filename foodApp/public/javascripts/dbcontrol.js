@@ -718,14 +718,13 @@ function SuperQuery() {
                 }
             }
         }
-        var manufacturers
-        var ingredients
+        var manufacturers = getSelectValues(document.getElementById('aManufacturers'))
+        var ingredients = getSelectValues(document.getElementById('aIngredients'))
         var phaseTwo = []
 
         console.log(phaseOne);
 
         if(num == 1) {
-            manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length > 0) {
                 for(var e = 0; e < phaseOne.length; e++) {
                     var count = 0
@@ -738,7 +737,6 @@ function SuperQuery() {
             }
         }
         else {
-            ingredients = getSelectValues(document.getElementById('aIngredients'))
             if(ingredients.length > 0) {
                 for(var e = 0; e < phaseOne.length; e++) {
                     var count = 0
