@@ -808,6 +808,7 @@ function SuperQuery() {
                     td = tr[i].getElementsByTagName("td")[1];
                     if (td) {
                         if (td.innerHTML.indexOf(filter[e].food_ID) > -1) {
+                            console.log(td.innerHTML.indexOf(filter[e].food_ID));
                             tr[i].style.display = "";
                             indeces.push(td.innerHTML.indexOf(filter[e].food_ID));
                         }
