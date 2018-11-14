@@ -1,4 +1,4 @@
-var sections = ["landingmessage", "premadefood", "recipes", "ingredients", "advanced", "likes"]
+var sections = ["premadefood", "recipes", "ingredients", "advanced", "likes"]
 var btns = ["pmbtn", "rbtn", "ibtn", "abtn", "lbtn", "probtn"]
 
 function SectionSwap() {
