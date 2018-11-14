@@ -1,5 +1,5 @@
-var sections = ["landingmessage", "premadefood", "recipes", "ingredients", "advanced"]
-var btns = ["pmbtn", "rbtn", "ibtn", "abtn"]
+var sections = ["landingmessage", "premadefood", "recipes", "ingredients", "advanced", "likes"]
+var btns = ["pmbtn", "rbtn", "ibtn", "abtn", "lbtn", "probtn"]
 
 function SectionSwap() {
     for (var i = 0; i < sections.length; i++) {
@@ -89,12 +89,28 @@ function CloseInfo(id, db) {
     modal.classList.remove("is-active");
 }
 
-function LoveIt(user, id, db) {
-    console.log(user + " loves " + db + " " + id);
-}
 
-function LikeIt(user, id, db) {
-    console.log(user + " likes " + db + " " + id);
+function LikeLoveIt(user, id, num) {
+    info = {}
+    info.username = user
+    info.food_ID = id
+    info.num = num
+    async function f() {
+        const response = await fetch('/api/5', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(info)
+        });
+        results = await response.json()
+    }
+
+    var Part2 = () => {
+        
+    }
 }
 
 function myFunction(num) {
@@ -159,49 +175,6 @@ function myFunction(num) {
             }
         }
     }
-
-    if (num === 4) {
-        // Declare variables 
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("pInput2");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("pTable2");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-
-    if (num === 5) {
-        // Declare variables 
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("rInput2");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("rTable2");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-
 }
 
 function SwapAdv(num) {
@@ -756,7 +729,7 @@ function SuperQuery() {
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
 
-        if((manufacturers.length > 0 && num == 1) || ingredients.length > 0) {
+        if((manufacturers.length > 0 && num == 1) || (ingredients.length > 0 && num != 1)) {
             phaseOne = phaseTwo
             phaseTwo = []
         }

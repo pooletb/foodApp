@@ -165,7 +165,7 @@ CREATE TABLE homemade_likes (
 );
 
 CREATE TABLE premade_fav (
-  username varchar(25) NOT NULL UNIQUE,
+  username varchar(25) NOT NULL,
   food_ID int NOT NULL,
   CHECK (food_ID >= 0),
   FOREIGN KEY (username) REFERENCES user (username),
@@ -173,7 +173,7 @@ CREATE TABLE premade_fav (
 );
 
 CREATE TABLE homemade_fav (
-  username varchar(25) NOT NULL UNIQUE,
+  username varchar(25) NOT NULL,
   food_ID int NOT NULL,
   CHECK (food_ID >= 0),
   FOREIGN KEY (username) REFERENCES user (username),

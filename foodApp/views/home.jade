@@ -30,31 +30,62 @@ block content
                 p.menu-label User Info
             ul.menu-list
                 li
-                    a My Profile
+                    a.is-active#probtn My Profile
                     ul
                         li
-                            a Foods I Like
-                        li
-                            a Foods I Love
-            .changeme
-                p.menu-label Contribute to Our Database
-            ul.menu-list
-                li
-                    a Submit a Premade Food
-                li
-                    a Submit a New Recipe
+                            a#lbtn.is-active(onclick='Like()') Foods I Like/Love
+            //- .changeme
+            //-     p.menu-label Contribute to Our Database
+            //- ul.menu-list
+            //-     li
+            //-         a Submit a Premade Food
+            //-     li
+            //-         a Submit a New Recipe
 
         div.column
 
-            article.message.is-success#landingmessage
+            article.message.is-success#likes
                 .message-body
-                    | Welcome, please navigate using the sidebar, 
-                    strong our database is still under construction
-                    | , we are adding new things everyday, and even allow registered users to submit their own recipes,
-                    a for free.
-                    |  So, if you have not already please take the time to register an account,
-                    em it couldn't be easier
-                    | , and we would love to have more users
+                    | Welcome to your profile, #{params.user} 
+                    strong you will find foods you have saved below!
+            div.columns 
+              div.column        
+                section.hero
+                  .hero-body
+                    .container
+                      h1.title
+                        | Like
+                      h2.subtitle
+                        | You Like these Foods
+                table.table.is-fullwidth.is-hoverable.is-striped#lTable
+                  tbody
+                      tr.header
+                          th Name
+                      each food in params.userSaved.premade_likes
+                          tr(onclick='OpenInfo(#{food.food_ID},1)')
+                              td=food.food_name
+                      each food in params.userSaved.homemade_likes
+                          tr(onclick='OpenInfo(#{food.food_ID},2)')
+                              td=food.food_name
+          
+              div.column        
+                section.hero
+                  .hero-body
+                    .container
+                      h1.title
+                        | Love
+                      h2.subtitle
+                        | You Love these Foods
+                table.table.is-fullwidth.is-hoverable.is-striped#lTable
+                  tbody
+                      tr.header
+                          th Name
+                      each food in params.userSaved.premade_fav
+                          tr(onclick='OpenInfo(#{food.food_ID},1)')
+                              td=food.food_name
+                      each food in params.userSaved.homemade_fav
+                          tr(onclick='OpenInfo(#{food.food_ID},2)')
+                              td=food.food_name
 
             div.this-is-hidden#premadefood
                 article.message.is-success
@@ -369,34 +400,24 @@ block content
                   div.column
                       button.button.is-success.is-fullwidth.is-large#queryBtnP(onclick='SuperQuery()') Submit
 
-                div#aSearchPre
-                    .control.has-icons-left.is-large.is-loading#pSearchController2
-                        input.input.is-large.is-fullwidth#pInput2(type='text', onkeyup='myFunction(4)', placeholder='Search result')
-                        span.icon.is-medium.is-left
-                            i.fas.fa-search
-                        table.table.is-fullwidth.is-hoverable.is-striped#pTable2
-                            tbody
-                                tr.header
-                                    th Name
-                                each food in params.pmDB
-                                    tr(onclick='OpenInfo(#{food.food_ID},1)')
-                                        td=food.food_name
-                                        td.this-is-hidden=food.food_ID
-                                        td=food.manufacturer_name
+                table.table.is-fullwidth.is-hoverable.is-striped#pTable2
+                    tbody
+                        tr.header
+                            th Name
+                        each food in params.pmDB
+                            tr(onclick='OpenInfo(#{food.food_ID},1)')
+                                td=food.food_name
+                                td.this-is-hidden=food.food_ID
+                                td=food.manufacturer_name
 
-                div.this-is-hidden#aSearchRecipe
-                    .control.has-icons-left.is-large.is-loading#rSearchController2
-                        input.input.is-large.is-fullwidth#rInput2(type='text', onkeyup='myFunction(5)', placeholder='Search results')
-                        span.icon.is-medium.is-left
-                            i.fas.fa-search
-                        table.table.is-fullwidth.is-hoverable.is-striped#rTable2
-                            tbody
-                                tr.header
-                                    th Name
-                                each food in params.hfDB
-                                    tr(onclick='OpenInfo(#{food.food_ID},2)')
-                                        td=food.food_name
-                                        td.this-is-hidden=food.food_ID
+                table.table.is-fullwidth.is-hoverable.is-striped#rTable2
+                    tbody
+                        tr.header
+                            th Name
+                        each food in params.hfDB
+                            tr(onclick='OpenInfo(#{food.food_ID},2)')
+                                td=food.food_name
+                                td.this-is-hidden=food.food_ID
 
 
 
@@ -411,7 +432,7 @@ block content
                 .modal-background
                 .modal-card
                   header.modal-card-head
-                    p2.modal-card-title #{food.food_name}
+                    p2.modal-card-title #{food.food_name}, made by #{food.manufacturer_name}
                     button.delete(onclick='CloseInfo(#{food.food_ID},1)')
                   .modal-card-body
                     section.performance-facts.xl
