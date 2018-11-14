@@ -99,6 +99,7 @@ function LikeLoveIt(user, id, num) {
     info.username = user
     info.food_ID = id
     info.num = num
+    console.log(info)
     async function f() {
         const response = await fetch('/api/5', {
             method: 'POST',
