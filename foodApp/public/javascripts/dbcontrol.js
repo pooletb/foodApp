@@ -110,6 +110,7 @@ function LikeLoveIt(user, id, num) {
             body: JSON.stringify(info)
         });
         results = await response.json()
+        console.log(results)
     }
 
     var Part2 = () => {
