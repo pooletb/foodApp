@@ -660,20 +660,22 @@ function SuperQuery(num) {
         if(num == 1) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length > 0) {
+                var removalList = []
                 for(var e = 0; e < phaseOne.length; e++) {
-                    console.log(e)
                     var count = 0
                     for(var i = 0; i < manufacturers.length; i++) {
-                        if(phaseOne[e].manufacturer_name == manufacturers[i]) {
+                        if(phaseOne[e].manufacturer_name === manufacturers[i]) {
                             count++;
                         }
                     }
                     if(count == 0) {
-                        phaseOne = phaseOne.filter(function (item) {
-                            return item !== phaseOne[e]
-                        })    
-                        e = 0;
+                        removalList.push(e);
                     }
+                }
+                for(var e = 0; e < removalList.length; e++) {
+                    phaseOne = phaseOne.filter(function (item) {
+                            return item !== phaseOne[removalList[e]]
+                    })    
                 }
             }
         }
