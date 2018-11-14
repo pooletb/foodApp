@@ -283,7 +283,7 @@ function getInfo (user) {
   json.homemade_likes = []
   knex('premade_likes').where({
     username: user,
-  }).select()
+  }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_likes.food_ID')
     .then((result) => {
       json.premade_likes = result
     })
@@ -293,7 +293,7 @@ function getInfo (user) {
     .then(() => {
       knex('homemade_likes').where({
         username: user,
-      }).select()
+      }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
         .then((result) => {
           json.homemade_likes = result
         })
@@ -304,7 +304,7 @@ function getInfo (user) {
     .then(() => {
       knex('premade_fav').where({
         username: user,
-      }).select()
+      }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
         .then((result) => {
           json.premade_fav = result
         })
@@ -315,7 +315,7 @@ function getInfo (user) {
     .then(() => {
       knex('homemade_fav').where({
         username: user,
-      }).select()
+      }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
         .then((result) => {
           json.homemade_fav = result
         })
@@ -345,7 +345,7 @@ router.post('/api/5', function (request, response) {
       });
   }
   else if (info.num == 2) {
-    knex('premade_fav').insert([{ username: info.username, food_ID: info.food_ID }])
+    knex('homemade_likes').insert([{ username: info.username, food_ID: info.food_ID }])
       .then(() => {
         json.res = 'ok';
         response.send(json)
@@ -356,7 +356,7 @@ router.post('/api/5', function (request, response) {
       });
   }
   if (info.num == 3) {
-    knex('premade_likes').insert([{ username: info.username, food_ID: info.food_ID }])
+    knex('premade_fav').insert([{ username: info.username, food_ID: info.food_ID }])
       .then(() => {
         json.res = 'ok';
         response.send(json)
@@ -367,7 +367,7 @@ router.post('/api/5', function (request, response) {
       });
   }
   if (info.num == 4) {
-    knex('premade_fav').insert([{ username: info.username, food_ID: info.food_ID }])
+    knex('homemade_fav').insert([{ username: info.username, food_ID: info.food_ID }])
       .then(() => {
         json.res = 'ok';
         response.send(json)
