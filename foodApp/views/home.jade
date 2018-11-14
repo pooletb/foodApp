@@ -112,11 +112,11 @@ block content
                         |  for your convenince.  If you know what you're looking for,
                         em you can even search the database with the searchbar below
                 div
-                    .control.has-icons-left.is-large.is-loading#pSearchController
-                        input.input.is-large.is-fullwidth#pInput(type='text', onkeyup='myFunction(3)', placeholder='Search for ingredients')
+                    .control.has-icons-left.is-large.is-loading#iSearchController
+                        input.input.is-large.is-fullwidth#iInput(type='text', onkeyup='myFunction(3)', placeholder='Search for ingredients')
                         span.icon.is-medium.is-left
                             i.fas.fa-search
-                        table.table.is-fullwidth.is-hoverable.is-striped#pTable
+                        table.table.is-fullwidth.is-hoverable.is-striped#iTable
                             tbody
                                 tr.header
                                     th Name
@@ -862,7 +862,7 @@ block content
               - var sodiumDV = ((food.sodium / 2400) * 100).toFixed(0) + ' %'
               - var total_carbsDV = ((food.total_carbs / 300) * 100).toFixed(0) + ' %'
               - var diet_fiberDV = ((food.diet_fiber / 25) * 100).toFixed(0) + ' %'
-              .modal(id="i#{food.food_ID}")
+              .modal(id="i#{food.ingredient_ID}")
                 .modal-background
                 .modal-card
                   header.modal-card-head
