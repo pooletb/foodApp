@@ -666,6 +666,7 @@ function SuperQuery(num) {
                     for(var i = 0; i < manufacturers.length; i++) {
                         if(phaseOne[e].manufacturer_name === manufacturers[i]) {
                             count++;
+                            console.log(phaseOne[e].manufacturer_name, manufacturers[i])
                         }
                     }
                     if(count == 0) {
