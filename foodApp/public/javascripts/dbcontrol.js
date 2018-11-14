@@ -678,6 +678,7 @@ function SuperQuery(num) {
         var categories = getSelectValues(document.getElementById('aCategories'))
         
         phaseOne = phaseTwo
+        phaseTwo = []
         
         if(allergens.length > 0) {
             for(var e = 0; e < phaseOne.length; e++) {
@@ -687,37 +688,30 @@ function SuperQuery(num) {
                         count++;
                     }
                 }
-                if(count > 0) {
-                    var hold = e
-                    e = 0
-                    phaseOne = phaseOne.filter(function (item) {
-                        return item !== phaseOne[e]
-                    })    
+                if(count == 0) {
+                    phaseTwo.push(phaseOne[e])  
                 }
             }
         }
+
+        phaseOne = phaseTwo
+        phaseTwo = []
 
         if(categories.length > 0) {
             for(var e = 0; e < phaseOne.length; e++) {
                 var count = 0
                 for(var i = 0; i < categories.length; i++) {
                     if(phaseOne[e].category === categories[i]) {
-                        count++;
+                        phaseTwo.push(phaseOne[e])
                     }
-                }
-                if(count == 0) {
-                    var hold = e
-                    e = 0
-                    phaseOne = phaseOne.filter(function (item) {
-                        return item !== phaseOne[e]
-                    })    
                 }
             }
         }
 
+        phaseOne = phaseTwo
+        phaseTwo = []
 
         console.log(phaseOne);
-
     }
   f().then(Part2);
 }
