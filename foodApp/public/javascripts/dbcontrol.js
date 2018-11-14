@@ -161,8 +161,6 @@ function SwapAdv(num) {
     var hfButton = document.getElementById('aHFButton');
     var ingColumn = document.getElementById('ingColumn');
     var manColumn = document.getElementById('manColumn');
-    var sBtnP = document.getElementById('queryBtnP');
-    var sBtnH = document.getElementById('queryBtnH');
 
     if (num == 0) {
         if (pmButton.classList.contains('is-outlined')) {
@@ -170,8 +168,6 @@ function SwapAdv(num) {
             hfButton.classList.add('is-outlined')
             ingColumn.classList.add('this-is-hidden')
             manColumn.classList.remove('this-is-hidden')
-            sBtnH.classList.add('this-is-hidden')
-            sBtnP.classList.remove('this-is-hidden')
         }
         else {
         }
@@ -182,8 +178,6 @@ function SwapAdv(num) {
             pmButton.classList.add('is-outlined')
             manColumn.classList.add('this-is-hidden')
             ingColumn.classList.remove('this-is-hidden')
-            sBtnH.classList.remove('this-is-hidden')
-            sBtnP.classList.add('this-is-hidden')
         }
         else {
         }
@@ -204,11 +198,18 @@ function getSelectValues(select) {
     return result;
 }
 
-function SuperQuery(num) {
+function SuperQuery() {
     var db
     var json = {};
     json.post = 1;
     var results
+    var manColumn = document.getElementById('manColumn');
+    if(manColumn.classList.contains('this-is-hidden')) {
+        num = 1;
+    }
+    else {
+        num = 0;
+    }
     async function f() {
         const response = await fetch('/api/3', {
             method: 'POST',

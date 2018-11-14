@@ -366,8 +366,7 @@ block content
                           option(value=item) #{item}
                 div.columns
                   div.column
-                      button.button.is-success.is-fullwidth.is-large#queryBtnP(onclick='SuperQuery(1)') Submit
-                      button.button.is-success.is-fullwidth.is-large.this-is-hidden#queryBtnH(onclick='SuperQuery(0)') Submit
+                      button.button.is-success.is-fullwidth.is-large#queryBtnP(onclick='SuperQuery()') Submit
                 div
                     .control.has-icons-left.is-large.is-loading#rSearchController
                         input.input.is-large.is-fullwidth#rInput(type='text', onkeyup='myFunction(2)', placeholder='Search for names..')
