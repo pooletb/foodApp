@@ -282,6 +282,7 @@ function getInfo (user) {
       json.premade_likes = result
     })
     .catch((err) => {
+      json.premade_likes = result = []
     })
     .then(() => {
       knex('homemade_likes').where({
@@ -291,6 +292,7 @@ function getInfo (user) {
           json.homemade_likes = result
         })
         .catch((err) => {
+          json.homemade_likes = []
         })
     })
     .then(() => {
@@ -301,6 +303,7 @@ function getInfo (user) {
           json.premade_fav = result
         })
         .catch((err) => {
+          json.premade_fav = []
         })
     })
     .then(() => {
@@ -311,6 +314,7 @@ function getInfo (user) {
           json.homemade_fav = result
         })
         .catch((err) => {
+          json.homemade_fav = []
         });
     })
     .then(() => {
