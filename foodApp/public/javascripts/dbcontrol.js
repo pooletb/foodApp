@@ -67,6 +67,9 @@ function OpenInfo(id, db) {
     else if (db == 2) {
         prefix = "hf"
     }
+    else if (db == 3) {
+        prefix = "i"
+    }
     var modal = document.getElementById(prefix + id)
     modal.classList.add("is-active");
 }
@@ -78,6 +81,9 @@ function CloseInfo(id, db) {
     }
     else if (db == 2) {
         prefix = "hf"
+    }
+    else if (db == 3) {
+        prefix = "i"
     }
     var modal = document.getElementById(prefix + id)
     modal.classList.remove("is-active");
