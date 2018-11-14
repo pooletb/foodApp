@@ -277,6 +277,7 @@ router.post('/api/3', function (request, response) {
 });
 
 function getInfo (user) {
+  var json = {}
   knex('premade_likes').where({
     username: user,
   }).select()
