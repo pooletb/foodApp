@@ -821,7 +821,7 @@ function SuperQuery() {
                 for(e = 0; e < filter.length; e++) {
                     td = tr[i].getElementsByTagName("td")[1];
                     if (td) {
-                        if (td.innerHTML.indexOf(filter[e]) > -1) {
+                        if (td.innerHTML.indexOf(filter[e].food_ID) > -1) {
                             tr[i].style.display = "";
                         } else {
                             tr[i].style.display = "none";
