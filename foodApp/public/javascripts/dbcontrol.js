@@ -756,7 +756,7 @@ function SuperQuery() {
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
 
-        if(manufacturers.length > 0 || ingredients.length > 0) {
+        if((manufacturers.length > 0 && num == 1) || ingredients.length > 0) {
             phaseOne = phaseTwo
             phaseTwo = []
         }
