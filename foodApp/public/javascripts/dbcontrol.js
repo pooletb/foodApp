@@ -808,9 +808,16 @@ function SuperQuery() {
                     if (td) {
                         if (td.innerHTML.indexOf(filter[e].food_ID) > -1) {
                             tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
+                            indeces.push(td.innerHTML.indexOf(filter[e].food_ID));
                         }
+                    }
+                }
+            }
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    if (!indeces.includes(i)) {
+                        tr[i].style.display = 'none';
                     }
                 }
             }
@@ -820,6 +827,7 @@ function SuperQuery() {
             filter = phaseOne;
             table = document.getElementById("rTable2");
             tr = table.getElementsByTagName("tr");
+            indeces = [];
 
             for (i = 0; i < tr.length; i++) {
                 for(e = 0; e < filter.length; e++) {
@@ -827,13 +835,19 @@ function SuperQuery() {
                     if (td) {
                         if (td.innerHTML.indexOf(filter[e].food_ID) > -1) {
                             tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
+                            indeces.push(td.innerHTML.indexOf(filter[e].food_ID));
                         }
                     }
                 }
             }
-
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    if (!indeces.includes(i)) {
+                        tr[i].style.display = 'none';
+                    }
+                }
+            }
         }
 
         console.log(phaseOne);
