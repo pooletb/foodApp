@@ -364,25 +364,40 @@ block content
                       select#aCategories(multiple='', size='8')
                         each item in params.cat
                           option(value=item) #{item}
+
                 div.columns
                   div.column
                       button.button.is-success.is-fullwidth.is-large#queryBtnP(onclick='SuperQuery()') Submit
-                div
-                    .control.has-icons-left.is-large.is-loading#rSearchController
-                        input.input.is-large.is-fullwidth#rInput(type='text', onkeyup='myFunction(2)', placeholder='Search for names..')
+
+                div#aSearchPre
+                    .control.has-icons-left.is-large.is-loading#pSearchController2
+                        input.input.is-large.is-fullwidth#pInput2(type='text', onkeyup='myFunction(4)', placeholder='Search result')
                         span.icon.is-medium.is-left
                             i.fas.fa-search
-                        table.table.is-fullwidth.is-hoverable.is-striped#rTable
+                        table.table.is-fullwidth.is-hoverable.is-striped#pTable2
+                            tbody
+                                tr.header
+                                    th Name
+                                each food in params.pmDB
+                                    tr(onclick='OpenInfo(#{food.food_ID},1)')
+                                        td=food.food_name
+                                        td.this-is-hidden=food.food_ID
+
+                div.this-is-hidden#aSearchRecipe
+                    .control.has-icons-left.is-large.is-loading#rSearchController2
+                        input.input.is-large.is-fullwidth#rInput2(type='text', onkeyup='myFunction(5)', placeholder='Search results')
+                        span.icon.is-medium.is-left
+                            i.fas.fa-search
+                        table.table.is-fullwidth.is-hoverable.is-striped#prable2
                             tbody
                                 tr.header
                                     th Name
                                 each food in params.hfDB
-                                    tr
-                                        td(onclick='echoPrint(#{food.food_ID})')= food.food_name
-                                        td
-                                            i.far.fa-smile(onclick='echoPrint(#{food.food_ID})')
-                                        td
-                                            i.far.fa-heart(onclick='echoPrint(#{food.food_ID})')
+                                    tr(onclick='OpenInfo(#{food.food_ID},2)')
+                                        td=food.food_name
+                                        td.this-is-hidden=food.food_ID
+
+
 
             each food in params.pmDB
               - var total_fatDV = ((food.total_fat / 65) * 100).toFixed(0) + ' %'
@@ -1062,7 +1077,7 @@ block content
                     br
                     br
                   footer.modal-card-foot
-                    a.button.is-large.is-fullwidth.is-info(onclick='')
+                    a.button.is-large.is-fullwidth.is-info(onclick='CloseInfo(#{food.ingredient_ID},3)')
                       span.icon.is-medium
                         i.fas.fa-info-circle
                       span Ok

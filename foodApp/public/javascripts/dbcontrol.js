@@ -160,6 +160,48 @@ function myFunction(num) {
         }
     }
 
+    if (num === 4) {
+        // Declare variables 
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("pInput2");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("pTable2");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    if (num === 5) {
+        // Declare variables 
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("rInput2");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("rTable2");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
 }
 
 function SwapAdv(num) {
@@ -695,8 +737,10 @@ function SuperQuery() {
                 for(var e = 0; e < phaseOne.length; e++) {
                     var count = 0
                     for(var i = 0; i < ingredients.length; i++) {
-                        if(phaseOne[e].ingredients.ingredient_name === ingredients[i]) {
-                            count++
+                        for(var sry = 0; sry < phaseOne[e].ingredients.length; sry++) {
+                            if(phaseOne[e].ingredients[sry].ingredient_name === ingredients[i]) {
+                                count++
+                            }
                         }
                     }
                     if(count == ingredients.length) {
@@ -708,7 +752,7 @@ function SuperQuery() {
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
 
-        if(phaseTwo.length > 0) {
+        if(manufacturers.length > 0 || ingredients.length > 0) {
             phaseOne = phaseTwo
             phaseTwo = []
         }
@@ -727,7 +771,7 @@ function SuperQuery() {
             }
         }
 
-        if(phaseTwo.length > 0) {
+        if(allergens.length > 0) {
             phaseOne = phaseTwo
             phaseTwo = []
         }
@@ -743,9 +787,49 @@ function SuperQuery() {
             }
         }
 
-        if(phaseTwo.length > 0) {
+        if(categories.length > 0) {
             phaseOne = phaseTwo
             phaseTwo = []
+        }
+
+        if (num === 1) {
+            var input, filter, table, tr, td, i;
+            filter = phaseOne;
+            table = document.getElementById("pTable2");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                for(e = 0; e < filter.length; e++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        if (td.innerHTML.indexOf(filter[e]) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            var input, filter, table, tr, td, i;
+            filter = phaseOne;
+            table = document.getElementById("rTable2");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                for(e = 0; e < filter.length; e++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        if (td.innerHTML.indexOf(filter[e]) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+
         }
 
         console.log(phaseOne);
