@@ -661,11 +661,10 @@ function SuperQuery(num) {
             manufacturers = getSelectValues(document.getElementById('aManufacturers'))
             if(manufacturers.length > 0) {
                 for(var e = 0; e < phaseOne.length; e++) {
-                    e = 0;
                     console.log(e)
                     var count = 0
                     for(var i = 0; i < manufacturers.length; i++) {
-                        if(phaseOne[e].manufacturer_name === manufacturers[i]) {
+                        if(phaseOne[e].manufacturer_name == manufacturers[i]) {
                             count++;
                         }
                     }
@@ -673,6 +672,7 @@ function SuperQuery(num) {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== phaseOne[e]
                         })    
+                        e = 0;
                     }
                 }
             }
