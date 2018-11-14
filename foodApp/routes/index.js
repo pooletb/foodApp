@@ -320,6 +320,7 @@ function getInfo (user) {
         });
     })
     .then(() => {
+      console.log(json)
       return json;
     })
 }
