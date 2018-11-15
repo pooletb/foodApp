@@ -333,18 +333,12 @@ function getInfo(user) {
     var homemade_fav = []
     var homemade_likes = []
 
-    a().then(function (result) {
-      premade_likes = result;
-    })
-    b().then(function (result) {
-      homemade_likes = result;
-    })
-    c().then(function (result) {
-      premade_fav = result;
-    })
-    d().then(function (result) {
-      homemade_fav = result;
-    })
+    premade_likes = await a()
+    homemade_likes = await b()
+    premade_fav = await c()
+    homemade_fav = await d()
+
+    console.log(premade_likes)
 
     return new Promise(resolve => {
       setTimeout(() => {
@@ -352,8 +346,6 @@ function getInfo(user) {
       }, 1000);
     })
   }
-  var results = await p()
-  return results
 
 }
 
