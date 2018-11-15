@@ -275,11 +275,6 @@ router.post('/api/3', function (request, response) {
 });
 
 function getInfo(user) {
-  var premade_likes = []
-  var premade_fav = []
-  var homemade_fav = []
-  var homemade_likes = []
-
   async function a() {
     knex('premade_likes').where({
       username: user,
@@ -287,7 +282,6 @@ function getInfo(user) {
       .then((result) => {
         return new Promise(resolve => {
           setTimeout(() => {
-            console.log(result)
             resolve(result);
           }, 2000);
         })
@@ -295,123 +289,155 @@ function getInfo(user) {
   }
 
   async function b() {
-            knex('homemade_likes').where({
-              username: user,
-            }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
-              .then((result) => {
-                return result
-              })
-          }
+    knex('homemade_likes').where({
+      username: user,
+    }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
+      .then((result) => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve(result);
+          }, 2000);
+        })
+      })
+  }
 
 
   async function c() {
-            knex('premade_fav').where({
-              username: user,
-            }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
-              .then((result) => {
-                return result
-              })
-          }
+    knex('premade_fav').where({
+      username: user,
+    }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
+      .then((result) => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve(result);
+          }, 2000);
+        })
+      })
+  }
   async function d() {
-            knex('homemade_fav').where({
-              username: user,
-            }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
-              .then((result) => {
-                return result
-              })
-          }
-          a().then(function(result) {
-            premade_likes = result;
-          })
-        // homemade_likes = await b();
-        // premade_fav = await c();
-        // homemade_fav = await d()
-        console.log(premade_likes, homemade_likes, premade_fav, homemade_fav)
-        return (premade_likes, homemade_likes, premade_fav, homemade_fav)
-      }
+    knex('homemade_fav').where({
+      username: user,
+    }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
+      .then((result) => {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve(result);
+          }, 2000);
+        })
+      })
+  }
+
+  async function p() {
+    var premade_likes = []
+    var premade_fav = []
+    var homemade_fav = []
+    var homemade_likes = []
+    a().then(function (result) {
+      premade_likes = result;
+    })
+    b().then(function (result) {
+      homemade_likes = result;
+    })
+    c().then(function (result) {
+      premade_fav = result;
+    })
+    d().then(function (result) {
+      homemade_fav = result;
+    })
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(premade_likes, homemade_likes, premade_fav, homemade_fav);
+      }, 2000);
+    })
+  }
+  p().then(function (result) {
+    return result;
+  })
+
+}
 
 
 router.post('/api/5', function (request, response) {
-          var info = request.body;
-          var json = {};
-          if (info.num == 1) {
-            knex('premade_likes').insert([{ username: info.username, food_ID: info.food_ID }])
-              .then(() => {
-                json.res = 'ok';
-                response.send(json)
-              })
-              .catch((err) => {
-                json.res = 'o no';
-                response.send(json);
-              });
-          }
-          else if (info.num == 2) {
-            knex('homemade_likes').insert([{ username: info.username, food_ID: info.food_ID }])
-              .then(() => {
-                json.res = 'ok';
-                response.send(json)
-              })
-              .catch((err) => {
-                json.res = 'o no';
-                response.send(json);
-              });
-          }
-          if (info.num == 3) {
-            knex('premade_fav').insert([{ username: info.username, food_ID: info.food_ID }])
-              .then(() => {
-                json.res = 'ok';
-                response.send(json)
-              })
-              .catch((err) => {
-                json.res = 'o no';
-                response.send(json);
-              });
-          }
-          if (info.num == 4) {
-            knex('homemade_fav').insert([{ username: info.username, food_ID: info.food_ID }])
-              .then(() => {
-                json.res = 'ok';
-                response.send(json)
-              })
-              .catch((err) => {
-                json.res = 'o no';
-                response.send(json);
-              });
-          }
-        });
+  var info = request.body;
+  var json = {};
+  if (info.num == 1) {
+    knex('premade_likes').insert([{ username: info.username, food_ID: info.food_ID }])
+      .then(() => {
+        json.res = 'ok';
+        response.send(json)
+      })
+      .catch((err) => {
+        json.res = 'o no';
+        response.send(json);
+      });
+  }
+  else if (info.num == 2) {
+    knex('homemade_likes').insert([{ username: info.username, food_ID: info.food_ID }])
+      .then(() => {
+        json.res = 'ok';
+        response.send(json)
+      })
+      .catch((err) => {
+        json.res = 'o no';
+        response.send(json);
+      });
+  }
+  if (info.num == 3) {
+    knex('premade_fav').insert([{ username: info.username, food_ID: info.food_ID }])
+      .then(() => {
+        json.res = 'ok';
+        response.send(json)
+      })
+      .catch((err) => {
+        json.res = 'o no';
+        response.send(json);
+      });
+  }
+  if (info.num == 4) {
+    knex('homemade_fav').insert([{ username: info.username, food_ID: info.food_ID }])
+      .then(() => {
+        json.res = 'ok';
+        response.send(json)
+      })
+      .catch((err) => {
+        json.res = 'o no';
+        response.send(json);
+      });
+  }
+});
 
 
-    function IndexOf(id, db) {
-      for (var i = 0; i < db.length; i++) {
-        if (db[i].food_ID == id) {
-          return i
-        }
-      }
-      return false;
+function IndexOf(id, db) {
+  for (var i = 0; i < db.length; i++) {
+    if (db[i].food_ID == id) {
+      return i
     }
+  }
+  return false;
+}
 
-    function encrypt(text) {
-      var cipher = crypto.createCipher(algorithm, password)
-      var crypted = cipher.update(text, 'utf8', 'hex')
-      crypted += cipher.final('hex');
-      return crypted;
-    }
+function encrypt(text) {
+  var cipher = crypto.createCipher(algorithm, password)
+  var crypted = cipher.update(text, 'utf8', 'hex')
+  crypted += cipher.final('hex');
+  return crypted;
+}
 
-    function decrypt(text) {
-      var decipher = crypto.createDecipher(algorithm, password)
-      var dec = decipher.update(text, 'hex', 'utf8')
-      dec += decipher.final('utf8');
-      return dec;
-    }
+function decrypt(text) {
+  var decipher = crypto.createDecipher(algorithm, password)
+  var dec = decipher.update(text, 'hex', 'utf8')
+  dec += decipher.final('utf8');
+  return dec;
+}
 
-    function randomPassword(length) {
-      var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP1234567890";
-      var pass = "";
-      for (var x = 0; x < length; x++) {
-        var i = Math.floor(Math.random() * chars.length);
-        pass += chars.charAt(i);
-      }
-      return pass;
-    }
+function randomPassword(length) {
+  var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP1234567890";
+  var pass = "";
+  for (var x = 0; x < length; x++) {
+    var i = Math.floor(Math.random() * chars.length);
+    pass += chars.charAt(i);
+  }
+  return pass;
+}
 
-    module.exports = router;
+module.exports = router;
