@@ -319,7 +319,7 @@ async function getInfo(user) {
   }
 
   p().then(function (result) {
-    return result;
+    return await result;
   })
 }
 
