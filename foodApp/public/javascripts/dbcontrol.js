@@ -241,17 +241,17 @@ function SwapAdv(num) {
 function NutritionCalc() {
     var json = {};
     json.post = 1;
-    var cals
-    var fatCals
-    var totalFat
-    var satFat
-    var transFat
-    var cholesterol
-    var sodium
-    var carbs
-    var dietFiber
-    var sugars
-    var protein
+    var cals = 0
+    var fatCals = 0
+    var totalFat = 0
+    var satFat = 0
+    var transFat = 0
+    var cholesterol = 0
+    var sodium = 0
+    var carbs = 0
+    var dietFiber = 0
+    var sugars = 0
+    var protein = 0
     var select = getSelectValues(document.getElementById('cSelect'))
 
     async function f() {
