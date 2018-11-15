@@ -332,7 +332,7 @@ function getInfo(user) {
     var premade_fav = await c()
     var homemade_fav = await d()
 
-
+    console.log('first')
     return await (premade_likes,premade_fav,homemade_likes,homemade_fav);
   }
 
