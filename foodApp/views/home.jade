@@ -1096,12 +1096,12 @@ block content
                       span Like it!
 
             each food in params.iDB
-              - var total_fatDV = ((food.total_fat / 65) * 100).toFixed(0) + ' %'
-              - var sat_fatDV = (((food.sat_fat + food.trans_fat) / 20) * 100).toFixed(0) + ' %'
-              - var cholesterolDV = ((food.cholesterol / 300) * 100).toFixed(0) + ' %'
-              - var sodiumDV = ((food.sodium / 2400) * 100).toFixed(0) + ' %'
-              - var total_carbsDV = ((food.total_carbs / 300) * 100).toFixed(0) + ' %'
-              - var diet_fiberDV = ((food.diet_fiber / 25) * 100).toFixed(0) + ' %'
+              - var total_fatDV = ((food.total_fat_i / 65) * 100).toFixed(0) + ' %'
+              - var sat_fatDV = (((food.sat_fat_i + food.trans_fat_i) / 20) * 100).toFixed(0) + ' %'
+              - var cholesterolDV = ((food.cholesterol_i / 300) * 100).toFixed(0) + ' %'
+              - var sodiumDV = ((food.sodium_i / 2400) * 100).toFixed(0) + ' %'
+              - var total_carbsDV = ((food.total_carbs_i / 300) * 100).toFixed(0) + ' %'
+              - var diet_fiberDV = ((food.diet_fiber_i / 25) * 100).toFixed(0) + ' %'
               .modal(id="i#{food.ingredient_ID}")
                 .modal-background
                 .modal-card
