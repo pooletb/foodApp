@@ -282,7 +282,6 @@ function getInfo(user) {
       .then((result) => {
         return new Promise(resolve => {
           setTimeout(() => {
-            console.log(result);
             resolve(result);
           }, 500);
         })
@@ -333,6 +332,7 @@ function getInfo(user) {
     var premade_fav = []
     var homemade_fav = []
     var homemade_likes = []
+
     a().then(function (result) {
       premade_likes = result;
     })
@@ -345,16 +345,14 @@ function getInfo(user) {
     d().then(function (result) {
       homemade_fav = result;
     })
+
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(premade_likes, homemade_likes, premade_fav, homemade_fav);
       }, 1000);
     })
   }
-  p().then(function (result) {
-    console.log(result)
-    return result;
-  })
+  return await p()
 
 }
 
