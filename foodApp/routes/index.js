@@ -276,58 +276,55 @@ router.post('/api/3', function (request, response) {
 });
 
 function getInfo(user) {
-  var json = {};
-  json.premade_likes = []
-  json.premade_fav = []
-  json.homemade_fav = []
-  json.homemade_likes = []
-  async function f() {
+  var premade_likes = []
+  var premade_fav = []
+  var homemade_fav = []
+  var homemade_likes = []
+
+  async function a() {
     knex('premade_likes').where({
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_likes.food_ID')
       .then((result) => {
-        json.premade_likes = result
+        return result
       })
-      .catch((err) => {
-        json.premade_likes = result = []
-      })
+  }
 
+  async function b() {
     knex('homemade_likes').where({
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
       .then((result) => {
-        json.homemade_likes = result
+        return result
       })
-      .catch((err) => {
-        json.homemade_likes = []
-      })
+  }
 
+
+  async function c() {
     knex('premade_fav').where({
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
       .then((result) => {
-        json.premade_fav = result
+        return result
       })
-      .catch((err) => {
-        json.premade_fav = []
-      })
-
+  }
+  async function d() {
     knex('homemade_fav').where({
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
       .then((result) => {
-        json.homemade_fav = result
+        return result
       })
-      .catch((err) => {
-        json.homemade_fav = []
-      });
   }
-  var Finished = () => {
-    console.log(json)
-    return json;
-  }
-  f().then(Finished);
+  premade_likes = a();
+  homemade_likes = b();
+  premade_fav = c();
+  homemade_fav = d()
+  return (premade_likes, homemade_likes, premade_fav, homemade_fav)
+
+
 }
+
 
 router.post('/api/5', function (request, response) {
   var info = request.body;
