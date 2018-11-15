@@ -303,13 +303,14 @@ function getInfo(user) {
   }
 
   async function p() {
-    var premade_likes = await a()
-    var homemade_likes = await b()
-    var premade_fav = await c()
-    var homemade_fav = await d()
+    var response = {}
+    response.premade_likes = await a()
+    response.homemade_likes = await b()
+    response.premade_fav = await c()
+    response.homemade_fav = await d()
     
 
-    return await ([premade_likes,premade_fav,homemade_likes,homemade_fav]);
+    return await (response);
   }
 
   p().then(function (result) {
