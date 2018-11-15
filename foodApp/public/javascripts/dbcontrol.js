@@ -239,6 +239,8 @@ function SwapAdv(num) {
 }
 
 function NutritionCalc() {
+    var json = {};
+    json.post = 1;
     var cals
     var fatCals
     var totalFat
