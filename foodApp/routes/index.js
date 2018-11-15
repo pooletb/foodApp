@@ -279,6 +279,8 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_likes.food_ID')
       .then((result) => {
+            console.log('first')
+
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
@@ -292,6 +294,7 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
       .then((result) => {
+            console.log('first')
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
@@ -306,6 +309,7 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
       .then((result) => {
+            console.log('first')
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
@@ -318,6 +322,7 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
       .then((result) => {
+            console.log('first')
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
@@ -332,7 +337,7 @@ function getInfo(user) {
     var premade_fav = await c()
     var homemade_fav = await d()
 
-    console.log('first')
+    console.log('second')
     return await (premade_likes,premade_fav,homemade_likes,homemade_fav);
   }
 
