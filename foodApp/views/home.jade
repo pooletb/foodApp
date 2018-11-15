@@ -43,7 +43,7 @@ block content
             //-         a Submit a New Recipe
 
         div.column
-            div#likes
+            div.this-is-hidden#likes
               article.message.is-success
                   .message-body
                       | Welcome to your profile, #{params.user}! 
@@ -108,7 +108,7 @@ block content
                                         td=food.food_name
                                         td=food.manufacturer_name
 
-            div.this-is-hidden#calculator
+            div#calculator
                 article.message.is-success
                     .message-body
                         | Here you can get a nutrition block tailored to you!
