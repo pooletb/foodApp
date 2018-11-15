@@ -59,10 +59,10 @@ block content
                 tbody
                     tr.header
                         th Name
-                    each food in params.userSaved.premade_likes
+                    each food in params.userSaved[1]
                         tr(onclick='OpenInfo(#{food.food_ID},1)')
                             td=food.food_name
-                    each food in params.userSaved.homemade_likes
+                    each food in params.userSaved[2]
                         tr(onclick='OpenInfo(#{food.food_ID},2)')
                             td=food.food_name
         
@@ -77,10 +77,10 @@ block content
                 tbody
                     tr.header
                         th Name
-                    each food in params.userSaved.premade_fav
+                    each food in params.userSaved[3].
                         tr(onclick='OpenInfo(#{food.food_ID},1)')
                             td=food.food_name
-                    each food in params.userSaved.homemade_fav
+                    each food in params.userSaved[4]
                         tr(onclick='OpenInfo(#{food.food_ID},2)')
                             td=food.food_name
 
