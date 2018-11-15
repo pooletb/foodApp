@@ -190,6 +190,7 @@ function myFunction(num) {
         filter = input.value.toUpperCase();
         select = document.getElementById("cSelect");
         options = select.getElementsByTagName("option");
+        console.log[options[1].value]
 
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < options.length; i++) {
