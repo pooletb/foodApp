@@ -307,7 +307,6 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
       .then((result) => {
-        return result
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
@@ -320,7 +319,6 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
       .then((result) => {
-        return result
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
