@@ -1,5 +1,5 @@
-var sections = ["premadefood", "recipes", "ingredients", "advanced", "likes"]
-var btns = ["pmbtn", "rbtn", "ibtn", "abtn", "lbtn", "probtn"]
+var sections = ["premadefood", "recipes", "ingredients", "advanced", "likes", "calculator"]
+var btns = ["pmbtn", "rbtn", "ibtn", "abtn", "lbtn", "probtn", "cbtn"]
 
 function SectionSwap() {
     for (var i = 0; i < sections.length; i++) {
@@ -53,6 +53,15 @@ function Advanced() {
     btn.classList.add("is-active");
     section.classList.remove("this-is-hidden");
     document.location.href = "#advanced";
+}
+
+function Calculator() {
+    SectionSwap();
+    var section = document.getElementById("calculator");
+    var btn = document.getElementById("cbtn");
+    btn.classList.add("is-active");
+    section.classList.remove("this-is-hidden");
+    document.location.href = "#calculator";
 }
 
 function Like() {
@@ -253,6 +262,18 @@ function NutritionCalc() {
     var protein = 0
     var select = getSelectValues(document.getElementById('cSelect'))
 
+    var calsHTML = document.getElementById("cals")
+    var fatCalsHTML = document.getElementById("fatCals")
+    var totalFatHTML = document.getElementById("totalFat")
+    var satFatHTML = document.getElementById("satFat")
+    var transFatHTML = document.getElementById("transFat")
+    var cholesterolHTML = document.getElementById("cholesterol")
+    var sodiumHTML = document.getElementById("sodium")
+    var carbsHTML = document.getElementById("totalCarbs")
+    var dietFiberHTML = document.getElementById("dietFiber")
+    var sugarsHTML = document.getElementById("sugars")
+    var proteinHTML = document.getElementById("protein")
+
     async function f() {
         const response = await fetch('/api/3', {
             method: 'POST',
@@ -302,7 +323,18 @@ function NutritionCalc() {
             protein = protein + toAdd[i].protein
         }
 
-        console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein)
+        calsHTML.innerHTML = cals;
+        fatCalsHTML.innerHTML = fatCals;
+        totalFatHTML.innerHTML = totalFat
+        satFatHTML.innerHTML = satFat
+        transFatHTML.innerHTML = transFat
+        cholesterolHTML.innerHTML = cholesterol
+        sodiumHTML.innerHTML = sodium
+        carbsHTML.innerHTML = carbs
+        dietFiberHTML.innerHTML = dietFiber
+        sugarsHTML.innerHTML = sugars
+        proteinHTML.innerHTML = protein
+
     }
     f().then(Part2);
 }
