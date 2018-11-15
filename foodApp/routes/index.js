@@ -344,6 +344,9 @@ function getInfo(user) {
     })
   }
 
+p().then(function(result) {
+  return result;
+})
 }
 
 
