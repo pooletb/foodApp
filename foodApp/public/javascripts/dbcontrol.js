@@ -268,6 +268,7 @@ function NutritionCalc() {
     }
 
     var Part2 = () => {
+        console.log(results)
         var toAdd = []
         for (var i = 0; i < select.length; i++) {
             if (select[i].charAt(0) == "p") {
