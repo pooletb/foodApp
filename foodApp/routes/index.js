@@ -203,7 +203,7 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
 
   if (ptPass === dPass && username === dUser) {
     async function f() {
-      var response = await getInfo(username)
+      var response = getInfo(username)
       return response;
     }
     f().then(function(result) {
