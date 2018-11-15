@@ -154,6 +154,7 @@ CREATE TABLE premade_likes (
   CHECK (food_ID >= 0),
   FOREIGN KEY (username) REFERENCES user (username),
   FOREIGN KEY (food_ID) REFERENCES premade_food (food_ID)
+  CONSTRAINT PL_User UNIQUE (username,food_id)
 );
 
 CREATE TABLE homemade_likes (
@@ -162,6 +163,7 @@ CREATE TABLE homemade_likes (
   CHECK (food_ID >= 0),
   FOREIGN KEY (username) REFERENCES user (username),
   FOREIGN KEY (food_ID) REFERENCES homemade_food (food_ID)
+  CONSTRAINT HL_User UNIQUE (username,food_id)
 );
 
 CREATE TABLE premade_fav (
@@ -170,6 +172,7 @@ CREATE TABLE premade_fav (
   CHECK (food_ID >= 0),
   FOREIGN KEY (username) REFERENCES user (username),
   FOREIGN KEY (food_ID) REFERENCES premade_food (food_ID)
+  CONSTRAINT PF_User UNIQUE (username,food_id)
 );
 
 CREATE TABLE homemade_fav (
@@ -178,6 +181,7 @@ CREATE TABLE homemade_fav (
   CHECK (food_ID >= 0),
   FOREIGN KEY (username) REFERENCES user (username),
   FOREIGN KEY (food_ID) REFERENCES homemade_food (food_ID)
+  CONSTRAINT HF_User UNIQUE (username,food_id)
 );
 
 CREATE TRIGGER nutrition_calc_cals
