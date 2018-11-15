@@ -319,7 +319,6 @@ function getInfo(user) {
   homemade_likes = b();
   premade_fav = c();
   homemade_fav = d()
-  CSSConditionRule.
   console.log(premade_likes, homemade_likes, premade_fav, homemade_fav)
   return (premade_likes, homemade_likes, premade_fav, homemade_fav)
 }
