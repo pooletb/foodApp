@@ -284,7 +284,7 @@ function getInfo(user) {
           setTimeout(() => {
             console.log(result)
             resolve(result);
-          }, 2000);
+          }, 500);
         })
       })
   }
@@ -297,7 +297,7 @@ function getInfo(user) {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
-          }, 2000);
+          }, 500);
         })
       })
   }
@@ -311,7 +311,7 @@ function getInfo(user) {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
-          }, 2000);
+          }, 500);
         })
       })
   }
@@ -323,7 +323,7 @@ function getInfo(user) {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
-          }, 2000);
+          }, 500);
         })
       })
   }
@@ -349,7 +349,7 @@ function getInfo(user) {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(premade_likes, homemade_likes, premade_fav, homemade_fav);
-      }, 2000);
+      }, 1000);
     })
   }
   p().then(function (result) {
