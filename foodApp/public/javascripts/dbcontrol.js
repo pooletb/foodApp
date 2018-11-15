@@ -274,16 +274,16 @@ function NutritionCalc() {
             if (select[i].charAt(0) == "p") {
                 var val = select[i].substr(1);
                 for (var e = 0; e < results.db1.length; e++) {
-                    if (val == results.db1[i].food_ID) {
-                        toAdd.push(results.db1[i])
+                    if (val == results.db1[e].food_ID) {
+                        toAdd.push(results.db1[e])
                     }
                 }
             }
             else {
                 var val = select[i].substr(1);
                 for (var e = 0; e < results.db2.length; e++) {
-                    if (val == results.db2[i].food_ID) {
-                        toAdd.push(results.db2[i])
+                    if (val == results.db2[e].food_ID) {
+                        toAdd.push(results.db2[e])
                     }
                 }
             }
