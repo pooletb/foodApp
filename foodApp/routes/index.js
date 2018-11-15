@@ -304,6 +304,7 @@ function getInfo(user) {
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
         return new Promise(resolve => {
           setTimeout(() => {
+            console.log(result)
             resolve(result);
           }, 500);
         })
