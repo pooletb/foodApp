@@ -202,6 +202,7 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
   var dUser = decrypt(eUser)
 
   if (ptPass === dPass && username === dUser) {
+    console.log(getInfo(username))
     res.render('home', { params: { user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: getInfo(username) }, title: 'Home' });
   }
   else {
@@ -314,7 +315,6 @@ function getInfo(user) {
   }
 
   p().then(function (result) {
-    console.log(result)
     return result;
   })
 }
