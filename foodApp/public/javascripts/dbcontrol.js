@@ -115,7 +115,7 @@ function LikeLoveIt(user, id, num) {
     }
 
     var Part2 = () => {
-        
+
     }
     f().then(Part2);
 }
@@ -200,6 +200,7 @@ function myFunction(num) {
                 options[i].style.display = "none";
             }
         }
+        NutritionCalc();
     }
 }
 
@@ -236,6 +237,74 @@ function SwapAdv(num) {
         }
     }
 }
+
+function NutritionCalc() {
+    var cals
+    var fatCals
+    var totalFat
+    var satFat
+    var transFat
+    var cholesterol
+    var sodium
+    var carbs
+    var dietFiber
+    var sugars
+    var protein
+    var select = getSelectValues(document.getElementById('cSelect'))
+
+    async function f() {
+        const response = await fetch('/api/3', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json; charset=utf-8',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(json)
+        });
+        results = await response.json()
+    }
+
+    var Part2 = () => {
+        var toAdd = []
+        for (var i = 0; i < select.length; i++) {
+            if (select[i].charAt(0) == "p") {
+                var val = select[i].substr(1);
+                for (var e = 0; e < results.db1.length; e++) {
+                    if (val == results.db1[i].food_ID) {
+                        toAdd.push(results.db1[i])
+                    }
+                }
+            }
+            else {
+                var val = select[i].substr(1);
+                for (var e = 0; e < results.db2.length; e++) {
+                    if (val == results.db2[i].food_ID) {
+                        toAdd.push(results.db2[i])
+                    }
+                }
+            }
+        }
+
+        for (var i = 0; i < toAdd.length; i++) {
+            cals = cals + toAdd[i].calories
+            fatCals = fatCals + toAdd[i].fat_calories
+            totalFat = totalFat + toAdd[i].total_fat
+            satFat = satFat + toAdd[i].sat_fat
+            transFat = trasFat + toAdd[i].trans_fat
+            cholesterol = cholesterol + toAdd[i].cholesterol
+            sodium = sodium + toAdd[i].sodium
+            carbs = carbs + toAdd[i].total_carbs
+            dietFiber = dietFiber + toAdd[i].diet_fiber
+            sugars = sugars + toAdd[i].sugars
+            protein = protein + toAdd[i].protein
+        }
+
+        console.log(cals, fatCals, totalFat, satFat, transFat, cholesterol, sodium, carbs, dietFiber, sugars, protein)
+    }
+    f().then(Part2);
+}
+
 function getSelectValues(select) {
     var result = [];
     var options = select && select.options;
@@ -258,7 +327,7 @@ function SuperQuery() {
     var results
     var num
     var manColumn = document.getElementById('manColumn');
-    if(manColumn.classList.contains('this-is-hidden')) {
+    if (manColumn.classList.contains('this-is-hidden')) {
         num = 0;
     }
     else {
@@ -406,7 +475,7 @@ function SuperQuery() {
                     if (transFat != db[i].trans_fat) {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
-                        })                        
+                        })
                     }
                     else {
                     }
@@ -444,7 +513,7 @@ function SuperQuery() {
                     if (satFat != db[i].sat_fat) {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
-                        })                        
+                        })
                     }
                     else {
                     }
@@ -482,7 +551,7 @@ function SuperQuery() {
                     if (totalFat != db[i].total_fat) {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
-                        })                        
+                        })
                     }
                     else {
                     }
@@ -710,7 +779,7 @@ function SuperQuery() {
                     if (protein != db[i].protein) {
                         phaseOne = phaseOne.filter(function (item) {
                             return item !== db[i]
-                        })                        
+                        })
                     }
                     else {
                     }
@@ -723,12 +792,12 @@ function SuperQuery() {
 
         console.log(phaseOne);
 
-        if(num == 1) {
-            if(manufacturers.length > 0) {
-                for(var e = 0; e < phaseOne.length; e++) {
+        if (num == 1) {
+            if (manufacturers.length > 0) {
+                for (var e = 0; e < phaseOne.length; e++) {
                     var count = 0
-                    for(var i = 0; i < manufacturers.length; i++) {
-                        if(phaseOne[e].manufacturer_name === manufacturers[i]) {
+                    for (var i = 0; i < manufacturers.length; i++) {
+                        if (phaseOne[e].manufacturer_name === manufacturers[i]) {
                             phaseTwo.push(phaseOne[e])
                         }
                     }
@@ -736,17 +805,17 @@ function SuperQuery() {
             }
         }
         else {
-            if(ingredients.length > 0) {
-                for(var e = 0; e < phaseOne.length; e++) {
+            if (ingredients.length > 0) {
+                for (var e = 0; e < phaseOne.length; e++) {
                     var count = 0
-                    for(var i = 0; i < ingredients.length; i++) {
-                        for(var sry = 0; sry < phaseOne[e].ingredients.length; sry++) {
-                            if(phaseOne[e].ingredients[sry].ingredient_name === ingredients[i]) {
+                    for (var i = 0; i < ingredients.length; i++) {
+                        for (var sry = 0; sry < phaseOne[e].ingredients.length; sry++) {
+                            if (phaseOne[e].ingredients[sry].ingredient_name === ingredients[i]) {
                                 count++
                             }
                         }
                     }
-                    if(count == ingredients.length) {
+                    if (count == ingredients.length) {
                         phaseTwo.push(phaseOne[e])
                     }
                 }
@@ -755,42 +824,42 @@ function SuperQuery() {
         var allergens = getSelectValues(document.getElementById('aAllergens'))
         var categories = getSelectValues(document.getElementById('aCategories'))
 
-        if((manufacturers.length > 0 && num == 1) || (ingredients.length > 0 && num != 1)) {
+        if ((manufacturers.length > 0 && num == 1) || (ingredients.length > 0 && num != 1)) {
             phaseOne = phaseTwo
             phaseTwo = []
         }
 
-        if(allergens.length > 0) {
-            for(var e = 0; e < phaseOne.length; e++) {
+        if (allergens.length > 0) {
+            for (var e = 0; e < phaseOne.length; e++) {
                 var count = 0
-                for(var i = 0; i < allergens.length; i++) {
-                    if(phaseOne[e].containsAllergens.includes(allergens[i])) {
+                for (var i = 0; i < allergens.length; i++) {
+                    if (phaseOne[e].containsAllergens.includes(allergens[i])) {
                         count++;
                     }
                 }
-                if(count == 0) {
-                    phaseTwo.push(phaseOne[e])  
+                if (count == 0) {
+                    phaseTwo.push(phaseOne[e])
                 }
             }
         }
 
-        if(allergens.length > 0) {
+        if (allergens.length > 0) {
             phaseOne = phaseTwo
             phaseTwo = []
         }
 
-        if(categories.length > 0) {
-            for(var e = 0; e < phaseOne.length; e++) {
+        if (categories.length > 0) {
+            for (var e = 0; e < phaseOne.length; e++) {
                 var count = 0
-                for(var i = 0; i < categories.length; i++) {
-                    if(phaseOne[e].category === categories[i]) {
+                for (var i = 0; i < categories.length; i++) {
+                    if (phaseOne[e].category === categories[i]) {
                         phaseTwo.push(phaseOne[e])
                     }
                 }
             }
         }
 
-        if(categories.length > 0) {
+        if (categories.length > 0) {
             phaseOne = phaseTwo
             phaseTwo = []
         }
@@ -803,7 +872,7 @@ function SuperQuery() {
             var indeces = [];
 
             for (i = 0; i < tr.length; i++) {
-                for(e = 0; e < filter.length; e++) {
+                for (e = 0; e < filter.length; e++) {
                     td = tr[i].getElementsByTagName("td")[1];
                     if (td) {
                         if (td.innerHTML.indexOf(filter[e].food_ID) > -1) {
@@ -830,7 +899,7 @@ function SuperQuery() {
             var indeces = [];
 
             for (i = 0; i < tr.length; i++) {
-                for(e = 0; e < filter.length; e++) {
+                for (e = 0; e < filter.length; e++) {
                     td = tr[i].getElementsByTagName("td")[1];
                     if (td) {
                         if (td.innerHTML.indexOf(filter[e].food_ID) > -1) {
