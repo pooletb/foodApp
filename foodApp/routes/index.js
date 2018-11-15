@@ -243,7 +243,6 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
     }
 
     p().then(function (result) {
-      result = [];
       console.log(result);
       res.render('home', { params: { user: user, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: result }, title: 'Home' });
     })
