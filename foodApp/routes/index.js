@@ -279,26 +279,22 @@ function getInfo(user) {
     knex('premade_likes').where({
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_likes.food_ID')
-      .then((result) => {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
           }, 500);
         })
-      })
   }
 
   async function b() {
     knex('homemade_likes').where({
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
-      .then((result) => {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
           }, 500);
         })
-      })
   }
 
 
@@ -306,25 +302,21 @@ function getInfo(user) {
     knex('premade_fav').where({
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
-      .then((result) => {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
           }, 500);
         })
-      })
   }
   async function d() {
     knex('homemade_fav').where({
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
-      .then((result) => {
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
           }, 500);
         })
-      })
   }
 
   async function p() {
