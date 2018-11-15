@@ -275,27 +275,31 @@ router.post('/api/3', function (request, response) {
 
 function getInfo(user) {
   async function a() {
-    knex('premade_likes').where({
+    const response = await knex('premade_likes').where({
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_likes.food_ID')
+    return await response;
   }
 
   async function b() {
-    knex('homemade_likes').where({
+    const response = await knex('homemade_likes').where({
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
+    return await response;
   }
 
 
   async function c() {
-    knex('premade_fav').where({
+    const response = await knex('premade_fav').where({
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
+    return await response;
   }
   async function d() {
-    knex('homemade_fav').where({
+    const response = await knex('homemade_fav').where({
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
+    return await response;
   }
 
   async function p() {
