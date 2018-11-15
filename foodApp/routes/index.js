@@ -278,7 +278,7 @@ router.post('/api/3', function (request, response) {
   response.send(json);
 });
 
-function getInfo(user) {
+async function getInfo(user) {
   async function a() {
     const response = await knex('premade_likes').where({
       username: user,
