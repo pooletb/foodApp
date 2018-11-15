@@ -333,6 +333,7 @@ function getInfo(user) {
     var homemade_fav = []
     var homemade_likes = []
     a().then(function (result) {
+      console.log(result)
       premade_likes = result;
     })
     b().then(function (result) {
