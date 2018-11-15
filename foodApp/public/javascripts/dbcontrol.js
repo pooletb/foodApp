@@ -193,10 +193,10 @@ function myFunction(num) {
 
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < options.length; i++) {
-            if (options.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            if (options.value.toUpperCase().indexOf(filter) > -1) {
                 options[i].style.display = "";
             } else {
-                options[i].innerHTML.style.display = "none";
+                options[i].style.display = "none";
             }
         }
     }
