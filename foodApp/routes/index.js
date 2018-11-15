@@ -352,7 +352,8 @@ function getInfo(user) {
       }, 1000);
     })
   }
-  return await p()
+  var results = await p()
+  return results
 
 }
 
