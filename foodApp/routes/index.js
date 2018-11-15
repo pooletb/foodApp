@@ -282,6 +282,7 @@ function getInfo(user) {
       .then((result) => {
         return new Promise(resolve => {
           setTimeout(() => {
+            console.log(result)
             resolve(result);
           }, 2000);
         })
