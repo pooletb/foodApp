@@ -118,7 +118,7 @@ block content
                       span.icon.is-medium.is-left
                           i.fas.fa-search
                   .select.is-multiple.is-fullwidth
-                    select#cSelect(multiple='', size='8' onchange="NutritionCalc")
+                    select#cSelect(multiple='', size='8' onchange="NutritionCalc()")
                       each item in params.pmDB
                         option(value="p" + item.food_ID) #{item.food_name}
                       each item in params.hfDB
