@@ -204,7 +204,9 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
   if (ptPass === dPass && username === dUser) {
     async function f() {
       console.log('first')
-      return await getInfo(username);
+      var response = await getInfo(username)
+      console.log(response)
+      return response;
     }
     f().then(function(result) {
       console.log('second')
@@ -322,6 +324,7 @@ async function getInfo(user) {
   }
 
   p().then(function (result) {
+    console.log(result);
     return result;
   })
 }
