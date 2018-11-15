@@ -200,7 +200,6 @@ function myFunction(num) {
                 options[i].style.display = "none";
             }
         }
-        NutritionCalc();
     }
 }
 
