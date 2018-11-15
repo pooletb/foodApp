@@ -217,8 +217,6 @@ function SwapAdv(num) {
     var hfButton = document.getElementById('aHFButton');
     var ingColumn = document.getElementById('ingColumn');
     var manColumn = document.getElementById('manColumn');
-    var aSearchPre = document.getElementById("aSearchPre")
-    var aSearchRecipe = document.getElementById("aSearchRecipe")
     var rtable = document.getElementById('rTable2')
     var ptable = document.getElementById('pTable2')
 
@@ -228,8 +226,6 @@ function SwapAdv(num) {
             hfButton.classList.add('is-outlined')
             ingColumn.classList.add('this-is-hidden')
             manColumn.classList.remove('this-is-hidden')
-            aSearchRecipe.classList.add('this-is-hidden')
-            aSearchPre.classList.remove('this-is-hidden')
             rtable.classList.add('this-is-hidden')
             ptable.classList.remove('this-is-hidden')
         }
@@ -242,8 +238,6 @@ function SwapAdv(num) {
             pmButton.classList.add('is-outlined')
             manColumn.classList.add('this-is-hidden')
             ingColumn.classList.remove('this-is-hidden')
-            aSearchRecipe.classList.remove('this-is-hidden')
-            aSearchPre.classList.add('this-is-hidden')
             rtable.classList.remove('this-is-hidden')
             ptable.classList.add('this-is-hidden')
         }
