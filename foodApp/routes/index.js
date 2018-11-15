@@ -321,8 +321,6 @@ function getInfo(user) {
   premade_fav = c();
   homemade_fav = d()
   return (premade_likes, homemade_likes, premade_fav, homemade_fav)
-
-
 }
 
 
