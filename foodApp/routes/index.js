@@ -203,9 +203,12 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
 
   if (ptPass === dPass && username === dUser) {
     async function f() {
+      console.log('first')
       return await getInfo(username);
     }
     f().then(function(result) {
+      console.log('second')
+      console.log(result)
       res.render('home', { params: { user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: result }, title: 'Home' });
     })
   }
