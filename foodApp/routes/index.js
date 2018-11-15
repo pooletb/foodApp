@@ -203,6 +203,7 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
 
   if (ptPass === dPass && username === dUser) {
     var userinfo = getInfo(username);
+    sleep(4000)
     console.log(userinfo)
     res.render('home', { params: { user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: userinfo }, title: 'Home' });
   }
@@ -210,6 +211,15 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
     res.render('registration_landing', { title: 'Register Today' });
   }
 });
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
 //DEPRECATED FOR NOW
 router.get('/api/0', function (request, response) {
