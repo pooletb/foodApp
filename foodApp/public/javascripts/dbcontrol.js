@@ -288,7 +288,7 @@ function NutritionCalc() {
                 }
             }
         }
-
+        console.log(toAdd)
         for (var i = 0; i < toAdd.length; i++) {
             cals = cals + toAdd[i].calories
             fatCals = fatCals + toAdd[i].fat_calories
