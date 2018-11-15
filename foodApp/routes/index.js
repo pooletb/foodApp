@@ -202,7 +202,6 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
   var dUser = decrypt(eUser)
 
   if (ptPass === dPass && username === dUser) {
-    console.log(getInfo(username));
     res.render('home', { params: { user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: getInfo(username) }, title: 'Home' });
   }
   else {
@@ -280,6 +279,7 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_likes.food_ID')
       .then((result) => {
+        console.log(result);
         return result
         return new Promise(resolve => {
           setTimeout(() => {
@@ -294,6 +294,8 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_likes.food_ID')
       .then((result) => {
+        console.log(result);
+        return result
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
@@ -308,6 +310,8 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('premade_food', 'premade_food.food_ID', 'premade_fav.food_ID')
       .then((result) => {
+        console.log(result);
+        return result
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
@@ -320,6 +324,8 @@ function getInfo(user) {
       username: user,
     }).select().innerJoin('homemade_food', 'homemade_food.food_ID', 'homemade_fav.food_ID')
       .then((result) => {
+        console.log(result);
+        return result
         return new Promise(resolve => {
           setTimeout(() => {
             resolve(result);
@@ -335,6 +341,9 @@ function getInfo(user) {
     var homemade_fav = await d()
 
     console.log(premade_likes)
+    console.log(homemade_likes)
+    console.log(premade_fav)
+    console.log(homemade_fav)
 
     return new Promise(resolve => {
       setTimeout(() => {
@@ -344,6 +353,7 @@ function getInfo(user) {
   }
 
   p().then(function (result) {
+    console.log('done')
     return result;
   })
 }
