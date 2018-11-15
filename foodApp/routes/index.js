@@ -317,7 +317,7 @@ function getInfo(user) {
     
 
     console.log('second')
-    return await (premade_likes,premade_fav,homemade_likes,homemade_fav);
+    return await ([premade_likes,premade_fav,homemade_likes,homemade_fav]);
   }
 
   p().then(function (result) {
