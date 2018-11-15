@@ -203,6 +203,7 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
 
   if (ptPass === dPass && username === dUser) {
     getInfo(username);
+    res.render('home', { params: { user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: userinfo }, title: 'Home' });
   }
   else {
     res.render('registration_landing', { title: 'Register Today' });
@@ -213,7 +214,7 @@ function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
     console.log(i)
-    if ((new Date().getTime() - start) > milliseconds){
+    if ((new Date().getTime() - start) > milliseconds) {
       break;
     }
   }
@@ -283,7 +284,7 @@ router.post('/api/3', function (request, response) {
   response.send(json);
 });
 
-function getInfo(user, res) {
+function getInfo(user) {
   async function a() {
     const response = await knex('premade_likes').where({
       username: user,
@@ -318,14 +319,30 @@ function getInfo(user, res) {
     response.homemade_likes = await b()
     response.premade_fav = await c()
     response.homemade_fav = await d()
-    
+
 
     return await (response);
   }
 
   p().then(function (result) {
     console.log(result);
-    res.render('home', { params: { user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: result }, title: 'Home' });
+    router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) {
+      var ptPass = req.params.ptPass;
+      var ePass = req.params.ePass;
+      var username = req.params.username;
+      var eUser = req.params.eUser
+      var userinfo = result;
+
+      var dPass = decrypt(ePass)
+      var dUser = decrypt(eUser)
+
+      if (ptPass === dPass && username === dUser) {
+        res.render('home', { params: { user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: userinfo }, title: 'Home' });
+      }
+      else {
+        res.render('registration_landing', { title: 'Register Today' });
+      }
+    });
   })
 }
 
