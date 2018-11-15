@@ -351,6 +351,7 @@ function getInfo(user) {
     })
   }
   p().then(function (result) {
+    console.log(result)
     return result;
   })
 
