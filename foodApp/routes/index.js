@@ -328,15 +328,10 @@ function getInfo(user) {
   }
 
   async function p() {
-    var premade_likes = []
-    var premade_fav = []
-    var homemade_fav = []
-    var homemade_likes = []
-
-    premade_likes = await a()
-    homemade_likes = await b()
-    premade_fav = await c()
-    homemade_fav = await d()
+    var premade_likes = await a()
+    var homemade_likes = await b()
+    var premade_fav = await c()
+    var homemade_fav = await d()
 
     console.log(premade_likes)
 
