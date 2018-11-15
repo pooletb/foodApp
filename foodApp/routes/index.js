@@ -252,16 +252,6 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
   }
 });
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    console.log(i)
-    if ((new Date().getTime() - start) > milliseconds) {
-      break;
-    }
-  }
-}
-
 //DEPRECATED FOR NOW
 router.get('/api/0', function (request, response) {
 });

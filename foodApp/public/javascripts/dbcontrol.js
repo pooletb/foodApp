@@ -182,6 +182,24 @@ function myFunction(num) {
             }
         }
     }
+
+    if (num === 3) {
+        // Declare variables 
+        var input, filter, select, options, i;
+        input = document.getElementById("cInput");
+        filter = input.value.toUpperCase();
+        select = document.getElementById("cSelect");
+        options = select.getElementsByTagName("option");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < options.length; i++) {
+            if (options.name.toUpperCase().indexOf(filter) > -1) {
+                options[i].style.display = "";
+            } else {
+                options[i].name.style.display = "none";
+            }
+        }
+    }
 }
 
 function SwapAdv(num) {

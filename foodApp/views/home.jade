@@ -25,7 +25,7 @@ block content
                 p.menu-label Calculate Your Nutrition
             ul.menu-list
                 li
-                    a(onclick='Calculator') Calculator
+                    a#cbtn(onclick='Calculator()')  Calculator
             .changeme
                 p.menu-label User Info
             ul.menu-list
@@ -107,6 +107,22 @@ block content
                                     tr(onclick='OpenInfo(#{food.food_ID},1)')
                                         td=food.food_name
                                         td=food.manufacturer_name
+
+            div.this-is-hidden#calculator
+                article.message.is-success
+                    .message-body
+                        | Here you can get a nutrition block tailored to you!
+                        strong  Select all the food you had today from the selection prompt below.
+                  .control.has-icons-left.is-large.is-loading#cSearchController
+                      input.input.is-large.is-fullwidth#cInput(type='text', onkeyup='myFunction(4)', placeholder='Search for recipes')
+                      span.icon.is-medium.is-left
+                          i.fas.fa-search
+                  .select.is-multiple.is-fullwidth
+                    select#cSelect(multiple='', size='8')
+                      each item in params.pmDB
+                        option(value="p" + item.food_ID) #{item.food_name}
+                      each item in params.hfDB
+                        option(value="h" + item.food_ID) #{item.food_name}
 
             div.this-is-hidden#recipes
                 article.message.is-success
