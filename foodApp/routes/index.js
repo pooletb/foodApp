@@ -319,7 +319,7 @@ function getInfo(user) {
                 return result
               })
           }
-          a().then(console.log());
+          a().then(premade_likes = result);
         // homemade_likes = await b();
         // premade_fav = await c();
         // homemade_fav = await d()
