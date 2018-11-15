@@ -219,6 +219,8 @@ function SwapAdv(num) {
     var manColumn = document.getElementById('manColumn');
     var aSearchPre = document.getElementById("aSearchPre")
     var aSearchRecipe = document.getElementById("aSearchRecipe")
+    var rtable = document.getElementById('rTable2')
+    var ptable = document.getElementById('pTable2')
 
     if (num == 0) {
         if (pmButton.classList.contains('is-outlined')) {
@@ -228,6 +230,8 @@ function SwapAdv(num) {
             manColumn.classList.remove('this-is-hidden')
             aSearchRecipe.classList.add('this-is-hidden')
             aSearchPre.classList.remove('this-is-hidden')
+            rtable.classList.add('this-is-hidden')
+            ptable.classList.remove('this-is-hidden')
         }
         else {
         }
@@ -240,6 +244,8 @@ function SwapAdv(num) {
             ingColumn.classList.remove('this-is-hidden')
             aSearchRecipe.classList.remove('this-is-hidden')
             aSearchPre.classList.add('this-is-hidden')
+            rtable.classList.remove('this-is-hidden')
+            ptable.classList.add('this-is-hidden')
         }
         else {
         }
