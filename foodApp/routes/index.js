@@ -203,9 +203,7 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
 
   if (ptPass === dPass && username === dUser) {
     async function f() {
-      console.log('first')
       var response = await getInfo(username)
-      console.log(response)
       return response;
     }
     f().then(function(result) {
@@ -283,7 +281,7 @@ router.post('/api/3', function (request, response) {
   response.send(json);
 });
 
-async function getInfo(user) {
+function getInfo(user) {
   async function a() {
     const response = await knex('premade_likes').where({
       username: user,
