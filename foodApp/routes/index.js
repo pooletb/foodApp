@@ -340,16 +340,7 @@ function getInfo(user) {
     var premade_fav = await c()
     var homemade_fav = await d()
 
-    console.log(premade_likes)
-    console.log(homemade_likes)
-    console.log(premade_fav)
-    console.log(homemade_fav)
-
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(premade_likes, homemade_likes, premade_fav, homemade_fav);
-      }, 1000);
-    })
+    return await (premade_likes,premade_fav,homemade_likes,homemade_fav);
   }
 
   p().then(function (result) {
