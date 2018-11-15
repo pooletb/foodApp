@@ -194,7 +194,7 @@ function myFunction(num) {
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < options.length; i++) {
             console.log(options[i].innerHTML)
-            if (options.value.toUpperCase().indexOf(filter) > -1) {
+            if (options[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
                 options[i].style.display = "";
             } else {
                 options[i].style.display = "none";
