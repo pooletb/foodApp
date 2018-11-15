@@ -205,10 +205,9 @@ router.get('/authenticate/:ptPass/:ePass/:username/:eUser', function (req, res) 
     async function f() {
       return await getInfo(username);
     }
-    var Redirect = (result) => {
+    f().then(function(result) {
       res.render('home', { params: { user: username, pmDB: this.pmfDBFull, hfDB: this.hmfDBFull, iDB: this.ingredients, cat: this.categories, all: this.allergens, man: this.manufacturers, userSaved: result }, title: 'Home' });
-    }
-    f().then(Redirect)
+    })
   }
   else {
     res.render('registration_landing', { title: 'Register Today' });
