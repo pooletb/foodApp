@@ -183,7 +183,7 @@ function myFunction(num) {
         }
     }
 
-    if (num === 3) {
+    if (num === 4) {
         // Declare variables 
         var input, filter, select, options, i;
         input = document.getElementById("cInput");
