@@ -294,7 +294,7 @@ function NutritionCalc() {
             fatCals = fatCals + toAdd[i].fat_calories
             totalFat = totalFat + toAdd[i].total_fat
             satFat = satFat + toAdd[i].sat_fat
-            transFat = trasFat + toAdd[i].trans_fat
+            transFat = transFat + toAdd[i].trans_fat
             cholesterol = cholesterol + toAdd[i].cholesterol
             sodium = sodium + toAdd[i].sodium
             carbs = carbs + toAdd[i].total_carbs
