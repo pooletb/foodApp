@@ -315,10 +315,10 @@ function getInfo(user) {
         return result
       })
   }
-  premade_likes = a();
-  homemade_likes = b();
-  premade_fav = c();
-  homemade_fav = d()
+  premade_likes = await a();
+  homemade_likes = await b();
+  premade_fav = await c();
+  homemade_fav = await d()
   console.log(premade_likes, homemade_likes, premade_fav, homemade_fav)
   return (premade_likes, homemade_likes, premade_fav, homemade_fav)
 }
