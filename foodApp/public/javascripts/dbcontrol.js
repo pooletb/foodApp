@@ -323,17 +323,17 @@ function NutritionCalc() {
             protein = protein + toAdd[i].protein
         }
 
-        calsHTML.innerHTML = cals;
-        fatCalsHTML.innerHTML = fatCals;
-        totalFatHTML.innerHTML = totalFat
-        satFatHTML.innerHTML = satFat
-        transFatHTML.innerHTML = transFat
-        cholesterolHTML.innerHTML = cholesterol
-        sodiumHTML.innerHTML = sodium
-        carbsHTML.innerHTML = carbs
-        dietFiberHTML.innerHTML = dietFiber
-        sugarsHTML.innerHTML = sugars
-        proteinHTML.innerHTML = protein
+        calsHTML.innerHTML = cals.toFixed(0);
+        fatCalsHTML.innerHTML = fatCals.toFixed(0);
+        totalFatHTML.innerHTML = totalFat.toFixed(0)
+        satFatHTML.innerHTML = satFat.toFixed(0)
+        transFatHTML.innerHTML = transFat.toFixed(0)
+        cholesterolHTML.innerHTML = cholesterol.toFixed(0)
+        sodiumHTML.innerHTML = sodium.toFixed(0)
+        carbsHTML.innerHTML = carbs.toFixed(0)
+        dietFiberHTML.innerHTML = dietFiber.toFixed(0)
+        sugarsHTML.innerHTML = sugars.toFixed(0)
+        proteinHTML.innerHTML = protein.toFixed(0)
 
     }
     f().then(Part2);
