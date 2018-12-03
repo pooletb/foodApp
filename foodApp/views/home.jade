@@ -655,11 +655,11 @@ block content
                             th(colspan='2')
                               b Calories
                               |           
-                              a.font-black=(food.calories * food.serving_size).toFixed(0)
+                              a.font-black=(food.calories).toFixed(0)
                             td
                               | Calories from Fat
                               | 
-                              a.font-black=(food.fat_calories * food.serving_size).toFixed(0)
+                              a.font-black=(food.fat_calories).toFixed(0)
                           tr.thick-row
                             td.small-info(colspan='3')
                               b % Daily Value*
