@@ -667,7 +667,7 @@ block content
                             th(colspan='2')
                               b Total Fat
                               |          
-                              a.font-black=(food.total_fat * food.serving_size).toFixed(0)
+                              a.font-black=(food.total_fat).toFixed(0)
                               a.font-black g
                             td
                               b=total_fatDV
@@ -676,7 +676,7 @@ block content
                             th
                               | Saturated Fat
                               | 
-                              a.font-black=(food.sat_fat * food.serving_size).toFixed(0)
+                              a.font-black=(food.sat_fat).toFixed(0)
                               a.font-black g
                             td
                               b=sat_fatDV
@@ -685,14 +685,14 @@ block content
                             th
                               | Trans Fat
                               | 
-                              a.font-black=(food.trans_fat * food.serving_size).toFixed(0)
+                              a.font-black=(food.trans_fat).toFixed(0)
                               a.font-black g
                             td
                           tr
                             th(colspan='2')
                               b Cholesterol
                               |           
-                              a.font-black=(food.cholesterol * food.serving_size).toFixed(0)
+                              a.font-black=(food.cholesterol).toFixed(0)
                               a.font-black mg
                             td
                               b=cholesterolDV
@@ -700,7 +700,7 @@ block content
                             th(colspan='2')
                               b Sodium
                               |           
-                              a.font-black=(food.sodium * food.serving_size).toFixed(0)
+                              a.font-black=(food.sodium).toFixed(0)
                               a.font-black mg
                             td
                               b=sodiumDV
@@ -708,7 +708,7 @@ block content
                             th(colspan='2')
                               b Total Carbohydrate
                               |           
-                              a.font-black=(food.total_carbs * food.serving_size).toFixed(0)
+                              a.font-black=(food.total_carbs).toFixed(0)
                               a.font-black g
                             td
                               b=total_carbsDV
@@ -717,7 +717,7 @@ block content
                             th
                               | Dietary Fiber
                               | 
-                              a.font-black=(food.diet_fiber * food.serving_size).toFixed(0)
+                              a.font-black=(food.diet_fiber).toFixed(0)
                               a.font-black g
                             td
                               b=diet_fiberDV
@@ -726,14 +726,14 @@ block content
                             th
                               | Sugars
                               | 
-                              a.font-black=(food.sugars * food.serving_size).toFixed(0)
+                              a.font-black=(food.sugars).toFixed(0)
                               a.font-black g
                             td
                           tr.thick-end
                             th(colspan='2')
                               b Protein
                               |           
-                              a.font-black=(food.protein * food.serving_size).toFixed(0)
+                              a.font-black=(food.protein).toFixed(0)
                               a.font-black g
                             td
                       table.performance-facts__table--grid

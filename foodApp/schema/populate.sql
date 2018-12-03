@@ -4,11 +4,11 @@ INSERT INTO homemade_food VALUES (3, "PB&J", 1, 2, null, null, null, null, null,
 INSERT INTO homemade_food VALUES (4, "Spaghetti", 1, 2, null, null, null, null, null, null, null, null, null, null, null, "Grain");
 INSERT INTO homemade_food VALUES (5, "Baked Chicken Breast", 3, 2, null, null, null, null, null, null, null, null, null, null, null, "Breakfast");
 
-INSERT INTO premade_food VALUES (1, "Oreo", 34, 2, 4.705822, 1,852941, 0.058824, 0, 0.205882, 0, 4.117647, 0.014706, 0.411765, 0.735294, 0.09412, "Snack");
-INSERT INTO premade_food VALUES (2, "Hamburger", 95, 2, 0.905263, 0.034737, 0.004211, 0.101053, 0.273684, 4.936842, 0.012632, 0.06, 0.305263, 0.126316, "Sandwich");
-INSERT INTO premade_food VALUES (3, "Spicy Chicken Sandwich", 152, 1, 2.763158, 1.223684, 0.024342, 0.000658, 0.138158, 0.289474, 6.171053, 0.013816, 0.034211, 0.276316, 0.111842,"Sandwich");
-INSERT INTO premade_food VALUES (4, "Spicy Shrimp Roll", 273, 1, 1.391941, 0.571429, 0.018315, 0, 0.087912, 0.036630, 2.564103, 0.018315, 0.014652, 0.124542, 0.029304, "Fish");
-INSERT INTO premade_food VALUES (5, "Chicken Quesadilla", 510, 1, 0.354902, 0.494118, 0.023529, 0.00098, 0.054902, 0.147059, 2.372549, 0.007843, 0.005882, 0.07451, 0.052941, "Fast food");
+INSERT INTO premade_food VALUES (1, "Oreo", 34, 2, 4.705822*34, 1,852941*34, 0.058824, 0, 0.205882, 0, 4.117647, 0.014706, 0.411765, 0.735294, 0.09412, "Snack");
+INSERT INTO premade_food VALUES (2, "Hamburger", 95, 2, 0.905263*95, 0.034737*95, 0.004211, 0.101053, 0.273684, 4.936842, 0.012632, 0.06, 0.305263, 0.126316, "Sandwich");
+INSERT INTO premade_food VALUES (3, "Spicy Chicken Sandwich", 152, 1, 2.763158*152, 1.223684*152, 0.024342*152, 0.000658*152, 0.138158*152, 0.289474*152, 6.171053*152, 0.013816*152, 0.034211*152, 0.276316*152, 0.111842*152,"Sandwich");
+INSERT INTO premade_food VALUES (4, "Spicy Shrimp Roll", 273, 1, 1.391941*273, 0.571429*273, 0.018315*273, 0*273, 0.087912*273, 0.036630*273, 2.564103*273, 0.018315*273, 0.014652*273, 0.124542*273, 0.029304*273, "Fish");
+INSERT INTO premade_food VALUES (5, "Chicken Quesadilla", 510, 1, 0.354902*510, 0.494118*510, 0.023529*510, 0.00098*510, 0.054902*510, 0.147059*510, 2.372549*510, 0.007843*510, 0.005882*510, 0.07451*510, 0.052941*510, "Fast food");
 
 INSERT INTO manufacturers VALUES ("Nabisco");
 INSERT INTO manufacturers VALUES ("McDonalds");
@@ -39,7 +39,7 @@ INSERT INTO premade_contains VALUES (3, 'Tree Nut');
 INSERT INTO premade_contains VALUES (4, 'Shellfish');
 INSERT INTO premade_contains VALUES (4, 'Soy');
 INSERT INTO premade_contains VALUES (5, 'Milk');
-INSERT INTO premade_contains VALUES (5, 'Eggs');
+INSERT INTO premade_contains VALUES (5, 'Egg');
 INSERT INTO premade_contains VALUES (5, 'Wheat');
 
 
