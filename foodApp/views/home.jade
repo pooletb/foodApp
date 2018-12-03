@@ -625,12 +625,12 @@ block content
 
 
             each food in params.pmDB
-              - var total_fatDV = ((food.total_fat * food.serving_size / 65) * 100).toFixed(0) + ' %'
-              - var sat_fatDV = (((food.sat_fat + food.trans_fat) * food.serving_size / 20) * 100).toFixed(0) + ' %'
-              - var cholesterolDV = ((food.cholesterol * food.serving_size / 300) * 100).toFixed(0) + ' %'
-              - var sodiumDV = ((food.sodium * food.serving_size / 2400) * 100).toFixed(0) + ' %'
-              - var total_carbsDV = ((food.total_carbs * food.serving_size / 300) * 100).toFixed(0) + ' %'
-              - var diet_fiberDV = ((food.diet_fiber * food.serving_size / 25) * 100).toFixed(0) + ' %'
+              - var total_fatDV = ((food.total_fat / 65) * 100).toFixed(0) + ' %'
+              - var sat_fatDV = (((food.sat_fat + food.trans_fat) / 20) * 100).toFixed(0) + ' %'
+              - var cholesterolDV = ((food.cholesterol / 300) * 100).toFixed(0) + ' %'
+              - var sodiumDV = ((food.sodium / 2400) * 100).toFixed(0) + ' %'
+              - var total_carbsDV = ((food.total_carbs / 300) * 100).toFixed(0) + ' %'
+              - var diet_fiberDV = ((food.diet_fiber / 25) * 100).toFixed(0) + ' %'
               .modal(id="pm#{food.food_ID}")
                 .modal-background
                 .modal-card
