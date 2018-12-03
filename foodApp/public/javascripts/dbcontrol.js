@@ -407,35 +407,68 @@ function SuperQuery() {
             if (cals.charAt(0) === '<') {
                 cals = cals.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (cals >= db[i].calories) {
+                    if(num == 1) {
+                        if (cals >= (db[i].calories * db[i].serving_size)) {
+                        }
+                        else {
+                            phaseOne = phaseOne.filter(function (item) {
+                                return item !== db[i]
+                            })
+                        }
                     }
                     else {
-                        phaseOne = phaseOne.filter(function (item) {
-                            return item !== db[i]
-                        })
+                        if (cals >= db[i].calories) {
+                        }
+                        else {
+                            phaseOne = phaseOne.filter(function (item) {
+                                return item !== db[i]
+                            })
+                        }
                     }
                 }
             }
             else if (cals.charAt(0) === '>') {
                 cals = cals.substr(1);
                 for (var i = 0; i < db.length; i++) {
-                    if (cals <= db[i].calories) {
+                    if(num == 1) {
+                        if (cals <= (db[i].calories * db[i].serving_size)) {
+                        }
+                        else {
+                            phaseOne = phaseOne.filter(function (item) {
+                                return item !== db[i]
+                            })
+                        }
                     }
                     else {
-                        phaseOne = phaseOne.filter(function (item) {
-                            return item !== db[i]
-                        })
+                        if (cals <= db[i].calories) {
+                        }
+                        else {
+                            phaseOne = phaseOne.filter(function (item) {
+                                return item !== db[i]
+                            })
+                        }
                     }
                 }
             }
             else {
                 for (var i = 0; i < db.length; i++) {
-                    if (cals != db[i].calories) {
-                        phaseOne = phaseOne.filter(function (item) {
-                            return item !== db[i]
-                        })
+                    if(num == 1) {
+                        if (cals != (db[i].calories * db[i].serving_size)) {
+                        }
+                        else {
+                            phaseOne = phaseOne.filter(function (item) {
+                                return item !== db[i]
+                            })
+                        }
                     }
                     else {
+                        if (cals != db[i].calories) {
+                        }
+                        else {
+                            phaseOne = phaseOne.filter(function (item) {
+                                return item !== db[i]
+                            })
+                        }
                     }
                 }
             }
